@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@repo/ui/src/button";
+import { Button } from "@repo/ui/shadcn/button";
 import React from "react";
 import { signIn } from "../server/auth";
 

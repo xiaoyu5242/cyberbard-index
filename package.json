@@ -1,5 +1,5 @@
 {
-	"name": "cloudflare-saas-starter",
+	"name": "cyberbard-index",
 	"private": true,
 	"type": "module",
 	"version": "0.0.1",
@@ -26,36 +26,53 @@
 		"autoprefixer": "^10.4.19",
 		"drizzle-kit": "^0.21.2",
 		"eslint-plugin-next-on-pages": "^1.11.3",
+		"miniflare": "^3.20240725.0",
 		"postcss": "^8.4.38",
 		"prettier": "^3.2.5",
 		"readline-sync": "^1.4.10",
-		"tailwindcss": "^3.4.3",
+		"tailwindcss": "^3.4.7",
 		"tailwindcss-animate": "^1.0.7",
 		"turbo": "latest",
-		"vercel": "^34.2.0"
+		"vercel": "^32.3.0"
 	},
 	"engines": {
 		"node": ">=18"
 	},
 	"packageManager": "bun@1.1.8",
-	"workspaces": ["apps/*", "packages/*"],
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
 	"dependencies": {
 		"@auth/drizzle-adapter": "^1.1.0",
 		"@aws-sdk/client-s3": "^3.577.0",
 		"@aws-sdk/s3-request-presigner": "^3.577.0",
+		"@headlessui/react": "^2.1.2",
+		"@heroicons/react": "^2.1.5",
 		"@hookform/resolvers": "^3.4.2",
 		"@radix-ui/react-icons": "^1.3.0",
 		"@radix-ui/react-label": "^2.0.2",
 		"@radix-ui/react-progress": "^1.0.3",
 		"@radix-ui/react-scroll-area": "^1.0.5",
 		"@radix-ui/react-slot": "^1.0.2",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.1.1",
 		"drizzle-orm": "^0.30.10",
+		"framer-motion": "^11.3.21",
+		"geist": "^1.3.1",
+		"lucide-react": "^0.424.0",
 		"next-app-theme": "^0.1.10",
 		"next-auth": "^5.0.0-beta.18",
+		"next-themes": "^0.3.0",
+		"punycode": "^2.3.1",
+		"radix-ui": "^1.0.1",
 		"react-dropzone": "^14.2.3",
 		"react-hook-form": "^7.51.5",
+		"react-markdown": "^9.0.1",
 		"sonner": "^1.4.41",
+		"tailwind-merge": "^2.4.0",
 		"uploadthing": "^6.10.4",
+		"uri-js": "^4.4.1",
 		"zod": "^3.23.8"
 	}
 }
