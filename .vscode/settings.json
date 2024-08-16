@@ -1,2 +1,7 @@
 {
+"css.customData": [
+    ".vscode/tailwind.json"
+],
+"[markdown]": {
+}
 }
