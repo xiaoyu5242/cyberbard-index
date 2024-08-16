@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- 背景 -->
+ <!-- 标题栏 -->
+ <!-- 左侧测试用例区域 -->
+ <!-- 测试用例列表 -->
+ <!-- 测试用例01 -->
+ <!-- 测试用例02 -->
+ <!-- 测试用例03 -->
+ <!-- 测试用例04 -->
+ <!-- 左下角按钮 -->
+ <!-- 右侧浏览器界面 -->
+ <!-- 模拟的网页内容 -->
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect fill="#f0f0f0" height="600" id="svg_1" width="800"/>
+  <rect fill="#4a4a4a" height="50" id="svg_2" width="800"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="24" id="svg_3" x="20" y="35">自动化网页测试工具</text>
+  <rect fill="white" height="530" id="svg_4" stroke="#ccc" width="260" x="10" y="60"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="18" id="svg_5" x="20" y="90">测试用例生成成功</text>
+  <rect fill="#f5f5f5" height="70" id="svg_6" rx="5" stroke="#ddd" width="240" x="20" y="110"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="14" font-weight="bold" id="svg_7" x="30" y="130">测试用例01:</text>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="12" id="svg_8" style="cursor: move;" x="30" y="150">
+   <tspan dy="0" id="svg_9" x="30">点击&#x27;数量&#x27;输入框，输入&#x27;ABC&#x27;，点击&quot;添加</tspan>
+   <tspan dy="15" id="svg_10" x="30">购物车&quot;按钮，系统应该提示&#x27;只能使用数字</tspan>
+   <tspan dy="15" id="svg_11" x="30">作为商品单位&#x27;</tspan>
+  </text>
+  <rect fill="#f5f5f5" height="70" id="svg_12" rx="5" stroke="#ddd" width="240" x="20" y="190"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="14" font-weight="bold" id="svg_13" x="30" y="210">测试用例02:</text>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="12" id="svg_14" x="30" y="230">
+   <tspan dy="0" id="svg_15" x="30">点击&#x27;数量&#x27;输入框，输入&#x27;0&#x27;，点击&#x27;添加购</tspan>
+   <tspan dy="15" id="svg_16" x="30">物车&#x27;按钮，系统应该提示&#x27;至少购买1个商</tspan>
+   <tspan dy="15" id="svg_17" x="30">品&#x27;</tspan>
+  </text>
+  <rect fill="#f5f5f5" height="70" id="svg_18" rx="5" stroke="#ddd" width="240" x="20" y="270"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="14" font-weight="bold" id="svg_19" x="30" y="290">测试用例03:</text>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="12" id="svg_20" x="30" y="310">
+   <tspan dy="0" id="svg_21" x="30">不点击&#x27;数量&#x27;输入框，直接点击&#x27;添加购物</tspan>
+   <tspan dy="15" id="svg_22" x="30">车&#x27;按钮，系统应该默认购买1个商品。</tspan>
+  </text>
+  <rect fill="#f5f5f5" height="40" id="svg_23" rx="5" stroke="#ddd" width="240" x="20" y="350"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="14" font-weight="bold" id="svg_24" x="30" y="375">测试用例04: ...</text>
+  <rect fill="#4CAF50" height="40" id="svg_25" rx="5" transform="matrix(1 0 0 1 0 0)" width="233.75" x="20" y="520"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="16" id="svg_26" text-anchor="middle" transform="matrix(1 0 0 1 0 0)" x="133.75" y="545">生成测试脚本</text>
+  <rect fill="white" height="530" id="svg_27" stroke="#ccc" transform="matrix(1 0 0 1 0 0)" width="510" x="280" y="60"/>
+  <rect fill="#e0e0e0" height="30" id="svg_28" width="510" x="280" y="60"/>
+  <rect fill="white" height="20" id="svg_29" stroke="#ccc" width="400" x="290" y="65"/>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="12" id="svg_30" x="300" y="80">https://example.com/shopping-cart</text>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="24" id="svg_31" x="300" y="120">确认添加商品到购物车</text>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="18" id="svg_32" x="300" y="160">数量：</text>
+  <rect fill="white" height="30" id="svg_33" stroke="#ccc" width="60" x="360" y="140"/>
+  <rect fill="#007fff" height="40" id="svg_35" rx="5" transform="matrix(1 0 0 1 0 0)" width="180" x="301.25" y="191.25"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="16" id="svg_36" text-anchor="middle" x="390" y="215">添加到购物车</text>
+ </g>
+</svg>

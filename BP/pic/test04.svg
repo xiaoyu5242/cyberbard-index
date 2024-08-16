@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- 背景 -->
+ <!-- 标题栏 -->
+ <!-- 左侧操作脚本列表 -->
+ <!-- 绿色勾 -->
+ <!-- 左下角按钮 -->
+ <!-- 右侧浏览器界面 -->
+ <!-- 模拟的网页内容 -->
+ <!-- 成功对话框 -->
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect fill="#f0f0f0" height="600" id="svg_1" width="800"/>
+  <rect fill="#4a4a4a" height="50" id="svg_2" width="800"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="24" id="svg_3" x="20" y="35">自动化网页测试工具</text>
+  <rect fill="white" height="530" id="svg_4" stroke="#ccc" transform="matrix(1 0 0 1 0 0)" width="260" x="10" y="60"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="18" id="svg_5" x="20" y="90">操作脚本列表</text>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="14" id="svg_6" x="20" y="120">第1步：打开购物页面</text>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="14" id="svg_7" x="20" y="150">第2步：找到输入框</text>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="14" id="svg_8" x="20" y="180">第3步：输入0</text>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="14" id="svg_9" x="20" y="210">第4步：点击添加到购物车按钮</text>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="14" id="svg_10" x="20" y="240">第5步：比较提示判断是否操作成功</text>
+  <path d="m240,115l5,5l10,-10" fill="none" id="svg_11" stroke="#4CAF50" stroke-width="3"/>
+  <path d="m240,145l5,5l10,-10" fill="none" id="svg_12" stroke="#4CAF50" stroke-width="3"/>
+  <path d="m240,175l5,5l10,-10" fill="none" id="svg_13" stroke="#4CAF50" stroke-width="3"/>
+  <path d="m240,205l5,5l10,-10" fill="none" id="svg_14" stroke="#4CAF50" stroke-width="3"/>
+  <path d="m240,235l5,5l10,-10" fill="none" id="svg_15" stroke="#4CAF50" stroke-width="3"/>
+  <rect fill="#7f7f7f" height="30" id="svg_16" rx="5" transform="matrix(1 0 0 1 0 0)" width="100" x="20" y="520"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" id="svg_17" text-anchor="middle" x="70" y="540">手动编辑</text>
+  <rect fill="#7f7f7f" height="30" id="svg_18" rx="5" transform="matrix(1 0 0 1 0 0)" width="131.25" x="128.75" y="520"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="14" id="svg_19" text-anchor="middle" transform="matrix(1 0 0 1 0 0)" x="190" y="541.25">自动运行脚本中…</text>
+  <rect fill="white" height="530" id="svg_20" stroke="#ccc" width="510" x="280" y="60"/>
+  <rect fill="#e0e0e0" height="30" id="svg_21" width="510" x="280" y="60"/>
+  <rect fill="white" height="20" id="svg_22" stroke="#ccc" width="400" x="290" y="65"/>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="12" id="svg_23" x="300" y="80">https://example.com/shopping-cart</text>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="24" id="svg_24" x="300" y="120">确认添加商品到购物车</text>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="18" id="svg_25" x="300" y="160">数量：</text>
+  <rect fill="white" height="30" id="svg_26" stroke="#ccc" width="60" x="360" y="140"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="18" id="svg_27" x="375" y="162">0</text>
+  <rect fill="#007fff" height="40" id="svg_28" rx="5" width="180" x="300" y="190"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="16" id="svg_29" text-anchor="middle" x="390" y="215">添加到购物车</text>
+  <text fill="#f44336" font-family="Arial, sans-serif" font-size="14" id="svg_30" x="300" y="260">系统提示：请至少购买一个商品。</text>
+  <rect fill="white" height="150" id="svg_31" rx="10" stroke="#4CAF50" stroke-width="2" transform="matrix(1 0 0 1 0 0)" width="300" x="238.75" y="290"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="20" id="svg_32" text-anchor="middle" transform="matrix(1 0 0 1 0 0)" x="390" y="330">所有测试用例测试完成</text>
+  <rect fill="#4CAF50" height="40" id="svg_33" rx="5" transform="matrix(1 0 0 1 0 0)" width="160" x="310" y="370"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="16" id="svg_34" text-anchor="middle" transform="matrix(1 0 0 1 0 0)" x="390" y="395">查看测试报告</text>
+ </g>
+</svg>

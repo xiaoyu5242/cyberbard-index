@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- 背景 -->
+ <!-- 标题栏 -->
+ <!-- 左侧输入区域 -->
+ <!-- 左下角按钮 -->
+ <!-- 右侧浏览器界面 -->
+ <!-- 模拟的网页内容 -->
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect fill="#f0f0f0" height="600" id="svg_1" width="800"/>
+  <rect fill="#4a4a4a" height="50" id="svg_2" width="800"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="24" id="svg_3" x="20" y="35">自动化网页测试工具</text>
+  <rect fill="#bfbfbf" height="530" id="svg_4" stroke="#cccccc" width="260" x="10" y="60"/>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="18" id="svg_5" x="20" y="90">请描述要测试的功能</text>
+  <rect fill="#f9f9f9" height="400" id="svg_6" stroke="#ccc" width="240" x="20" y="100"/>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="14" id="svg_7" x="30" y="130">
+   <tspan dy="0" id="svg_8" x="30">我想测试新增的选择商品</tspan>
+   <tspan dy="20" id="svg_9" x="30">数量后添加到购物车的</tspan>
+   <tspan dy="20" id="svg_10" x="30">功能。</tspan>
+  </text>
+  <rect fill="#4CAF50" height="40" id="svg_11" rx="5" transform="matrix(1 0 0 1 0 0)" width="234" x="20" y="520"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="16" id="svg_12" text-anchor="middle" transform="matrix(1 0 0 1 0 0)" x="136" y="547">生成测试用例</text>
+  <rect fill="white" height="530" id="svg_13" stroke="#ccc" width="510" x="280" y="60"/>
+  <rect fill="#e0e0e0" height="30" id="svg_14" width="510" x="280" y="60"/>
+  <rect fill="white" height="20" id="svg_15" stroke="#ccc" width="400" x="290" y="65"/>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="12" id="svg_16" x="300" y="80">https://example.com/shopping-cart</text>
+  <text fill="#333" font-family="Arial, sans-serif" font-size="24" id="svg_17" x="300" y="120">确认添加商品到购物车</text>
+  <text fill="#666" font-family="Arial, sans-serif" font-size="18" id="svg_18" x="300" y="160">数量：</text>
+  <rect fill="white" height="30" id="svg_19" stroke="#ccc" width="60" x="360" y="140"/>
+  <rect fill="#007fff" height="40" id="svg_21" rx="5" width="180" x="300" y="190"/>
+  <text fill="white" font-family="Arial, sans-serif" font-size="16" id="svg_22" text-anchor="middle" x="390" y="215">添加到购物车</text>
+ </g>
+</svg>
