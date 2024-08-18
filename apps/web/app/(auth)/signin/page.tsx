@@ -31,7 +31,7 @@ async function Signin({
 						<Image
 							width="30"
 							height="30"
-							src={Logo}
+							src="./logo.svg"
 							alt="Cyberbard logo"
 							className="hover:brightness-125 duration-200"
 						/>
@@ -41,7 +41,7 @@ async function Signin({
 				<div className="absolute  inset-0 opacity-5  w-full  bg-transparent  bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
 				<img
 					className="absolute inset-x-0 -top-20 opacity-20"
-					src={"/images/landing-hero-left.png"}
+					src="./images/landing-hero-left.webp"
 					width={1000}
 					height={1000}
 					alt="back bg"
@@ -101,7 +101,7 @@ async function Signin({
 			<div className="relative hidden w-0 lg:flex lg:w-1/2  flex-col items-center justify-center min-h-screen bg-page-gradient overflow-hidden">
 				<img
 					className="absolute inset-x-0 -top-20 opacity-15 "
-					src={"/images/landing-hero-left.png"}
+					src="./images/landing-hero-left.webp"
 					width={1000}
 					height={1000}
 					alt="back bg"
