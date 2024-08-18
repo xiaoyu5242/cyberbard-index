@@ -64,6 +64,11 @@ const SlideTabs = ({
 					Demo
 				</a>
 			</Tab>
+			<Tab setPosition={setPosition}>
+				<Link className="w-full h-full" href={"/blog"}>
+					Blog
+				</Link>
+			</Tab>
 			{/* {userName ? <Link
 				href="/api/logout"
 				className="inline-flex gap-x-2 justify-start items-start py-3 px-5 ml-3 w-full rounded-3xl border duration-200 sm:w-auto group bg-page-gradient border-white/30 text-md font-geistSans hover:border-zinc-600 hover:bg-transparent/10 hover:text-zinc-100"

@@ -1,18 +1,25 @@
 {
-	"extends": "@repo/typescript-config/nextjs.json",
-	"compilerOptions": {
-		"plugins": [
-			{
-				"name": "next"
-			}
-		]
-	},
-	"include": [
-		"next-env.d.ts",
-		"next.config.mjs",
-		"**/*.ts",
-		"**/*.tsx",
-		".next/types/**/*.ts"
-	],
-	"exclude": ["node_modules"]
+  "extends": "@repo/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
+  },
+  "mdx": {
+    // Enable strict type checking in MDX files.
+    "checkMdx": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "next.config.mjs",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+, "app/blog/ThemeToggle", "pages/blog/erty.tsx"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

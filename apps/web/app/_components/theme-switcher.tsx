@@ -81,7 +81,10 @@ const Switch = () => {
   /** toggle mode */
   const handleModeSwitch = () => {
     const index = modes.indexOf(mode);
-    setMode(modes[(index + 1) % modes.length]);
+    var m = modes[(index + 1) % modes.length];
+    if (m != undefined) {
+      setMode(m);
+    }
   };
   return (
     <button

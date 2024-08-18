@@ -175,8 +175,8 @@ const logos = [
 
 const AnimatedLogoCloud = () => {
 	return (
-		<div className="py-2 max-w-4xl scale-75">
-			<p className="font-normal tracking-tighter text-base text-gray-100 bg-gradient-to-br from-zinc-400 via-zinc-300 to-zinc-700 bg-clip-text text-transparent text-center mt-4">
+		<div className="py-2 w-9/12 scale-75">
+			<p className="font-normal tracking-tighter text-base text-gray-100 bg-gradient-to-br from-zinc-400 via-zinc-300 to-zinc-700 bg-clip-text text-transparent text-center mt-4 items-center">
 				Seamlessly integrate with your existing system for minimal changes and maximum impact.
 			</p>
 			{/* <hr className="h-[0.1px]  relative bg-white/10" /> */}
