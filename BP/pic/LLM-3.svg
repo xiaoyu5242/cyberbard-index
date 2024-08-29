@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- 背景 -->
+ <!-- 标题 -->
+ <!-- 应用层 -->
+ <!-- 大模型层 -->
+ <!-- 数据工程层 -->
+ <!-- 数据层 -->
+ <!-- 评测层 -->
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect fill="#fff" height="580" id="svg_1" stroke="#333" width="780" x="9" y="11"/>
+  <text fill="#000000" font-family="Arial" font-size="24" font-weight="bold" id="svg_2" text-anchor="middle" x="406" y="79">测试领域专用AI推理引擎技术架构</text>
+  <rect fill="#fffacd" height="80" id="svg_3" stroke="#333" stroke-width="2" width="600" x="36" y="101"/>
+  <text fill="#333" font-family="Arial" font-size="16" id="svg_4" x="46" y="123">应用层</text>
+  <rect fill="#fff" height="30" id="svg_6" stroke="#333" width="133" x="57" y="138"/>
+  <text font-family="Arial" font-size="12" id="svg_7" text-anchor="middle" x="122" y="157">测试用例生成</text>
+  <rect fill="#fff" height="30" id="svg_8" stroke="#333" width="133" x="201" y="138"/>
+  <text font-family="Arial" font-size="12" id="svg_9" text-anchor="middle" x="267" y="158">测试脚本生成</text>
+  <rect fill="#fff" height="30" id="svg_10" stroke="#333" width="134" x="345" y="137"/>
+  <text font-family="Arial" font-size="12" id="svg_11" text-anchor="middle" x="409" y="157">测试报告生成</text>
+  <rect fill="#fff" height="30" id="svg_12" stroke="#333" width="131" x="489" y="136"/>
+  <text font-family="Arial" font-size="12" id="svg_13" text-anchor="middle" x="554" y="156">其他...</text>
+  <rect fill="#e6e6fa" height="80" id="svg_14" stroke="#333" stroke-width="2" width="600" x="36" y="191"/>
+  <text fill="#333" font-family="Arial" font-size="16" id="svg_15" x="46" y="211">大模型层</text>
+  <rect fill="#fff" height="40" id="svg_16" stroke="#333" width="280" x="56" y="221"/>
+  <rect fill="#fff" height="40" id="svg_18" stroke="#333" width="280" x="346" y="221"/>
+  <rect fill="#fff" height="20" id="svg_20" stroke="#333" width="125" x="66" y="231"/>
+  <text font-family="Arial" font-size="10" id="svg_21" text-anchor="middle" x="129" y="245">基础模型</text>
+  <rect fill="none" height="20" id="svg_22" stroke="#333" width="116" x="202" y="231"/>
+  <path d="m358,231l130,0l0,20l-130,0l0,-20z" fill="none" id="svg_28" opacity="undefined" stroke="#333">LoRAv微调</path>
+  <rect fill="#fff" height="20" id="svg_30" stroke="#333" width="117" x="499" y="231"/>
+  <text font-family="Arial" font-size="10" id="svg_31" text-anchor="middle" x="428" y="245">Reward Model</text>
+  <rect fill="#98fb98" height="140" id="svg_32" stroke="#333" stroke-width="2" width="600" x="36" y="281"/>
+  <text fill="#333" font-family="Arial" font-size="16" id="svg_33" x="46" y="301">数据工程层</text>
+  <rect fill="#fff" height="100" id="svg_34" stroke="#333" width="280" x="56" y="311"/>
+  <text font-family="Arial" font-size="14" id="svg_35" text-anchor="middle" x="196" y="331">数据构造</text>
+  <rect fill="#fff" height="100" id="svg_36" stroke="#333" width="130" x="346" y="311"/>
+  <text font-family="Arial" font-size="14" id="svg_37" text-anchor="middle" x="411" y="331">数据选择</text>
+  <rect fill="#fff" height="100" id="svg_38" stroke="#333" width="140" x="486" y="311"/>
+  <text font-family="Arial" font-size="14" id="svg_39" text-anchor="middle" x="556" y="331">数据使用</text>
+  <rect fill="#fff" height="20" id="svg_40" stroke="#333" width="120" x="66" y="341"/>
+  <text font-family="Arial" font-size="10" id="svg_41" text-anchor="middle" x="126" y="356">人工标注</text>
+  <rect fill="#fff" height="20" id="svg_42" stroke="#333" width="120" x="196" y="341"/>
+  <text font-family="Arial" font-size="10" id="svg_43" text-anchor="middle" x="256" y="356">Self-Instruction</text>
+  <rect fill="#fff" height="20" id="svg_44" stroke="#333" width="120" x="66" y="371"/>
+  <text font-family="Arial" font-size="10" id="svg_45" text-anchor="middle" x="126" y="386">隐私数据过滤</text>
+  <path d="m196,371l120,0l0,20l-120,0l0,-20z" fill="#fff" id="svg_46" opacity="undefined" stroke="#333"/>
+  <text font-family="Arial" font-size="10" id="svg_47" text-anchor="middle" x="256" y="386">Self-QA</text>
+  <rect fill="#fff" height="20" id="svg_48" stroke="#333" width="110" x="356" y="340.92"/>
+  <text font-family="Arial" font-size="10" id="svg_49" text-anchor="middle" x="411" y="355.92">数据去重</text>
+  <rect fill="#fff" height="20" id="svg_50" stroke="#333" width="120" x="496" y="343"/>
+  <text font-family="Arial" font-size="10" id="svg_51" text-anchor="middle" x="556" y="356">数据混合</text>
+  <rect fill="#fff" height="20" id="svg_52" stroke="#333" width="120" x="496" y="371"/>
+  <text font-family="Arial" font-size="10" id="svg_53" text-anchor="middle" x="556" y="386">迭代调整</text>
+  <rect fill="#ffdab9" height="100" id="svg_54" stroke="#333" stroke-width="2" width="600" x="36" y="431"/>
+  <text fill="#333" font-family="Arial" font-size="16" id="svg_55" x="46" y="451">数据层</text>
+  <rect fill="#fff" height="60" id="svg_56" stroke="#333" width="280" x="56" y="461"/>
+  <text font-family="Arial" font-size="14" id="svg_57" text-anchor="middle" x="196" y="481">测试领域数据</text>
+  <rect fill="#fff" height="60" id="svg_58" stroke="#333" width="280" x="346" y="461"/>
+  <text font-family="Arial" font-size="14" id="svg_59" text-anchor="middle" x="486" y="481">通用领域数据</text>
+  <rect fill="#fff" height="20" id="svg_60" stroke="#333" width="120" x="66" y="491"/>
+  <text font-family="Arial" font-size="10" id="svg_61" text-anchor="middle" x="126" y="506">产品文档/测试报告</text>
+  <rect fill="#fff" height="20" id="svg_62" stroke="#333" width="120" x="196" y="491"/>
+  <text font-family="Arial" font-size="10" id="svg_63" text-anchor="middle" x="256" y="506">测试用例/测试脚本</text>
+  <rect fill="#fff" height="20" id="svg_64" stroke="#333" width="60" x="356" y="491"/>
+  <text font-family="Arial" font-size="10" id="svg_65" text-anchor="middle" x="386" y="506">代码</text>
+  <rect fill="#fff" height="20" id="svg_66" stroke="#333" width="60" x="426" y="491"/>
+  <text font-family="Arial" font-size="10" id="svg_67" text-anchor="middle" x="456" y="506">文档</text>
+  <rect fill="#fff" height="20" id="svg_68" stroke="#333" width="60" x="496" y="491"/>
+  <text font-family="Arial" font-size="10" id="svg_69" text-anchor="middle" x="526" y="506">问答</text>
+  <rect fill="#fff" height="20" id="svg_70" stroke="#333" width="50" x="566" y="491"/>
+  <text font-family="Arial" font-size="10" id="svg_71" text-anchor="middle" x="591" y="506">其他</text>
+  <rect fill="#d3d3d3" height="430" id="svg_72" stroke="#333" stroke-width="2" width="120" x="646" y="101"/>
+  <text fill="#333" font-family="Arial" font-size="16" id="svg_73" text-anchor="middle" x="706" y="121">评测层</text>
+  <rect fill="#fff" height="30" id="svg_74" stroke="#333" width="100" x="656" y="133"/>
+  <text font-family="Arial" font-size="12" id="svg_75" text-anchor="middle" x="706" y="153">应用效果评测</text>
+  <rect fill="#fff" height="30" id="svg_76" stroke="#333" width="100" x="655" y="192"/>
+  <text font-family="Arial" font-size="12" id="svg_77" text-anchor="middle" x="705" y="212">测试覆盖率评测</text>
+  <rect fill="#fff" height="30" id="svg_78" stroke="#333" width="100" x="655" y="232"/>
+  <text font-family="Arial" font-size="12" id="svg_79" text-anchor="middle" x="705" y="252">通用评测集评测</text>
+  <rect fill="#fff" height="30" id="svg_80" stroke="#333" width="100" x="655" y="272"/>
+  <text font-family="Arial" font-size="12" id="svg_81" text-anchor="middle" x="705" y="292">任务评测集评测</text>
+  <rect fill="#fff" height="30" id="svg_82" stroke="#333" width="100" x="659" y="339"/>
+  <text font-family="Arial" font-size="12" id="svg_83" text-anchor="middle" x="709" y="359">训练数据review</text>
+  <rect fill="#fff" height="30" id="svg_84" stroke="#333" width="100" x="659" y="379"/>
+  <text font-family="Arial" font-size="12" id="svg_85" text-anchor="middle" x="709" y="399">数据配比评测</text>
+  <rect fill="#fff" height="30" id="svg_86" stroke="#333" width="100" x="657" y="472">LoRA</rect>
+  <text font-family="Arial" font-size="12" id="svg_87" text-anchor="middle" x="707" y="492">数据质量评估</text>
+  <rect fill="#fff" height="20" id="svg_88" stroke="#333" width="110" x="356" y="371.59"/>
+  <text font-family="Arial" font-size="10" id="svg_89" text-anchor="middle" x="411" y="386.59">Nuggets</text>
+  <text font-family="Arial" font-size="10" id="svg_26" text-anchor="middle" x="261" y="244">Prompt Tuning v2</text>
+  <text font-family="Arial" font-size="10" id="svg_90" text-anchor="middle" x="560.49" y="244.5">RLHF</text>
+ </g>
+</svg>

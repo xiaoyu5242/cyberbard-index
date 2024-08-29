@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <title>Figure 5: Distribution of Global Software and Service Enterprise Sizes in 2020 (Unit: Billion USD)</title>
+  
+  <!-- Pie chart -->
+  <g transform="translate(200, 200)">
+    <!-- Less than 10 people: 48.2% -->
+    <path d="M0,-100 A100,100 0 0,1 86.6,-50 L0,0 Z" fill="#0088FE"/>
+    <!-- 10-99 people: 46.8% -->
+    <path d="M86.6,-50 A100,100 0 0,1 15.6,98.8 L0,0 Z" fill="#00C49F"/>
+    <!-- 100-500 people: 4.4% -->
+    <path d="M15.6,98.8 A100,100 0 0,1 -15.6,98.8 L0,0 Z" fill="#FFBB28"/>
+    <!-- More than 500 people: 0.7% -->
+    <path d="M-15.6,98.8 A100,100 0 0,1 -25,96.6 L0,0 Z" fill="#FF8042"/>
+    <!-- Completing the circle -->
+    <path d="M-25,96.6 A100,100 0 0,1 0,-100 L0,0 Z" fill="#0088FE"/>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(10, 330)">
+    <rect x="0" y="0" width="15" height="15" fill="#0088FE"/>
+    <text x="20" y="12" font-size="12">Less than 10 people: 48.2%</text>
+    
+    <rect x="0" y="20" width="15" height="15" fill="#00C49F"/>
+    <text x="20" y="32" font-size="12">10-99 people: 46.8%</text>
+    
+    <rect x="200" y="0" width="15" height="15" fill="#FFBB28"/>
+    <text x="220" y="12" font-size="12">100-500 people: 4.4%</text>
+    
+    <rect x="200" y="20" width="15" height="15" fill="#FF8042"/>
+    <text x="220" y="32" font-size="12">More than 500 people: 0.7%</text>
+  </g>
+
+  <!-- Title -->
+  <text x="200" y="30" font-size="16" text-anchor="middle" font-weight="bold">Distribution of Global Software and</text>
+  <text x="200" y="50" font-size="16" text-anchor="middle" font-weight="bold">Service Enterprise Sizes in 2020 (Unit: Billion USD)</text>
+</svg>

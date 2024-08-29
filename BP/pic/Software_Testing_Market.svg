@@ -1,0 +1,43 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  
+  <!-- Title -->
+  <text x="50" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Software Testing Market</text>
+  
+  <!-- Market Statistics Box -->
+  <rect x="50" y="70" width="530" height="120" fill="#e6e6fa" rx="10" ry="10"/>
+  <text x="60" y="100" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Market Statistics</text>
+  
+  <!-- Market Size -->
+  <text x="70" y="130" font-family="Arial, sans-serif" font-size="14">Market Size (2023)</text>
+  <text x="70" y="160" font-family="Arial, sans-serif" font-size="18" font-weight="bold">$51.8 Bn</text>
+  
+  <!-- CAGR -->
+  <text x="250" y="130" font-family="Arial, sans-serif" font-size="14">CAGR (2024-2032)</text>
+  <text x="250" y="160" font-family="Arial, sans-serif" font-size="18" font-weight="bold">>7%</text>
+  
+  <!-- Market Value -->
+  <text x="430" y="130" font-family="Arial, sans-serif" font-size="14">Market Value (2032)</text>
+  <text x="430" y="160" font-family="Arial, sans-serif" font-size="18" font-weight="bold">$97.3 Bn</text>
+  
+  <!-- Vertical Lines -->
+  <line x1="220" y1="110" x2="220" y2="170" stroke="#000000" stroke-width="1"/>
+  <line x1="400" y1="110" x2="400" y2="170" stroke="#000000" stroke-width="1"/>
+  
+  <!-- Market Segmentation -->
+  <text x="50" y="220" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Market Segmentation</text>
+  <line x1="250" y1="225" x2="550" y2="225" stroke="#000000" stroke-width="2"/>
+  
+  <!-- Application Segment -->
+  <text x="70" y="260" font-family="Arial, sans-serif" font-size="16">Application Segment</text>
+  <text x="70" y="280" font-family="Arial, sans-serif" font-size="14">Market Value (2032)</text>
+  <rect x="350" y="250" width="180" height="30" fill="#ffffff" stroke="#000000" rx="15" ry="15"/>
+  <text x="400" y="272" font-family="Arial, sans-serif" font-size="16" font-weight="bold">>$53.6 Bn</text>
+  
+  <!-- System Integrator Segment -->
+  <text x="70" y="320" font-family="Arial, sans-serif" font-size="16">System Integrator Segment</text>
+  <text x="70" y="340" font-family="Arial, sans-serif" font-size="14">Market Share (2032)</text>
+  <rect x="350" y="310" width="180" height="30" fill="#ffffff" stroke="#000000" rx="15" ry="15"/>
+  <text x="420" y="332" font-family="Arial, sans-serif" font-size="16" font-weight="bold">68%</text>
+</svg>
