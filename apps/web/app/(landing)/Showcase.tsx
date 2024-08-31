@@ -249,14 +249,14 @@ export function Showcases() {
           alt="back bg"
         /> */}
 				<div className="mr-auto relative max-w-3xl md:text-start">
-					<h2 className="font-display  text-4xl tracking-tight text-gray-200 sm:text-7xl">
-						<span className="bg-gradient-to-br from-indigo-400 via-indigo-300 to-indigo-700 bg-clip-text text-transparent">
+					<h2 className="font-display  text-4xl tracking-tight text-gray-200 sm:text-5xl">
+						<span className="bg-gradient-to-br sm:text-7xl from-indigo-400 via-indigo-300 to-indigo-700 bg-clip-text text-transparent">
 							Cyberbard <br />
 						</span>{" "}
-						designed specifically for testing
+						Designed for Automated Functional Testing
 					</h2>
 					<p className="mt-4 text-lg tracking-tight text-gray-100">
-						... You only need to describe the new features in natural language. We will generate test cases through a dedicated AI model analysis interface, verify them according to the rules, and finally provide you with a clear test report.
+						You only need to describe the new features in natural language. We will generate test cases through a dedicated AI model analysis interface, verify them according to the rules, and finally provide you with a clear test report.
 					</p>
 					<div className="overflow-x-hidden overflow-y-hidden">
 						<div className="absolute right-0 z-20 top-[0%] h-40 w-[17%] overflow-x-hidden bg-[#369DFD] bg-opacity-20 blur-[110px]" />

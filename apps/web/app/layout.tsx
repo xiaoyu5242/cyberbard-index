@@ -12,51 +12,35 @@ const inter = Inter({ subsets: ["latin"] });
 export const runtime = "edge";
 
 export const metadata: Metadata = {
-	title: "Cyberbard - the best AI tester you need.",
+	title: "Cyberbard - The Ultimate AI-Powered Testing Tool You’ve Been Waiting For!",
 	description:
-		"Optimized with AI technology, this testing tool requires no script writing or test cases. It mimics real user actions, making UI and UX testing more automated.",
-	// openGraph: {
-	// 	images: [
-	// 		{
-	// 			url: "https://supermemory.ai/og-image.png",
-	// 			width: 1200,
-	// 			height: 627,
-	// 			alt: "Cyberbard - the best tester you need.",
-	// 		},
-	// 	],
-	// },
-	// metadataBase: {
-	// 	host: "https://supermemory.ai",
-	// 	href: "/",
-	// 	origin: "https://supermemory.ai",
-	// 	password: "supermemory",
-	// 	hash: "supermemory",
-	// 	pathname: "/",
-	// 	search: "",
-	// 	username: "supermemoryai",
-	// 	hostname: "supermemory.ai",
-	// 	port: "",
-	// 	protocol: "https:",
-	// 	searchParams: new URLSearchParams(""),
-	// 	toString: () => "https://supermemory.ai/",
-	// 	toJSON: () => "https://supermemory.ai/",
-	// },
-	// twitter: {
-	// 	card: "summary_large_image",
-	// 	site: "https://supermemory.ai",
-	// 	creator: "https://supermemory.ai",
-	// 	title: "Supermemory - Your personal second brain.",
-	// 	description:
-	// 		"Bring saved information from all over the internet into one place where you can connect it, and ask AI about it",
-	// 	images: [
-	// 		{
-	// 			url: "https://supermemory.ai/og-image.png",
-	// 			width: 1200,
-	// 			height: 627,
-	// 			alt: "Supermemory - Your personal second brain.",
-	// 		},
-	// 	],
-	// },
+		"Elevate your functional testing with Cyberbard, the cutting-edge AI software that eliminates the need for script writing and test cases. Experience seamless automation as it intelligently mimics real user behavior, delivering unparalleled efficiency and accuracy in your testing process.",
+	openGraph: {
+		images: [
+			{
+				url: "https://cyberbard.co.uk/og-image.png",
+				width: 1608,
+				height: 500,
+				alt: "Cyberbard - The Ultimate AI-Powered Testing Tool You’ve Been Waiting For!",
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		site: "https://cyberbard.co.uk",
+		creator: "https://cyberbard.co.uk",
+		title: "Cyberbard - The Ultimate AI-Powered Testing Tool You’ve Been Waiting For!",
+		description:
+			"Elevate your functional testing with Cyberbard, the cutting-edge AI software that eliminates the need for script writing and test cases.",
+		images: [
+			{
+				url: "https://cyberbard.co.uk/og-image.png",
+				width: 1608,
+				height: 500,
+				alt: "Cyberbard - The Ultimate AI-Powered Testing Tool You’ve Been Waiting For!",
+			},
+		],
+	},
 };
 
 export default function RootLayout({
