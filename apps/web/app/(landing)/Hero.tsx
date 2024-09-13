@@ -82,8 +82,8 @@ const Hero = ({
 			</section>
 
 			<AnimatedLogoCloud />
-			{/* <div className="relative z-50">
-				<motion.img
+			<div className="relative z-50 w-full h-0 pb-[56.25%]">
+				{/* <motion.img
 					{...{
 						...slap,
 						transition: { ...slap.transition, delay: 0.35 },
@@ -97,12 +97,13 @@ const Hero = ({
 					style={{
 						borderRadius: "20px",
 					}}
-				/>
+				/> */}
 				<div
 					className="absolute -z-10 left-0 top-[10%] h-32 w-[90%] overflow-x-hidden bg-[rgb(54,157,253)] bg-opacity-100  blur-[337.4px]"
 					style={{ transform: "rotate(-30deg)" }}
 				/>
-			</div> */}
+				<iframe className="mt-10 absolute top-0 left-0 w-full h-full" fs="0" iv_load_policy="3" src="https://www.youtube.com/embed/dBA-uzq7SBA?si=B-me3padO35YZXsy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</div>
 		</>
 	);
 }

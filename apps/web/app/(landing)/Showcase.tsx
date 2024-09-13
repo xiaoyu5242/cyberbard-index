@@ -239,15 +239,15 @@ export function Showcases() {
 				//     "linear-gradient(143.6deg, rgba(52, 103, 235, 0) 20.79%, rgba(120,119,198, 0.26) 40.92%, rgba(120,119,198, 0) 70.35%)",
 				// }}
 				></div>
-				{/* <img
-          className="absolute inset-x-0 -top-0 opacity-75 "
-          src={
-            "/images/landing-hero-left.webp"
-          }
-          width={1000}
-          height={1000}
-          alt="back bg"
-        /> */}
+				<img
+					className="absolute inset-x-0 -top-0 opacity-75 "
+					src={
+						"/images/landing-hero-left.webp"
+					}
+					width={1000}
+					height={1000}
+					alt="back bg"
+				/>
 				<div className="mr-auto relative max-w-3xl md:text-start">
 					<h2 className="font-display  text-4xl tracking-tight text-gray-200 sm:text-5xl">
 						<span className="bg-gradient-to-br sm:text-7xl from-indigo-400 via-indigo-300 to-indigo-700 bg-clip-text text-transparent">
