@@ -102,7 +102,7 @@ const Hero = ({
 					className="absolute -z-10 left-0 top-[10%] h-32 w-[90%] overflow-x-hidden bg-[rgb(54,157,253)] bg-opacity-100  blur-[337.4px]"
 					style={{ transform: "rotate(-30deg)" }}
 				/>
-				<iframe className="mt-10 absolute top-0 left-0 w-full h-full" fs="0" iv_load_policy="3" src="https://www.youtube.com/embed/dBA-uzq7SBA?si=B-me3padO35YZXsy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				<iframe className="mt-10 absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/dBA-uzq7SBA?si=B-me3padO35YZXsy" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 			</div>
 		</>
 	);
