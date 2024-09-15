@@ -51,5 +51,18 @@ export function getAllPosts(): Post[] {
       },
       content: "",
     },
+    {
+      title:
+        "Software Test Engineer to Manager: Career Path and Salary Progression",
+      coverImage: "/images/matrix-4646234_1280.jpg",
+      date: "2024-09-15T10:16:14.432Z",
+      author: { name: "Tina", picture: "/author/tina.png" },
+      slug: "Software_Test_Engineer_to_Manager_Career_Path_and_Salary_Progression",
+      excerpt: "",
+      ogImage: {
+        url: "",
+      },
+      content: "",
+    },
   ];
 }

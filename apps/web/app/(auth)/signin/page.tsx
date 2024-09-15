@@ -56,11 +56,11 @@ async function Signin({
 								gradientStyle.magicText,
 							)}
 						>
-							human
+							future
 						</span>{" "}
 					</h1>
 					<p className="text-white mb-8 text-lg tracking-tighter">
-						Once you’ve joined, you’ll be the first to receive our product updates.
+					Click to join the waitlist and stay updated.
 					</p>
 					<div className="flex items-center gap-4">
 						<div
@@ -108,7 +108,7 @@ async function Signin({
 				/>
 				<span className="text-3xl leading-relaxed tracking-tighter mb-8">
 					Let {" "}
-					<span className="text-white font-bold">Cyberbard</span> do the rest!
+					<span className="text-white font-bold">Cyberbard</span>  revolutionize software testing!
 				</span>
 
 				<div>

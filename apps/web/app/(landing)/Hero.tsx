@@ -82,7 +82,7 @@ const Hero = ({
 			</section>
 
 			<AnimatedLogoCloud />
-			<div className="relative z-50 w-full h-0 pb-[56.25%]">
+			<div className="relative z-50 w-full h-0 pb-[50%]">
 				{/* <motion.img
 					{...{
 						...slap,
@@ -103,6 +103,7 @@ const Hero = ({
 					style={{ transform: "rotate(-30deg)" }}
 				/>
 				<iframe className="mt-10 absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/dBA-uzq7SBA?si=B-me3padO35YZXsy" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+				{/* <iframe width="1512" height="1405" src="https://www.youtube.com/embed/dBA-uzq7SBA?si=B_6fVZo5l0f4as_7&amp;controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> */}
 			</div>
 		</>
 	);
