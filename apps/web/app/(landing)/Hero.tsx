@@ -39,11 +39,11 @@ const Hero = ({
 					}}
 					className="text-center  mx-auto bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)]  bg-clip-text text-4xl tracking-tighter  sm:text-5xl text-transparent md:text-6xl lg:text-7xl"
 				>
-					Describe it simply<br/>{" "}
+					Do less, automate more<br/>{" "}
 					<span className="text-transparent bg-clip-text bg-gradient-to-r to-blue-200 from-zinc-300">
 						Cyberbard
 					</span>{" "}
-					tests it fully
+					test your software effortlessly!
 				</motion.h1>
 				<motion.p
 					{...{
