@@ -6,7 +6,7 @@
   </defs>
   
   <!-- 标题 -->
-  <text x="400" y="40" font-size="24" text-anchor="middle" font-weight="bold">一种软件测试行业大语言模型训练方法</text>
+  <text x="400" y="40" font-size="24" text-anchor="middle" font-weight="bold">一种从高效提取测试领域大模型训练数据的方法</text>
   
   <!-- 数据收集 -->
   <rect x="50" y="60" width="700" height="280" rx="10" ry="10" fill="#f0f0f0" stroke="#333"/>
@@ -45,30 +45,18 @@
   
   <!-- 模型训练 -->
   <rect x="50" y="360" width="300" height="100" rx="10" ry="10" fill="#f0f0f0" stroke="#333"/>
-  <text x="200" y="390" font-size="16" text-anchor="middle" font-weight="bold">模型训练</text>
-  <text x="200" y="415" font-size="12" text-anchor="middle">使用LoRA技术</text>
-  <text x="200" y="435" font-size="12" text-anchor="middle">进行行业特定微调</text>
+  <text x="200" y="390" font-size="16" text-anchor="middle" font-weight="bold">我们的专用工具</text>
+  <text x="200" y="415" font-size="12" text-anchor="middle">文档数据清洗</text>
+  <text x="200" y="435" font-size="12" text-anchor="middle">界面元素识别</text>
   
-  <!-- 效果评估 -->
+  <!-- 测试数据生成 -->
   <rect x="450" y="360" width="300" height="100" rx="10" ry="10" fill="#f0f0f0" stroke="#333"/>
-  <text x="600" y="390" font-size="16" text-anchor="middle" font-weight="bold">效果评估</text>
-  <text x="600" y="415" font-size="12" text-anchor="middle">使用专门算法</text>
-  <text x="600" y="435" font-size="12" text-anchor="middle">作为奖励机制</text>
+  <text x="600" y="390" font-size="16" text-anchor="middle" font-weight="bold">测试数据生成</text>
+  <text x="600" y="415" font-size="12" text-anchor="middle">指定输出格式</text>
+  <text x="600" y="435" font-size="12" text-anchor="middle">直接用于训练</text>
   
   <!-- 箭头 -->
   <line x1="200" y1="340" x2="200" y2="360" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
   <line x1="350" y1="410" x2="450" y2="410" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
   
-  <!-- 奖励机制详情 -->
-  <rect x="200" y="480" width="400" height="200" rx="10" ry="10" fill="#e6f3ff" stroke="#333"/>
-  <text x="400" y="510" font-size="16" text-anchor="middle" font-weight="bold">奖励机制详情</text>
-  <text x="220" y="540" font-size="12">1. 正确性奖励</text>
-  <text x="220" y="570" font-size="12">2. 错误惩罚</text>
-  <text x="220" y="600" font-size="12">3. 探索奖励</text>
-  <text x="220" y="630" font-size="12">4. 多样性奖励</text>
-  <text x="220" y="660" font-size="12">5. 效率奖励</text>
-  
-  <!-- 连接线 -->
-  <line x1="600" y1="460" x2="600" y2="480" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
-  <line x1="600" y1="480" x2="600" y2="480" stroke="#333" stroke-width="2"/>
 </svg>
