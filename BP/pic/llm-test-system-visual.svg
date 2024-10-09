@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f0f0f0"/>
+  <!-- Title -->
+<text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">Cyberbard: Efficient Automated Testing</text>
+  <!-- Tester -->
+  <circle cx="100" cy="150" r="40" fill="#4a90e2"/>
+  <text x="100" y="155" font-family="Arial" font-size="40" text-anchor="middle" fill="white">👩‍💻</text>
+  <text x="100" y="210" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Tester</text>
+  <!-- Input -->
+  <rect x="50" y="250" width="100" height="60" fill="#feca57" rx="10"/>
+  <text x="100" y="285" font-family="Arial" font-size="30" text-anchor="middle" fill="white">🔗📝</text>
+  <text x="100" y="330" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">URL and feature description</text>
+  <!-- CT-LLM -->
+  <rect x="220" y="120" width="360" height="360" fill="#54a0ff" rx="20"/>
+  <text x="400" y="160" font-family="Arial" font-size="20" text-anchor="middle" fill="white" font-weight="bold">CT-LLM Engine</text>
+  <!-- System Steps -->
+  <circle cx="300" cy="220" r="30" fill="#fff"/>
+  <text x="300" y="230" font-family="Arial" font-size="30" text-anchor="middle" fill="#54a0ff">🌐</text>
+  <text x="300" y="270" font-family="Arial" font-size="12" text-anchor="middle" fill="white">Get page elements</text>
+  <circle cx="400" cy="220" r="30" fill="#fff"/>
+  <text x="400" y="230" font-family="Arial" font-size="30" text-anchor="middle" fill="#54a0ff">🧠</text>
+  <text x="400" y="285" font-family="Arial" font-size="12" text-anchor="middle" fill="white">Generate test cases</text>
+  <circle cx="500" cy="220" r="30" fill="#fff"/>
+  <text x="500" y="230" font-family="Arial" font-size="30" text-anchor="middle" fill="#54a0ff">🔄</text>
+  <text x="500" y="270" font-family="Arial" font-size="12" text-anchor="middle" fill="white">Automatically run tests</text>
+  <circle cx="400" cy="320" r="30" fill="#fff"/>
+  <text x="400" y="330" font-family="Arial" font-size="30" text-anchor="middle" fill="#54a0ff">📊</text>
+  <text x="400" y="370" font-family="Arial" font-size="12" text-anchor="middle" fill="white">Generate test report</text>
+  <!-- Output -->
+  <rect x="650" y="250" width="100" height="60" fill="#ff6b6b" rx="10"/>
+  <text x="700" y="285" font-family="Arial" font-size="30" text-anchor="middle" fill="white">📄✅</text>
+  <text x="700" y="330" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Test report</text>
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  <line x1="150" y1="280" x2="210" y2="280" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="580" y1="280" x2="640" y2="280" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <!-- Efficiency Indicators -->
+<text x="400" y="520" font-family="Arial" font-size="24" text-anchor="middle" fill="#4a90e2" font-weight="bold">Fully Automated • Highly Efficient • Accurate and Reliable</text>
+<text x="700" y="150" font-family="Arial" font-size="40" text-anchor="middle" fill="#4a90e2" transform="rotate(15 700 100)">Fast!</text>
+<text x="700" y="550" font-family="Arial" font-size="40" text-anchor="middle" fill="#4a90e2" transform="rotate(-15 750 580)">Smart!</text>
+<text x="100" y="550" font-family="Arial" font-size="40" text-anchor="middle" fill="#4a90e2" transform="rotate(15 50 580)">Auto!</text>
+</svg>

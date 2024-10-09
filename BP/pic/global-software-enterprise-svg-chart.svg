@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 400">
+
+  <rect x="0" y="0" width="430" height="400"  fill="#fff"/>
   <title>Figure 5: Distribution of Global Software and Service Enterprise Sizes in 2020 (Unit: Billion USD)</title>
   
   <!-- Pie chart -->

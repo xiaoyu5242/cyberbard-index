@@ -11,965 +11,928 @@ date [08/2024]
 
 ## 1.1 Introduction
 
-Cyberbard LTD是一家位于 London 的AI初创企业。我们的产品“Cyberbard”通过设计和训练一种先进的测试领域专用AI大模型，可以模仿真实测试人员的技能和操作，让广大测试资源不足的中小软件公司通过我们的平台，自动化完成 End-to-End Testing 的全部步骤，降低测试成本，加快新产品上线速度。
+Cyberbard LTD is an AI startup based in London. Our product "Cyberbard" designs and trains an advanced domain-specific AI large language model for testing, which can mimic the skills and operations of real testers. This allows small and medium-sized software companies with limited testing resources to automate all steps of End-to-End Testing through our platform, reducing testing costs and accelerating the launch of new products.
 
-## 1.2 What’s the current market problem?
+## 1.2 What's the current market problem?
 
-<!-- 介绍发现的市场痛点。1-2个即可，不要写超过3个。 -->
- End-to-End Testing 是软件研发中非常重要的一环。具体来说， End-to-End Testing 是对软件整体的界面，交互进行的测试，需要多个经验丰富的测试人员才能完成，工作包括通过阅读产品文档，分析新增功能，编写测试用例，手动或者通过工具反复运行这些用例找到产品的问题，写测试报告反馈新功能的问题给开发人员。
+End-to-End Testing (hereinafter referred to as E2E Testing) is a crucial part of software development. Specifically, E2E Testing involves testing the overall interface and interactions of the software, which requires multiple experienced testers to complete. The work includes reading product documentation, analyzing new features, writing test cases, manually or automatically running these cases repeatedly to find product issues, and writing test reports to provide feedback on new feature issues to developers.
 
-具体流程如下图所示：
+The specific process is shown in the following diagram:
 
-![QA tools](pic/test_before.png)
+![QA tools](pic/inefficient-functional-testing-visual.svg)
 
-这里面的每一步都非常繁琐耗时，实际操作的时候非常有可能出现疏漏。如果是大型的团队，可以有足够的资源配备大量的人力来测试，或者将整个测试工作外包给第三方来完成。
+Each step in this process is very time-consuming and tedious, with a high likelihood of oversights during actual operation. Large teams can allocate sufficient resources to deploy a large workforce for testing or outsource the entire testing work to third parties.
 
-而为了抓住市场机会，软件产品的迭代速度往往非常之快，而很多中小软件企业主要资源用在新产品的开发上，往往没有足够的测试人员来配合新功能的测试。最后的结果就是，部分中小型公司为了保障产品上线速度，只能忽视 End-to-End Testing 的重要性，或者让其他人员兼职测试，简化甚至省略一些步骤，造成产品质量的下降。
+However, to seize market opportunities, software products often iterate very quickly, and many small and medium-sized software companies focus their main resources on new product development, often lacking enough testers to support new feature testing. As a result, some small and medium-sized companies, in order to ensure product launch speed, can only ignore the importance of E2E Testing, or have other personnel double as testers, simplifying or even omitting some steps, leading to a decline in product quality.
 
-如果有一种工具可以让 End-to-End Testing 尽可能的自动化低成本完成，将会对中小型团队非常有吸引力。
+If there were a tool that could make E2E Testing as automated and low-cost as possible, it would be very attractive to small and medium-sized teams.
 
 ## 1.3 Our solution and USP
 
-<!-- 针对上面发现的痛点提出解决方案以及你的独家卖点（USP） -->
-虽然市面上已经有一些测试工具来实现一定的自动化 End-to-End Testing 能力，但是整体来看依然有很大的改进空间。
+Although there are already some testing tools on the market that achieve a certain level of automated E2E Testing capabilities, there is still significant room for improvement overall.
 
-最常见的解决方案是让测试人员编写某种测试脚本。测试工具通过读取这些脚本可以控制界面的操作。然后，测试工具反复的自动运行这些脚本来进行“功能检测”。但是这样会让脚本的编写成为了一个瓶颈。要求测试人员编写脚本代码会极大提高测试人员的工作量，而且不同的测试工具还有不同的脚本，这些能力并不通用，花了很大精力培养的测试人员，可能换一个测试工具，就又需要重新学习。随后也出现了一些低代码的测试工具，可以通过“录制”等方式来加快脚本编写，但是依然需要测试人员手动操作一遍才能形成脚本。问题是软件产品变化很快，之前花了很多时间录制的脚本，可能因为一个按钮改动，需要批量修改，往往会造成测试人员没有精力修改以前的脚本。也就是说，如果测试资源不足，脚本很容易过时而被废弃。最后，这些测试工具还可能相当复杂和昂贵，需要配套其他软件项目管理软件才能使用，甚至学习如何使用它们都需要专门的人员培训，一般的中小企业也很难负担。
+The most common solution is to have testers write certain test scripts. Testing tools can control interface operations by reading these scripts. Then, the testing tools repeatedly run these scripts automatically to perform "functional detection." However, this makes script writing a bottleneck. Requiring testers to write script code greatly increases their workload, and different testing tools have different scripts, making these skills not universally applicable. After investing a lot of effort in training testers, changing to a different testing tool might require relearning. Subsequently, some low-code testing tools have emerged that can accelerate script writing through methods like "recording," but they still require testers to manually operate once to form a script. The problem is that software products change very quickly, and scripts that took a lot of time to record previously may need batch modifications due to a button change, often causing testers to lack the energy to modify previous scripts. In other words, if testing resources are insufficient, scripts can easily become outdated and abandoned. Finally, these testing tools can be quite complex and expensive, requiring complementary project management software to use, and even learning how to use them may require specialized personnel training, which is often difficult for general small and medium-sized enterprises to afford.
 
-如何让测试资源不足的中小软件企业也能轻松的做好 End-to-End Testing ，最重要的是使用自动化的工具来帮助测试人员自动编写测试用例，生成脚本，并且可以自动维护这写脚本。这样让整个 End-to-End Testing 的所有环节都可以实现自动化。
+To enable small and medium-sized software companies with insufficient testing resources to easily perform good E2E Testing, the most important thing is to use automated tools to help testers automatically write test cases, generate scripts, and automatically maintain these scripts. This allows all aspects of E2E Testing to be automated.
 
-然后，关于软件功能和界面编写测试用例，依然需要测试人员自行阅读产品文档，理解内容来后手动编写，目前还没有相关的工具来减少这部分的工作。
+Then, regarding writing test cases for software functions and interfaces, testers still need to read product documentation themselves, understand the content, and manually write, and currently there are no relevant tools to reduce this part of the work.
 
-现在 AI 大语言模型（后文简称 LLM ）的技术日新月异，让这个以前很少有人研究的问题有了更好的解决方向。 Cyberbard 结合基于创始人多年来和各种规模的产研团队的合作经验，收集了大量测试相关的行业数据，计划训练出一种专门为 End-to-End Testing 人员服务的 LLM ：Cyberbard Tesing LLM（后文简称 CT-LLM ），只需要测试人员使用自然语言提供关于本次新增功能的简单描述，我们的平台就可以自动拆分产品细节，编写测试用例，生成测试脚本，然后自动化运行这些脚本。测试人员要做的就是审核这些脚本，然后等待系统最终的测试报告。当产品有改动的时候，我们的 CT-LLM 也会自动去修改相关脚本，避免测试人员的重复劳动。
+Now, with the rapid development of AI large language models (hereinafter referred to as LLM), there is a better solution direction for this previously under-researched problem. Based on the founders' years of cooperation experience with various scales of product research teams, Cyberbard has collected a large amount of industry data related to testing and plans to train a specialized LLM for E2E Testing personnel: Cyberbard Testing LLM (hereinafter referred to as CT-LLM). Testers only need to provide a simple description of the newly added features using natural language, and our platform can automatically break down product details, write test cases, generate test scripts, and then automatically run these scripts. What testers need to do is review these scripts and then wait for the system's final test report. When the product changes, our CT-LLM will also automatically modify related scripts, avoiding repetitive labor for testers.
 
-优化以后的流程如下：
+The optimized process is as follows:
 
-![QA tools](pic/test_after.png)
+![llm-test-system-visual](pic/llm-test-system-visual.svg)
 
-可以看到，新的流程极大减少了测试人员的工作量。总之，Cyberbard 通过 CT-LLM ，将之前“软件 End-to-End Testing ”最耗时的“编写测试用例”和“生成脚本”的部分进行了自动化，让测试流程的自动化程度进一步提高。这样的话，测试人力资源的不足和对软件质量的担忧也不再成为中小软件公司发展的障碍。产研团队可以集中力量到新产品的迭代，用更低的成本来保证软件质量。
+As can be seen, the new process greatly reduces the workload of testers. In summary, Cyberbard, through CT-LLM, has automated the most time-consuming parts of "E2E Testing" - "writing test cases" and "generating scripts," further increasing the automation level of the testing process. This way, the lack of testing human resources and concerns about software quality no longer become obstacles to the development of small and medium-sized software companies. Product research teams can focus on iterating new products and ensure software quality at a lower cost.
 
 ## 1.4 Feasibility Study
 
-<!-- 可行性研究的内容。商业验证的内容在这里体现。 -->
 ### 1.4.1 Market Feasibility
 
-根据GMI的预测，未来10年全球软件测试行业依然保持7%的年增长率，应用测试自动化市场规模预计到2032年底将超过973亿美元. 其中小微企业数量占比达95%. 根据statista的一份报告，25.60%的小企业的测试人员占比少于10%，26.2%的小企业的测试预算占比少于10%。说明很多中小软件企业需要新的自动化工具来弥补测试资源不足的问题。
+According to GMI's forecast, the global software testing industry will maintain a 7% annual growth rate in the next 10 years, and the market size of application testing automation is expected to exceed $97.3 billion by the end of 2032. Among them, the proportion of small and micro enterprises reaches 95%. According to a report by Statista, 25.60% of small businesses have less than 10% of their staff as testers, and 26.2% of small businesses allocate less than 10% of their budget to testing. This indicates that many small and medium-sized software enterprises need new automation tools to compensate for insufficient testing resources.
 
-目前 Cyberbard 的官网已经开启了等待列表，网页的访客可以在线填写邮箱获取最新的消息，已经有超过1000位测试人员愿意第一时间尝试我们的产品，我们的官方社交媒体上有超过1000人的关注者，官网的介绍blog超过1万人阅读。同时，还有10家公司和我们签订了首批意向合同。很多潜在用户表示，非常期待出现帮助他们节省测试成本的工具。
+Currently, Cyberbard's official website has launched a waiting list, where visitors can fill in their email addresses online to get the latest news. Over 1,000 testers are willing to try our product as soon as possible, we have over 1,000 followers on our official social media, and the introductory blog on our official website has been read by over 10,000 people. At the same time, 10 companies have signed initial intention contracts with us. Many potential users have expressed that they are looking forward to tools that can help them save testing costs.
 
 ### 1.4.2 Technical feasibility
 
-目前基于通用大模型训练专用模型的工具比较成熟，很多的开源工具免费提供，考虑使用开源大模型 LLaMA 等节省成本，只需要普通的但是关于 End-to-End Testing 的相关数据还比较少，预计训练 CT-LLM 需要一定的时间成本，计划使用半年的时间训练完成。 自动化测试工具也比较成熟，可以基于开源工具 selenium 等进行改造，加快MVP研发进度，尽早获得用户反馈。
+Currently, tools for training specialized models based on general large models are quite mature, with many open-source tools provided for free. We are considering using open-source large models like LLaMA to save costs, only requiring ordinary but related data on E2E Testing, which is still relatively scarce. It is estimated that training CT-LLM will take some time, with plans to complete training in half a year. Automated testing tools are also quite mature, and can be modified based on open-source tools like Selenium to accelerate MVP development progress and obtain user feedback as early as possible.
 
-目前已经开始一些技术验证工作，计划半年后 CT-LLM 训练成功，一年内提供MVP，可以小范围为首批尝鲜用户提供服务，针对用户的反馈进行优化。第二年逐渐增加计划中的能力，第1季度发布第一个公开收费版本，提供最基础的功能，包括AI测试用例生成，管理后台，会员计费等功能。平台兼容性方面，首先支持开发者人数比较多的Web平台应用的测试。第三年，在加速商业化的同时，也会投入更多研发力量，继续完善系统。
+Some technical verification work has already begun, with plans to successfully train CT-LLM in half a year and provide an MVP within a year, which can provide services to a small range of early adopters and optimize based on user feedback. In the second year, we will gradually increase the planned capabilities, launching the first public paid version in Q1, providing the most basic functions, including AI test case generation, management backend, and membership billing. In terms of platform compatibility, we will first support testing for Web platform applications, which have a larger number of developers. In the third year, while accelerating commercialization, we will also invest more in research and development to continue improving the system.
 
-总的来说，我们自主训练的 CT-LLM 是我们的产品护城河，随时使用时间的增长， CT-LLM 的性能也将不断提高，一直为我们保持行业领先优势。
+Overall, our self-trained CT-LLM is our product's moat. As time increases, the performance of CT-LLM will continuously improve, always maintaining our industry-leading advantage.
 
 ### 1.4.3 Financial feasibility
 
-本项目主要启动资金来自于创始人的自有存款150000英镑，计划到2024年底主要工作是MPV研发，主要研发人员是创始人自己，第一年主要支出是研发相关，用来开发系统，和训练AI引擎，大概需要74750英镑，研发费用占总开销的93%。第二年版本上市以后，增加一名市场营销专员，计划开始市场营销活动，营销相关开支占到总开支的22%，计划全年发展收费用户3000人以上，收入超过25万英镑。同时计划在第二年达到盈亏平衡点（BEP）。第三年开始增加研发和销售的人数，进入快速扩张和扩大盈利阶段。营销费用占比增加到26%，销售收入突破100万英镑。总体来说，初期投入的资金加上后续的收入可以覆盖整个研发和扩展阶段的使用需求。
+The main startup funding for this project comes from the founder's own savings of £150,000. The main work in Year 1 is planned to be MVP development, with the main R&D personnel being the founder himself. The main expenditure in Year 1 is also related to R&D personnel wages, LLM training data, and hardware-related expenses for training the AI engine. The planned R&D expenses are £69,000, accounting for 85% of total expenses. In Year 2, after the official version is launched, we will begin to expand marketing activities, with marketing-related expenses accounting for 22% of total expenses. We plan to develop over 600 paid users throughout the year, with revenue exceeding £250,000. At the same time, we plan to reach the break-even point (BEP) in the second year. Starting from the third year, we will increase the number of R&D and sales personnel, entering a stage of rapid expansion and increased profitability. Marketing expenses will increase to 26% of the total, with sales revenue breaking through £1 million. Overall, the initial investment funds plus subsequent income can cover the usage needs throughout the research and development and expansion stages.
 
 # 2 COMPANY DETAILS
 
 ## 2.1 Why Choose the UK?
 
-<!-- 说明你为什么来英国开这家公司。你看中了英国的什么？或者说为什么你认为英国跟个适合你来做这个事情。 -->
-英国政府对AI和科技创新的高度重视，以及相关的政策和资金支持，如“Industrial Strategy: Artificial Intelligence Sector Deal”政策，为AI初创企业提供了极大的发展空间和机会。英国有一个稳定且透明的法律体系，保护知识产权，并支持科技创新。
+The UK government's strong focus on AI and technological innovation, along with related policies and financial support, such as the "Industrial Strategy: Artificial Intelligence Sector Deal", provides significant development opportunities for AI startups. The UK has a stable and transparent legal system that protects intellectual property and supports technological innovation.
 
-英国的软件测试公司主要还是传统的大型企业为主，倾向于服务大型集团和制定行业标准，而位于美国硅谷的一些高科技公司，已经开始研究使用最新的AI技术来改造软件测试行业，比方Datadog，katalon等。这一块英国的市场还有很大的市场发展空间。
+Software testing companies in the UK are still predominantly traditional large enterprises, inclined to serve large corporations and set industry standards. Meanwhile, some high-tech companies in Silicon Valley, USA, have already begun researching and using the latest AI technologies to transform the software testing industry, such as Datadog and Katalon. This area still has substantial market development potential in the UK.
 
-所以，Cyberbard选择在英国开展业务，一方面可以利用英国的市场环境稳定长期的发展业务，同时也以填补本地产业的空白。还可以服务英国本地市场为基础，并为英国软件服务行业提供更多的国际竞争力。
+Therefore, Cyberbard's choice to operate in the UK allows us to leverage the stable market environment for long-term business development while filling a gap in the local industry. It also enables us to serve the local UK market as a foundation and provide more international competitiveness for the UK software services industry.
 
 ## 2.2 Why London?
 
-<!-- 说明为什么选择这个城市作为你的公司运营的地点。一般可以从人才、成本、市场等角度来阐述。 -->
-London是世界知名的城市，选择这个城市作为总部，主要因为这里聚集了丰富的专业人才资源。该城市拥有多所知名大学和研究机构，也从全球吸引大量人工智能、数据科学、工程技术等领域的高素质毕业生和行业专家，能够为公司提供强大的人才支持。同时，伦敦作为全球金融中心之一，有大量的孵化器、加速器和创业社区，为初创企业提供了丰富的融资渠道和投资机会。
+London is a world-renowned city, chosen as our company's operational headquarters primarily due to its concentration of rich professional talent resources. The city is home to numerous prestigious universities and research institutions, attracting a large number of high-quality graduates and industry experts in artificial intelligence, data science, and engineering technology from around the world, providing strong talent support for the company. Additionally, as one of the global financial centers, London offers numerous incubators, accelerators, and startup communities, providing ample financing channels and investment opportunities for startups.
 
-同时，相比其他城市，London为初创企业提供了各种各样的办公空间选择，可以用比较低的价格得到比较专业的面向全球市场的形象。该城市的地方政府提供了一系列对初创企业友好的政策支持，如税收减免、创业补贴等，有助于降低运营成本，增强企业的竞争力。
+Compared to other cities, London offers a variety of office space options for startups, allowing for a professional, globally-oriented image at a relatively low cost. The local government provides a series of startup-friendly policy supports, such as tax relief and startup subsidies, which help reduce operational costs and enhance business competitiveness.
 
-Cyberbard 作为一家为企业服务的公司，所在城市本身也是我们的重点市场。London位于关键市场的中心地带，本身也拥有大量的初创软件企业，可以拉近我们与主要客户和合作伙伴的距离，便于开展业务和建立关系。无论是本地市场还是周边地区的市场需求，都能迅速响应和满足。
+As a company serving businesses, Cyberbard's location is also a key market for us. London's position at the center of key markets, with its large number of startup software companies, brings us closer to our main customers and partners, facilitating business operations and relationship building. We can quickly respond to and meet market demands, whether local or in surrounding areas.
 
-London也以宜居的生活质量和多元化，国际化而知名，成为全球人才的交汇点，这和我们的经营理念不谋而合，我们也致力于为全球AI人才提供更多在London发展的机会。
+London is also known for its livable quality of life and its diverse, international character, making it a convergence point for global talent. This aligns perfectly with our business philosophy, as we are committed to providing more opportunities for global AI talent to develop in London.
 
 # 3 Production and Services
 
 ## 3.1 Cyberbard Target Clients
 
-<!-- 公司主要客户的画像。 -->
-Cyberbard 主要面向中小型软件公司和企业。在业务拓展的初期，计划主要目标是挖掘英国本地软件行业的需求。公司所在地伦敦及其附近的城市群本身就有大量的中小软件研发企业。我们计划通过参加本地论坛和展会，预约线下面谈，本地社交媒体等方式来提高在英国本地测试行业的影响力，发展首批客户并验证我们的商业模式，为后续服务全球用户打下基础。
+Cyberbard primarily targets small and medium-sized software companies and enterprises. In the initial business expansion phase, the main focus is on exploring the demands of the UK local software industry. London and its surrounding urban areas, where the company is located, already have a large number of small and medium-sized software development enterprises. We plan to increase our influence in the UK local testing industry, develop our first batch of customers, and validate our business model by participating in local forums and exhibitions, scheduling offline meetings, and utilizing local social media. This will lay the foundation for serving global users in the future.
 
-具体来说，这些企业通常具有以下特点：
+Specifically, these enterprises typically have the following characteristics:
 
-- 员工规模一般不超过20人。这类公司规模较小，内部资源相对有限，尤其在技术和测试领域的人员配置上较为紧张。
-- 年收入通常不超过200万英镑，但是有比较稳定的客户来源，收入水平较为稳健，虽然投入高昂的测试费用上有一定的局限性，但是也有进一步提高软件质量的需求。
-- 行业领域主要集中在软件开发、SaaS、网页应用开发等技术驱动型行业。这些企业通常以开发面向特定市场的创新型软件产品为主。往往需要快速开发产品抢占市场，留给测试的时间和资源比较少。
+- Employee size generally does not exceed 20 people. These companies are relatively small with limited internal resources, especially in terms of personnel allocation in technology and testing areas.
+- Annual revenue usually does not exceed £2 million, but they have relatively stable customer sources and income levels. Although there are limitations in investing in expensive testing fees, there is a need to further improve software quality.
+- Industry sectors mainly focus on software development, SaaS, web application development, and other technology-driven industries. These enterprises typically specialize in developing innovative software products for specific markets. They often need to rapidly develop products to seize market share, leaving less time and resources for testing.
 
-此类企业经常面临以下测试方面的挑战：
+These types of enterprises frequently face the following testing challenges:
 
-- 测试资源匮乏：由于资金和人员限制，这些企业往往没有专门的测试团队，开发人员需要分担测试任务，这不仅影响开发效率，还可能导致测试质量不高。
-- 测试周期长：传统的手动测试或半自动化测试方式，耗时较长，容易导致产品迭代周期拉长，从而错失市场机会。
-- 测试质量参差不齐：由于缺乏系统化的测试方法和工具，导致测试覆盖率不足、测试深度不够，产品可能存在较多的bug和潜在风险。
-- 技术升级的压力：面对快速变化的市场环境，这些企业需要频繁更新和迭代产品功能，然而由于测试流程不完善，常常难以在保证质量的前提下快速发布新版本。
+- Lack of testing resources: Due to financial and personnel constraints, these enterprises often lack dedicated testing teams. Developers need to share testing tasks, which not only affects development efficiency but may also lead to lower testing quality.
+- Long testing cycles: Traditional manual testing or semi-automated testing methods are time-consuming, easily leading to extended product iteration cycles and missed market opportunities.
+- Inconsistent testing quality: Due to the lack of systematic testing methods and tools, test coverage is insufficient and testing depth is inadequate, potentially resulting in numerous bugs and potential risks in the product.
+- Pressure for technological upgrades: Facing rapidly changing market environments, these enterprises need to frequently update and iterate product features. However, due to imperfect testing processes, it's often difficult to release new versions quickly while ensuring quality.
 
-这些中小企业的主要目标是加快产品的上市速度、提升产品的质量、优化开发和测试流程，从而在竞争激烈的市场中保持优势。具体而言：
+The main goals of these SMEs are to accelerate product time-to-market, improve product quality, and optimize development and testing processes to maintain advantages in a competitive market. Specifically:
 
-- 降低开发和测试成本：希望通过引入自动化测试工具减少手动测试的需求，从而降低人力成本和时间成本。
-- 提高产品质量：通过更全面和高效的测试手段，减少产品在发布后的bug数量，提升用户满意度和品牌声誉。
-- 加快产品迭代：希望通过缩短测试周期，能够更快地响应市场需求，实现频繁的版本更新，从而抢占市场先机。
+- Reduce development and testing costs: They hope to reduce manual testing needs by introducing automated testing tools, thereby lowering labor and time costs.
+- Improve product quality: Through more comprehensive and efficient testing methods, reduce the number of bugs after product release, enhancing user satisfaction and brand reputation.
+- Accelerate product iteration: They hope to shorten testing cycles to respond more quickly to market demands, achieving frequent version updates and seizing market opportunities.
 
-在这些企业中，由于公司规模不大，购买决策可能由CTO和CEO共同作出。所以，一方面Cyberbard 需要在技术上有一定的创新，让CTO感觉到独特的技术价值，同时也要在使用上明白直观，让CEO对我们的平台的便利性有直接的体验。
+In these enterprises, due to the small company size, purchasing decisions may be made jointly by the CTO and CEO. Therefore, on one hand, Cyberbard needs to have certain technological innovations to make the CTO feel its unique technical value, while also being clear and intuitive in use, allowing the CEO to have a direct experience of the convenience of our platform.
 
 ## 3.2 How Cyberbard works
 
-<!-- 公司提供的产品/服务的介绍。不用过于详细，但是要说清楚。让阅读BP的人看完这段之后就知道你做的到底是什么。 -->
-近年来，应用程序已经成为我们日常生活中不可或缺的一部分，有数以百万计的应用程序可以通过手机或者电脑使用。随着应用程序在我们日常生活中的重要性日益增加，对于应用程序开发者来说，确保他们的应用程序具有高质量并且对用户来说按预期执行变得越来越重要。
+In recent years, applications have become an indispensable part of our daily lives, with millions of apps available for use on phones or computers. As the importance of applications in our daily lives increases, it becomes increasingly critical for application developers to ensure their apps are of high quality and perform as expected for users.
 
-通常对软件的测试可以划分为3种：单元测试，整合测试和 End-to-End Testing 。前面两种测试和开发人员关系比较密切，已经有一些工具来降低成本。但是 End-to-End Testing 依然需要专业的测试人员来执行和完成，具体分工如下图所示：
+Software testing can typically be divided into three types: unit testing, integration testing, and E2E Testing. The first two types of testing are closely related to developers, and there are already some tools to reduce costs. However, E2E Testing still requires professional testers to execute and complete, as shown in the following diagram:
 
-![QA tools](pic/test_overview.png)
+![software-testing-types-diagram](pic/software-testing-types-diagram.svg)
 
- End-to-End Testing 的主要流程分为以下几个步骤：
+The main process of E2E Testing consists of the following steps:
 
-- 首先需要和产品经理，研发人员充分交流，了解产品的每一个细节；
-- 然后根据掌握的细节来需要编写测试用例，每条用例代表一类用户的可能操作。如果有遗漏，则可能造成软件质量下降；
-- 根据测试用例，编写测试脚本或者直接手动测试，验证每条测试用例。
-- 测试人员记录下测试用例的通过情况，反馈出现问题的用例的操作路径给开发人员修改，并且验证修改结果。
+- First, it's necessary to communicate fully with product managers and developers to understand every detail of the product;
+- Then, based on the details grasped, test cases need to be written, with each case representing a possible operation of a type of user. If there are omissions, it may lead to a decrease in software quality;
+- According to the test cases, write test scripts or perform manual testing directly to verify each test case.
+- Testers record the passing status of test cases, feed back the operation paths of problematic cases to developers for modification, and verify the modification results.
 
-现有的自动化测试工具无法完成上面的过程，我们的自动化工具的目标就是，将上午过程完全自动化，提高测试人员的效率。
-这里通过一个简单的例子来说明 Cyberbard 基本的运作方式。比方我们的产品是一个网站，假设这个网站之前不支持用户登录，这次增加了一个新功能：通过Google方式来登录网站。
+Existing automated testing tools cannot complete the above process. The goal of our automated tool is to fully automate the above process, improving the efficiency of testers.
+Here's a simple example to illustrate the basic operation of Cyberbard. Let's say our product is a website, and assume this website previously did not support user login, but now a new feature has been added: logging into the website via Google.
 
-传统的流程下，测试人员首先需要理解产品需求，手动为这个新功能编写测试用例。这个测试人员可能会增加下以下4条测试用例：
+In the traditional process, testers first need to understand the product requirements and manually write test cases for this new feature. The tester might add the following 4 test cases:
 
-- 在用户浏览器中已经登录了Google账号的情况下，是否可以正常登录。
-- 在用户浏览器中没有任何Google账号登录的情况下，是否可以正常登录。
-- 在用户拒绝Google账号登录授权的情况下，是否可以正常显示错误提示。
-- 登录过程中，在网速不稳定的情况下，是否可以正常显示错误提示。
+- Whether the login is normal when the user's browser is already logged into a Google account.
+- Whether the login is normal when there is no Google account logged in in the user's browser.
+- Whether the error prompt is displayed correctly when the user refuses to authorize Google account login.
+- Whether the error prompt is displayed correctly during the login process under unstable network conditions.
   
-可见，测试人员的工作量随之增加了，不但要测试这4条新的用例，可能之前的添加了“登录”按钮的相关界面也需要回归测试一次，保证没有影响到其他的功能。这个过程非常消耗人和物力，而且基本上靠人工来编写测试用例，对测试人员的要求很高，而且很容易出现测试用例无法覆盖全面的情况，这意味着可能会错过重要的错误和问题。
+It's evident that the workload of testers increases accordingly. Not only do they need to test these 4 new cases, but the previously related interfaces that added the "Login" button may also need to be regression tested to ensure other functionalities are not affected. This process is very consuming in terms of human and material resources, and it basically relies on manual writing of test cases, which places high demands on testers and can easily lead to situations where test cases fail to provide comprehensive coverage, meaning important errors and issues might be missed.
 
-如果使用 Cyberbard 平台，测试人员只需要准备产品文档和一些简单的交互，上述步骤都可以通过平台的 CT-LLM 自动化完成。下面是具体步骤的详细说明和DEMO截图。
+If using the Cyberbard platform, testers only need to prepare product documentation and some simple interactions, and the above steps can be automatically completed through the platform's CT-LLM. Below are detailed explanations of the specific steps and DEMO screenshots.
 
-首先，打开平台的用户后台，这里可以看到所有项目的测试情况
+First, open the platform's user backend, where you can see the testing status of all projects
 
 ![test_01](pic/demo_0.png)
 
-假设我们有一个新的项目要测试，先创建一个新的项目。每一个项目对应一个软件。如果是一个网站，则在这里输入一个网址。
+Suppose we have a new project to test, first create a new project. Each project corresponds to a software. If it's a website, enter a URL here.
 
 ![test_01](pic/demo_1.png)
 
-然后，需要创建一个新的版本，这样可以让不同的版本对应不同的功能，方便以后的项目版本管理。这个界面比较重要，首先，需要传入一些资料让系统能够自动推测这个版本需要测试哪些功能。DEMO中上传了新功能的“产品文档”，当然也可以同时上传“产品使用说明文档”，总之文档越多，越有利于平台的AI引擎推测出更加全面的测试用例。然后，可以用自然语言描述一下需要测试的重点功能，这个是可选的，如果不写则会进行全面的测试。最后写一个版本号（比方3.2），就可以让系统开始推测“测试用例”了。
+Then, you need to create a new version, so that different versions correspond to different features, facilitating future project version management. This interface is quite important. First, you need to input some materials to allow the system to automatically infer which features need to be tested in this version. In the DEMO, the "product documentation" for the new feature was uploaded, and of course, you can also upload "product user manuals" at the same time. In short, the more documents, the more conducive it is for the platform's AI engine to infer more comprehensive test cases. Then, you can describe the key features that need to be tested in natural language, which is optional; if not written, a comprehensive test will be conducted. Finally, write a version number (e.g., 3.2), and the system will start inferring "test cases".
 
 ![test_01](pic/demo_2.png)
 
-下面就是系统的自动推测界面， Cyberbard 会根据前面输入的软件入口（网址），访问相关的界面，收集里面的交互元素和文字，结合上一步上传的文档一起作为素材，推断出整个功能的测试用例，并且推测出每一个测试用例需要点击的路径。
+Below is the system's automatic inference interface. Cyberbard will access the relevant interfaces based on the software entry point (URL) input earlier, collect the interaction elements and text within, and combine them with the documents uploaded in the previous step as materials to infer the test cases for the entire functionality and predict the click path needed for each test case.
 
 ![test_01](pic/demo_3.png)
 
-一切完成以后，会出现下图的界面，列出来引擎推测出来的全部测试用例。
+After everything is completed, the following interface will appear, listing all the test cases inferred by the engine.
 
 ![test_01](pic/demo_4.png)
 
-测试人员可以在这里点击进入每个一测试用例查看自动生成的测试步骤，和测试结果判断条件，界面左边是每条测试用例的操作步骤，右边是每个步骤涉及到的界面的交互元素（使用绿色标识出来的按钮和文字等）。
+Testers can click here to enter each test case to view the automatically generated test steps and test result judgment conditions. The left side of the interface shows the operation steps for each test case, and the right side shows the interface interaction elements involved in each step (buttons and text, etc., marked in green).
 
 ![test_01](pic/demo_5.png)
 
-检查没有问题以后，就可以回到列表页面，点击右边的绿色按钮“Run All Cases”，系统将会自动运行全部测试用例。测试人员只需要等待最终测试报告的完成邮件即可。
+After checking that there are no problems, you can return to the list page and click the green button "Run All Cases" on the right. The system will automatically run all test cases. Testers only need to wait for the completion email of the final test report.
 
 ![test_01](pic/demo_6.png)
 
-从这个例子可以看出来， Cyberbard 平台超过了现有大部分平台的能力，可以在 End-to-End Testing 层面完全做到全流程自动化，基本上可以代替大部分人力的工作，而且测试用的覆盖率可能比传统人工方式更高。整个平台为了自动化的完成任务，使用了很多新的技术和方法，比方识别软件的界面上的文字需要用到Optical Character Recognition（OCR）技术，自动化操纵软件运行测试用例，需要用到Robotic process automation（RPA）技术。但是，最核心最重要的能力，就是需要完成“测试用例”的推导。目前很少有团队在这方面有研究，而这也是本产品的创新点。在后面的章节会详细讲述我们是如何构思的，以及用哪些方面来突破现有技术的限制，实现类似人类的“测试用例”推理能力。
+From this example, it can be seen that the Cyberbard platform exceeds the capabilities of most existing platforms, achieving full process automation at the E2E Testing level, basically replacing most manual work, and potentially achieving higher test coverage than traditional manual methods. To automatically complete tasks, the entire platform uses many new technologies and methods. For example, Optical Character Recognition (OCR) technology is needed to recognize text on software interfaces, and Robotic Process Automation (RPA) technology is required to automatically manipulate software to run test cases. However, the most core and important capability is the need to complete the derivation of "test cases". Currently, few teams have research in this area, which is also the innovation point of this product. Later chapters will detail how we conceived this and which aspects are used to break through the limitations of existing technology to achieve human-like "test case" reasoning capabilities.
 
 ## 3.3 Revenue Model with Pricing Structure
 
-<!-- 收入模型。 一次性收费/订阅费？ 价格区间等信息。 -->
-
-根据市场调研和竞品分析， Cyberbard 的收入模型将采用分级订阅模式（Freemium Model）来平衡用户增长和收入增长。具体包括2个主要收入来源：免费用户、订阅用户。
+Based on market research and competitor analysis, Cyberbard's revenue model will adopt a tiered subscription model (Freemium Model) to balance user growth and revenue growth. It specifically includes two main revenue sources: free users and subscription users.
 
 ### Freemium
 
-目标: 吸引大量用户使用我们的平台，并通过使用过程中逐步引导用户升级到付费版本。
-使用限制:
-人员：无法和别人共享项目。
-测试次数限制: 每月免费用户可以运行一定次数的测试，例如100次。
-并发测试数量: 限制同时运行的测试任务数量，比如最多2个。
-测试时长: 对每次测试的最大运行时长进行限制，例如30分钟。
-功能限制: 免费用户无法使用高级功能，如复杂的集成测试、跨平台测试、以及AI优化功能。
-存储限制: 对测试结果的历史记录进行限制，如只保存最近一个月的测试结果。
-收入来源: 虽然免费用户本身不产生直接收入，但可以通过提示用户升级到付费版本解除限制。
+- Objective: Attract a large number of users to use our platform and gradually guide users to upgrade to paid versions through the usage process.
+Usage restrictions:
+- Personnel: Unable to share projects with others.
+Test count limit: Free users can run a certain number of tests per month, for example, 100 times.
+Concurrent test quantity: Limit the number of simultaneously running test tasks, for example, a maximum of 2.
+- Test duration: Limit the maximum runtime for each test, for example, 30 minutes.
+Feature limitations: Free users cannot use advanced features such as complex integration tests, cross-platform tests, and AI optimization functions.
+Storage limitation: Limit the historical records of test results, such as only saving the test results from the most recent month.
+- Revenue source: Although free users themselves do not generate direct revenue, they can be prompted to upgrade to paid versions to remove limitations.
 
-### 付费订阅
+### Paid Subscriptions
 
-分为入门版，基础版和高级版3个档次，提供更全面的功能和支持。
+Divided into three tiers: Starter, Basic, and Pro versions, providing more comprehensive features and support.
 
 #### Start Plan
 
-月费: 每人£59/月。
-人员：限制1-2人共享同一个项目。
-功能: 提供基本的自动化测试功能，没有测试次数或并发数量限制，但可能仍对测试时长进行一定限制，如每次最多2小时。项目数量1个。
-支持: 提供社区论坛支持。
+- Monthly fee: £59/person/month.
+- Personnel: Limited to 1-2 people sharing the same project.
+- Features: Provides basic automated testing functions, no limitations on test - counts or concurrent quantities, but may still have certain restrictions on test duration, such as a maximum of 2 hours per test. 1 project.
+- Support: Provides community forum support.
 
 #### Basic Plan
 
-月费: 每人£99/月。
-人员：限制1-10人共享同一个项目。
-功能: 提供基本的自动化测试功能，没有测试次数或并发数量限制，项目数量1-10个。提供 API 整合服务，方便集成到现有软件流程中。
-支持: 提供电子邮件支持，但不包含电话或实时聊天支持。工作日48小时内回复。
+- Monthly fee: £99/person/month.
+- Personnel: Limited to 1-10 people sharing the same project.
+- Features: Provides basic automated testing functions, no limitations on test counts or concurrent quantities, 1-10 projects. Provides API integration services for easy integration into existing software processes.
+- Support: Provides email support, but does not include phone or real-time chat support. Replies within 48 hours on working days.
 
 #### Pro Plan
 
-月费: 每人£199/月。
-人员：不限制人数共享同一个项目。
-功能: 无使用限制，全面解锁所有平台功能，包括AI优化、复杂集成测试、跨平台测试等。
-支持: 提供优先支持，包括实时聊天支持。工作日24小时内回复。
-API访问: 允许集成平台API进行自动化测试脚本的远程管理和触发。
+- Monthly fee: £199/person/month.
+- Personnel: No limit on the number of people sharing the same project.
+- Features: No usage restrictions, fully unlocks all platform features, including AI optimization, complex integration testing, cross-platform testing, etc.
+- Support: Provides priority support, including real-time chat support. Replies within 24 hours on working days.
+- API access: Allows integration of platform APIs for remote management and triggering of automated test scripts.
 
-### 未来展望
+### Future Outlook
 
-我们的定价计划主要服务中小企业和团队，希望能用更低的门槛，帮助更多的团队。随着用户基础的扩大和平台功能的提升，收入模型也将逐步优化。我们计划在未来根据市场需求，逐步推出更多有针对性的订阅套餐，以及探索新的收入来源，如允许第三方开发者在我们的平台上销售插件和服务。总之，这个收入模型旨在通过吸引大量免费用户，并逐步将其转化为付费用户，同时开放付费API能力方便用户自助整合到其他系统，从而实现业务的可持续增长。
+Our pricing plans mainly serve small and medium-sized enterprises and teams, hoping to help more teams with a lower threshold. As the user base expands and platform features improve, the revenue model will also be gradually optimized. We plan to gradually introduce more targeted subscription packages in the future based on market demand, and explore new revenue sources, such as allowing third-party developers to sell plugins and services on our platform. In short, this revenue model aims to attract a large number of free users and gradually convert them into paid users, while opening up paid API capabilities to facilitate user self-integration into other systems, thereby achieving sustainable business growth.
 
 # 4 Technology
 
 ## 4.1 System Architecture Overview
 
-<!-- 系统架构的概览。要有架构图。以及配合架构图的较为详细的说明 -->
-为了让产品研发更加高效， Cyberbard 尽可能使用目前已经成熟的技术和框架来实现预期的能力，并且会集中研发资源投入到核心部分“测试领域专用AI推理引擎（ CT-LLM ）”。目标就是使用更少的资源快速开发出原型产品，积极收集用户的反馈，不断调整产品细节，更加靠近用户的需求。的整个平台的框架如下图所示：
+<!-- Overview of the system architecture. Include an architecture diagram and detailed explanations to complement the diagram -->
+To make product development more efficient, Cyberbard uses currently mature technologies and frameworks as much as possible to achieve the expected capabilities, and concentrates research and development resources on the core part "Testing Domain-specific AI Inference Engine (CT-LLM)". The goal is to quickly develop prototype products using fewer resources, actively collect user feedback, continuously adjust product details, and get closer to user needs. The framework of the entire platform is shown in the following diagram:
 
 ![test_01](pic/architechture_product.png)
 
-### 基础层
+### Foundation Layer
 
-最底部的蓝色部分是基础层。这里包含了一些最基础的底座设施。其中的算力平台可以为AI引擎提供GPU算力资源。容器编排能力可以管理和部署容器化的测试环境，让整个平台可以稳定运行在互联网上。负载均衡可以确保大量用户涌入的情况下可以顺畅的使用平台。数据安全能力可以保护用户测试数据和结果的安全。日志系统用来记录系统运行和用户执行的日志，方便排查和回溯运营期间的问题。
+The blue part at the bottom is the foundation layer. This includes some of the most basic infrastructure. The computing platform can provide GPU computing resources for the AI engine. Container orchestration capabilities can manage and deploy containerized test environments, allowing the entire platform to run stably on the internet. Load balancing ensures smooth platform usage even when a large number of users access it. Data security capabilities protect the safety of user test data and results. The logging system is used to record system operation and user execution logs, facilitating troubleshooting and backtracking of issues during operation.
 
-### 服务层
+### Service Layer
 
-往上的绿色部分是服务层。这里面最重要的是 CT-LLM ，使用AI技术辅助测试过程，如生成测试用例、优化测试策略等。这里也是我们平台的重点部分，后面的章节会详细讲述它的基本结构。认证服务处理用户认证和授权。任务调度服务：管理和调度测试任务的执行，可以让已经设置好的任务按照设定反复运行。自动化测试框架：提供底层的自动化测试支持，第一期计划先支持Web应用，使用内置的浏览器引擎来验证测试用例。RPA服务、深度学习、OCR服务，这三个都是使用一些成熟的开源框架来模拟用户操作自动化查找网页的一些互动元素，并且保存起来供后续其他模块的使用。
+The green part above is the service layer. The most important component here is CT-LLM, which uses AI technology to assist in the testing process, such as generating test cases and optimizing test strategies. This is also the key part of our platform, and the basic structure will be described in detail in later sections. Authentication service handles user authentication and authorization. Task scheduling service manages and schedules the execution of test tasks, allowing pre-set tasks to run repeatedly as configured. The automated testing framework provides underlying automated testing support, with plans to support Web applications in the first phase, using a built-in browser engine to verify test cases. RPA service, deep learning, and OCR service all use mature open-source frameworks to simulate user operations, automatically find interactive elements on web pages, and save them for use by other modules.
 
-### 应用层
+### Application Layer
 
-橙色部分是应用层。用户实际使用的每个大功能都对应一个独立的应用，其中的用户管理，测试数据管理，测试项目管理和测试报告生成器都是完成用户操作所必须的能力。“测试脚本生成器”和“测试用例生成器”等能力依托于 CT-LLM ，也是这里面最重要的应用，其效果的好坏直接影响整套系统的可用性。最后，“测试脚本编辑器”包含了方便用户手动调整一些细节的能力，这是相当必要的。随着AI能力的越来越高，需要手动调节的部分也会逐渐减少。“脚本执行器”就是最终在软件界面上执行自动化测试的能力，目前业内已经有一些成熟开源解决方案，比方 Selenium 等，本产品计划直接继承使用它们的一些能力。
+The orange part is the application layer. Each major function actually used by users corresponds to an independent application. User management, test data management, test project management, and test report generator are all necessary capabilities for user operations. The "test script generator" and "test case generator" capabilities rely on CT-LLM and are the most important applications here. Their effectiveness directly affects the usability of the entire system. Finally, the "test script editor" includes the ability for users to manually adjust some details, which is quite necessary. As AI capabilities improve, the parts that need manual adjustment will gradually decrease. The "script executor" is the final capability to execute automated tests on the software interface. There are already some mature open-source solutions in the industry, such as Selenium, and this product plans to directly inherit some of their capabilities.
 
-### 部署方式
+### Deployment Methods
 
-第一期会提供的是SaaS服务，方便用户快速接入和使用。第二期会支持CI/CD整合，方便于其他系统，比方Github，gitlab，Bamboo，Jenkins等系统集成，这样的话用户可以无缝切换到我们的系统，不用离开他们熟悉的环境和系统。未来会支持本地化部署，支持在用户自己的私域环境中部署系统，更加安全可控。未来还会支持更多的平台的软件测试，也计划将现有的能力抽象成API，提供给高级用户，自助整合到自己的系统中去。我们专注提供 End-to-End Testing 相关的核心能力。
+The first phase will provide SaaS services, facilitating quick user access and usage. The second phase will support CI/CD integration, facilitating integration with other systems such as Github, GitLab, Bamboo, Jenkins, etc. This way, users can seamlessly switch to our system without leaving their familiar environment and systems. In the future, we will support local deployment, allowing deployment in users' private environments for enhanced security and control. We also plan to support software testing on more platforms and abstract existing capabilities into APIs, providing them to advanced users for self-integration into their own systems. We focus on providing core capabilities related to E2E Testing.
 
 # 5 Innovation - AI System Design and Implementation
 
-<!-- 创新点。上面的章节应该提到了AI的内容，那么这个章节就重点讲如何在AI这块实现创新。 -->
-上面提到，整个系统中，最重要的部分，就是Cyberbard独创的 CT-LLM ，本章节详细描述我们的设计思路和实现方法，看我们将会如何创新性的将AI技术融合到 End-to-End Testing 的自动化中。
+As previously mentioned, the most critical component of the entire system is Cyberbard’s proprietary **CT-LLM**. This chapter will provide a detailed explanation of our design thinking and implementation approach, showcasing how we innovatively integrate AI technology into the automation of **E2E Testing**.
 
 ## 5.1 Core AI Model and Fine-Tuning for Software Testing
 
-为了让 End-to-End Testing 自动化，首先需要解决的就是能够自动决定需要测试什么内容，以及判断某一个功能是否测试完成，返回成功和失败的结果。在传统的做法中，这些步骤都需要测试人员手动制定。随着技术的发展，人们研发出了很多新的方式来降低每一个环节的成本。目前业内已经开始使用深度学习（DL）和强化学习（RL）技术进行自动化测试。通过学习人类测试员的行为，这些方法旨在生成类似人类的操作和交互，以更全面和有效地测试应用程序的功能。这些方法基于这样一个观点：测试算法执行的操作越接近人类用户的操作，测试就会越全面和有效。尽管如此，基于DL或RL的 End-to-End Testing 方法仍存在一些限制。
+To enable **E2E Testing** automation, the first challenge is to automate the process of deciding what needs to be tested and determining whether a particular function has been successfully tested, returning results of pass or fail. Traditionally, these steps require manual definition by test engineers. With the advancement of technology, new methods have emerged to reduce the cost of each stage. Currently, the industry has begun employing deep learning (DL) and reinforcement learning (RL) technologies for automated testing. By learning from the behavior of human testers, these methods aim to generate human-like actions and interactions to more comprehensively and effectively test the functionalities of an application. The underlying assumption is that the closer the testing algorithm's actions are to those of a real user, the more comprehensive and effective the testing will be. However, there are still limitations to **E2E Testing** methods based on DL or RL.
 
-- 训练算法需要大量的数据，而这些数据很难从现实世界用户交互中收集。这是因为现代应用程序程序的复杂和动态特性，它们可能有数十甚至数百个不同的页面，每个页面都有其自己独特的交互集和可能的用户行为及逻辑。此外，这些方法生成的测试输入与真实用户交互痕迹显著不同，导致测试覆盖率低。
-- 训练算法被设计为从训练数据中学习并进行预测，所以它们可能无法很好地泛化到新的、未见过的情况，因为应用程序在不断演变和更新。
-- 应用程序可能是非确定性的，这意味着每次执行动作的结果可能不总是相同的（例如，从具有最后一个内容的列表中点击“删除”按钮将产生一个空列表，此时删除按钮不再工作），这使得RL算法特别难以学习和做出准确的预测。
+- **Data Requirements**: These algorithms require large amounts of training data, which are often difficult to collect from real-world user interactions. Modern applications are complex and dynamic, potentially involving dozens or even hundreds of different pages, each with its own unique set of interactions and possible user behaviors and logic. Additionally, the test inputs generated by these methods often differ significantly from real user interactions, leading to lower test coverage.
+- **Generalization Issues**: These algorithms are designed to learn and predict from training data, but they may struggle to generalize effectively to new, unseen situations, especially since applications are continuously evolving and updating.
+- **Non-determinism in Applications**: Applications may exhibit non-deterministic behavior, meaning that the outcome of the same action might vary across executions (e.g., clicking a "delete" button in a list of items will result in an empty list after the last item is removed, at which point the delete button no longer functions). This makes it particularly difficult for RL algorithms to learn and make accurate predictions.
 
-因此，迫切需要另一种更有效的方法来生成类似人类的操作，以全面测试种类繁多的应用程序。大型语言模型（ LLM ），如GPT-3/4，已成为自然语言理解和问答的强大工具。LLM在这些模型的最新进展激发了各种研究，这些研究检查了这些模型在软件开发任务中的使用。OpenAI的ChatGPT（通过聊天交互的生成式预训练变换器）拥有数十亿个参数，并且经过了大量数据集的训练，包括测试脚本和错误报告。其在多个领域和主题上的卓越表现展示了LLM理解人类知识并以知识渊博的专家身份与人类互动的能力。受ChatGPT启发，我们提出了 Cyberbard 方案，将 End-to-End Testing 问题表转化为问题和回答（Q&A）任务，即让LLM扮演人类测试员的角色来测试目标应用程序。所以我们在实现过程中存在的主要挑战是需要一个擅长推理“测试用例”等测试相关能力的专业领域大语言模型，也就是前面提到的 CT-LLM 。
+Given these limitations, there is a pressing need for a more effective method to generate human-like actions that can comprehensively test a wide range of applications. **Large Language Models (LLMs)**, such as GPT-3/4, have proven to be powerful tools for natural language understanding and question-answering tasks. Recent advancements in LLMs have spurred various research efforts exploring their use in software development tasks. OpenAI’s **ChatGPT** (a generative pre-trained transformer based on conversational interaction) boasts billions of parameters and has been trained on extensive datasets, including testing scripts and bug reports. Its remarkable performance across multiple domains showcases the ability of LLMs to understand human knowledge and interact as knowledgeable experts in various fields. Inspired by ChatGPT, we propose the **Cyberbard** solution, transforming the **E2E Testing** challenge into a question-and-answer (Q&A) task, where the LLM plays the role of a human tester to test the target application. The key challenge in our implementation lies in developing a specialized domain-specific LLM proficient in reasoning about testing use cases and other testing-related tasks, i.e., the previously mentioned **CT-LLM**.
 
-### 专业模型的必要性
+### The Necessity of a Specialized Model
 
-为什么市面上的通用大模型提供基础服务能力后，还需要测试领域大模型的存在？举个例子：通用大模型好比抽象的交通工具，代表了通用领域能力，不是具象化的交通工具概念。交通工具都可以运送货物，飞机、轮船等是交通工具，但是它们有自己的特点，如果将货物运送到公路边的地方，还是需要汽车更加合适。
+Why is a domain-specific large model for testing necessary, even when general-purpose large models provide basic service capabilities? Let’s take an analogy: a general-purpose large model is like an abstract concept of a vehicle, representing general capabilities without being a specific type of vehicle. Vehicles like airplanes, ships, and cars all transport goods, but each has its own characteristics. If the goods need to be delivered to a location along the highway, a car would be the most appropriate.
 
-测试领域的私域语料丰富，特别是本产品涉及到的“软件测试”的相关数据，是通用大模型难以涉及全面的。下图是 CT-LLM 的整体结构：
+The domain-specific data in the field of testing, especially for "software testing" as it relates to our product, is extensive and specialized, making it difficult for a general-purpose large model to cover comprehensively. The diagram below illustrates the overall structure of **CT-LLM**:
 
 ![QA tools](pic/LLM-3.svg)
 
-### 数据层
+### Data Layer
 
-包括软件测试领域数据和通用领域数据。它们提供了大模型训练和优化的基础数据支持。对于 Cyberbard 来说，软件测试领域数据是至关重要的，也是区分我们和其他产品的重要标志。目前市场上大部分产品都在研究代码相关的“单元测试”数据，很少有 End-to-End Testing 的相关数据来训练。因为，单元测试只需要输入代码，然后返回代码，都是单一的文本到文本的一次性输入，相对容易，但是 End-to-End Testing 需要关联多变的图形化界面和多重操作步骤，很难映射为适合LLM的对话结构。为了解决这个问题，首先，我们会大量筛选需要的测试数据类型，比方产品说明文档，测试用例文档等，尽量覆盖各种软件类型。
-同时我们也会配合一些通用数据来保持基础模型在通用领域的一些固有能力不出现问题。
+Includes data from the software testing domain and general domains. These provide the foundational data support for large model training and optimization. For Cyberbard, software testing domain data is crucial and is an important distinguishing factor from other products. Currently, most products in the market are researching "unit testing" data related to code, with very little data on E2E Testing for training. This is because unit testing only requires inputting code and returning code, which is a one-time text-to-text input and relatively easy. However, E2E Testing requires correlating variable graphical interfaces and multiple operational steps, making it difficult to map into a dialogue structure suitable for LLMs. To address this issue, we will first extensively screen the required types of test data, such as product specification documents, test case documents, etc., aiming to cover various software types.
+At the same time, we will also incorporate some general data to maintain the inherent capabilities of the base model in general domains without causing issues.
 
-### 数据工程层
+### Data Engineering Layer
 
-包括数据构造、数据选择和数据使用。这一层确保数据的高质量和适用性，为大模型的训练提供良好条件。这个工作也非常重要，会在在以后不断完善，积累下来的独特的优良的测试行业微调数据会成为我们的护城河。保证我们产品的最终性能，也让竞争对手难以超越。
+Includes data construction, data selection, and data usage. This layer ensures high quality and applicability of data, providing good conditions for large model training. This work is also very important and will be continuously improved. The accumulated unique and excellent test industry fine-tuning data will become our moat, ensuring the ultimate performance of our product and making it difficult for competitors to surpass.
 
-后面的步骤的效果的好坏，主要在于输入参数的质量的高低，也就是这里准备的数据质量是否足够。目前并没有专门针对 End-to-End Testing 进行微调的大模型，为了更好的微调效果，我们设计了一种结构，将软件界面的元素和操作映射成多轮对话的形式，形成训练数据、验证数据和测试数据。目前数据来源与自己生成的测试用例和网上公开的测试用例数据。
+The effectiveness of the subsequent steps mainly depends on the quality of the input parameters, that is, the quality of the data prepared here. Currently, there are no large models specifically fine-tuned for E2E Testing. For better fine-tuning results, we have designed a structure that maps software interface elements and operations into a multi-round dialogue form, creating training data, validation data, and test data. Currently, the data sources are self-generated test cases and publicly available test case data online.
 
- End-to-End Testing 集应该包含:
+The E2E Testing set should include:
 
-- 软件界面描述:包括界面上的页面信息，文字、按钮、输入框等控件的详细信息。
-- 对应的高质量测试用例:由专业测试人员编写的完整测试用例。
-- 对应的高质量测试脚本:由专业测试人员编写的完整测试脚本。
+- Software interface description: Including page information on the interface, detailed information on text, buttons, input boxes, and other controls.
+- Corresponding high-quality test cases: Complete test cases written by professional testers.
+- Corresponding high-quality test scripts: Complete test scripts written by professional testers.
 
-最后转化为的微调数据结构可以是两种:
-生成测试用例：
+The final fine-tuning data structure can be of two types:
+Generating test cases:
 
-- 输入: 软件界面描述
-- 输出: 对应的测试用例
+- Input: Software interface description
+- Output: Corresponding test cases
 
-生成测试脚本
+Generating test scripts:
 
-- 输入: 对应的测试用例
-- 输出: 对应的测试脚本
+- Input: Corresponding test cases
+- Output: Corresponding test scripts
 
-为了获得足够多样化的数据,我们应该收集不同类型软件的界面和测试用例,包括不同行业的软件界面和产品交互数据。理想情况下,数据集应该包含至少几千个这样的样本对。
+To obtain sufficiently diverse data, we should collect interface and test case data from different types of software, including software interfaces and product interaction data from various industries. Ideally, the dataset should contain at least several thousand such sample pairs.
 
-这个过程也就是“数据构造”。去收集语料集是简单的，但是根据语料集去编写上述高质量的微调数据结构是十分困难且成本不可控的。目前只考虑模型微调的情况下，通常构建微调数据的方法大的方面来说有人工标注和格式化已有数据集。在格式化已有数据集中常见的方式有Self-Instruction和Self-QA等方式。其中Self-Instruction是指根据提前编写好的种子指令，让大模型比如GPT-4去参考种子指令去生成更多的微调数据；如果提前没有种子数据，就可以采用Self-QA方法直接根据非结构化的文档来来生成微调数据。为了保证测试数据都是有效的精选的，人工标注是最好的生产方式，我们有可能自己对这些文档进行人工标注并转换为可用的数据结构，甚至在需要的时候，比方没有足够的数据的时候，我们会根据不同的软件类型编写文档自己生产一些数据。为了控制成本，我们计划两种方式相结合来提高标注效率。
+This process is also known as "data construction". Collecting corpora is simple, but writing high-quality fine-tuning data structures based on these corpora is extremely difficult and cost-uncontrollable. Currently, considering only model fine-tuning, the common methods for constructing fine-tuning data broadly include manual annotation and formatting existing datasets. Common methods in formatting existing datasets include Self-Instruction and Self-QA. Self-Instruction refers to using large models like GPT-4 to generate more fine-tuning data based on pre-written seed instructions. If there is no seed data available, the Self-QA method can be used to generate fine-tuning data directly from unstructured documents. To ensure that all test data is effective and carefully selected, manual annotation is the best production method. We may manually annotate these documents ourselves and convert them into usable data structures. When necessary, such as when there is insufficient data, we will write documents and produce some data ourselves based on different software types. To control costs, we plan to combine both methods to improve annotation efficiency.
 
-在构建好微调数据之后就需要进行“数据选择”。数据选择就是在微调数据中选择最适合模型训练的数据子集作为最终的训练数据集。数据选择中目前常见的做法就是通常首先要先进行数据去重，然后基于Nuggets方法来实现最优数据集的选择。这个方法有三个输入分别是：一个大模型，用来评估数据好坏；Predefined Task Set 用来辅助评估数据好坏；Instruction Set就是等待筛选的大数据集。输出目标就是Instruction Set的优秀子集，被称为Golden Set。它认为，如果一条数据作为one-shot的那个shot，即作为一条例子作为参考，能使得大模型有这个参考后，比zeroshot提升很多，就认为这是一条高质量的数据。
+After constructing the fine-tuning data, "data selection" is needed. Data selection involves choosing the most suitable data subset from the fine-tuning data as the final training dataset. In data selection, the current common practice is to first perform data deduplication, and then use the Nuggets method to select the optimal dataset. This method has three inputs: a large model to evaluate data quality; a Predefined Task Set to assist in evaluating data quality; and an Instruction Set, which is the large dataset waiting to be screened. The output goal is an excellent subset of the Instruction Set, called the Golden Set. It believes that if a piece of data serves as the one-shot in that shot, i.e., as an example for reference, and can significantly improve the large model's performance compared to zero-shot, it is considered high-quality data.
 
-“数据使用”的主要工作就是保证在训练和迭代中调整数据配比，根据实际情况进一步优化数据，防止出现灾难性遗忘。
+The main work of "data usage" is to ensure the adjustment of data proportions during training and iteration, further optimizing data based on actual situations, and preventing catastrophic forgetting.
 
-### 大模型层
+### Large Model Layer
 
-本层是平台实现能力的重点能力模块，相当于系统的大脑。原始数据通过本层的学习和优化，形成了对各种软件界面都可以生成测试用例和测试脚本的能力。
+This layer is the key capability module for platform implementation, equivalent to the brain of the system. Through learning and optimization in this layer, raw data forms the ability to generate test cases and test scripts for various software interfaces.
 
-#### 基础模型
+#### Base Model
 
-为 CT-LLM 选择合适的基础模型是非常必要的。没有好的通识知识，后期的专业数据的微调也会很难达到预期目的。就像一个文盲，不会读书写字，再怎么教他专业知识，他也是学不会的。在选择基座模型进行垂直领域微调时，需要综合考虑模型性能、规模、社区支持与文档、可扩展性与兼容性、训练数据的适用性、训练与推理效率、安全以及成本等多个因素。
-考虑到测试行业的特点，我们的要求会聚焦在，要能比较好的理解文字中的语法和比较强的推理能力。目前排名比较靠前的开源LLM引擎都比较符合我们的要求。比方ChatGLM3-6B-Base，有足够的预训练数据，良好的开发社区和扩展能力，有商用授权，和现有的开发框架结合较好。具体的选择还需要进一步的对比评测才能确定。
+Choosing a suitable base model for CT-LLM is essential. Without good general knowledge, it will be difficult to achieve the expected goals with later fine-tuning of professional data. It's like an illiterate person who can't read or write; no matter how much professional knowledge you teach them, they won't be able to learn. When choosing a base model for vertical domain fine-tuning, multiple factors need to be comprehensively considered, including model performance, scale, community support and documentation, scalability and compatibility, applicability of training data, training and inference efficiency, security, and cost.
 
-选择了基础模型以后，下一步就是对基础模型进行微调。不同的专业场景面有不要的要求，比方有的要求信息新且大量，有的要求能输出某种特定风格的句子。不同的要求对技术的选型也不同，一般来说，提高某个专业领域的能力，有三种方式来实现，分别是：提示工程，RAG，微调。
+Considering the characteristics of the testing industry, our requirements will focus on the ability to understand grammar in text relatively well and have strong reasoning capabilities. Currently, the top-ranked open-source LLM engines generally meet our requirements. For example, ChatGLM3-6B-Base has sufficient pre-training data, a good development community and expansion capabilities, commercial authorization, and integrates well with existing development frameworks. The specific choice still needs further comparative evaluation to determine.
 
-- 提示工程使用相对简单，灵活，成本低，但是非常依赖基础大模型，对于高度专业化的信息效果不确定。
-- RAG 方式优点是可以随时整合外部最新的信息进行输出，适合信息的整理和快速索引，但是不适合整体性的修改模型的风格和推测能力。
-- 微调方式适合融合领域知识进行推理的场合，虽然训练相对复杂，但是更加适合我们的产品。
+After selecting the base model, the next step is to fine-tune it. Different professional scenarios have different requirements; for example, some require new and large amounts of information, while others require the ability to output sentences in a specific style. Different requirements also lead to different technology selections. Generally speaking, there are three ways to improve capabilities in a specific professional field: prompt engineering, RAG, and fine-tuning.
 
-现在有很多种不同的微调方式。基于 End-to-End Testing 领域，专有数据并不多的情况下，同时我们还希望尽量保留基础模型的推理能力。LoRA方式的微调是我们的首选方案，其他的方式会作为配合使用。一方面是它在小数据的情况下的效果非常好，一方面它更加低的训练中内存使用量和更快的训练时间。特别是在新的领域中，新的训练数据会不断补充进来提高模型的性能，全参数调整效率太低，LoRA微调可以让我们的产品性能迭代更加快速，适应市场的变化。
+- Prompt engineering is relatively simple to use, flexible, and low-cost, but it is highly dependent on the base large model and has uncertain effects for highly specialized information.
+- The RAG method has the advantage of being able to integrate the latest external information for output at any time, suitable for information organization and quick indexing, but not suitable for overall modification of the model's style and inference capabilities.
+- The fine-tuning method is suitable for situations that require integrating domain knowledge for reasoning. Although training is relatively complex, it is more suitable for our product.
 
-在针对垂域大模型搭建的过程中完整的流程一般为继续预训练，有监督微调，对齐微调，人类反馈强化学习（Reinforcement learning from human feedback）等。
-继续预训练需要大量的语料库，不适合 End-to-End Testing 的场景。根据实践，一般来说有“监督微调”加上“对齐微调”就可以达到一个比较好的表现。下面主要说一下微调方案的实现。
+There are now many different fine-tuning methods. Based on the E2E Testing domain, where proprietary data is not abundant, and we still hope to retain the reasoning ability of the base model as much as possible, the LoRA method of fine-tuning is our preferred solution, with other methods used as supplements. On one hand, it performs very well in small data scenarios, and on the other hand, it uses less memory during training and has faster training times. Especially in new fields where new training data will be continuously supplemented to improve model performance, full parameter adjustment is too inefficient. LoRA fine-tuning allows our product performance to iterate more quickly, adapting to market changes.
 
-#### 微调模型
+In the process of building a domain-specific large model, the complete process generally includes continued pre-training, supervised fine-tuning, alignment fine-tuning, and reinforcement learning from human feedback.
+Continued pre-training requires a large corpus, which is not suitable for the E2E Testing scenario. According to practice, generally speaking, "supervised fine-tuning" plus "alignment fine-tuning" can achieve a relatively good performance. The following mainly describes the implementation of the fine-tuning solution.
 
-目前主要流行的微调的有 Lora（Low-Rank Adaptation）和Prompt Tuning v2等。 LoRA 是一种通过引入低秩矩阵的方式来微调预训练模型的方法。它通过对预训练模型中的部分参数（通常是注意力层中的投影矩阵）进行低秩近似，从而显著减少微调时的参数量。这种方法允许对大模型进行高效微调，而不需要调整模型的全部参数。 同时，LoRA 的优点在于它不改变原始模型的结构，并且通过低秩矩阵的引入，只需保存额外的参数矩阵，而非整个模型参数。因此，它是一种非常有效的参数高效微调方法。所以，Lora 比较适合本产品在现阶段的要求。
+#### Fine-tuning Model
+
+Currently, the main popular fine-tuning methods include Lora (Low-Rank Adaptation) and Prompt Tuning v2. LoRA is a method of fine-tuning pre-trained models by introducing low-rank matrices. It performs a low-rank approximation of some parameters in the pre-trained model (usually the projection matrices in attention layers), thereby significantly reducing the number of parameters during fine-tuning. This method allows efficient fine-tuning of large models without adjusting all of the model's parameters. At the same time, the advantage of LoRA is that it does not change the structure of the original model, and by introducing low-rank matrices, it only needs to save additional parameter matrices rather than the entire model parameters. Therefore, it is a very effective parameter-efficient fine-tuning method. So, Lora is more suitable for the requirements of this product at the current stage.
 
 ![QA tools](pic/lora.png)
 
-在大规模语言模型（LLM）的微调过程中，LoRA（Low-Rank Adaptation of Large Language Models）算法是一种非常有效的技术。LoRA通过将原始的权重矩阵的微调过程限制在低秩子空间中，来减少模型参数的数量，同时保持较高的性能。正如图中所示，LoRA 的核心思想是通过两个小矩阵 W(a) 和 W(b) 的乘积来近似表示原始权重矩阵，通过这种方式来显著减少了参数量。
-LoRA 的有效性主要来源于以下两个方面：
+In the fine-tuning process of large-scale language models (LLMs), the LoRA (Low-Rank Adaptation of LLM) algorithm is a very effective technique. LoRA reduces the number of model parameters while maintaining high performance by constraining the fine-tuning process of the original weight matrix to a low-rank subspace. As shown in the figure, the core idea of LoRA is to approximate the original weight matrix through the product of two small matrices W(a) and W(b), significantly reducing the number of parameters in this way.
+The effectiveness of LoRA mainly comes from the following two aspects:
 
-- **低秩近似**：在实际的大规模神经网络中，权重矩阵的变化通常是低秩的，也就是说，这些变化可以用少量的信息进行有效表达。低秩近似利用了这一点，通过对矩阵的秩进行限制，减少了参数的数量，同时保留了主要的变化信息。
+- **Low-rank approximation**: In actual large-scale neural networks, changes in weight matrices are usually low-rank, meaning these changes can be effectively expressed with a small amount of information. Low-rank approximation takes advantage of this by limiting the rank of the matrix, reducing the number of parameters while retaining the main change information.
 
-- **优化过程**：由于 W(a) 和 W(b) 都是小矩阵，相比直接微调完整的权重矩阵，优化这两个矩阵所需的计算资源更少。此外，由于微调是在低秩子空间中进行的，这也有助于防止过拟合，保持模型的泛化能力。
+- **Optimization process**: Since W(a) and W(b) are both small matrices, optimizing these two matrices requires fewer computational resources compared to directly fine-tuning the complete weight matrix. Moreover, since fine-tuning is performed in a low-rank subspace, this also helps prevent overfitting and maintains the model's generalization ability.
 
-上图的左侧是传统的LLM模型中的某一层，LLM包含非常多的层，每个层中也包含了通过实验可以发现，LoRA 通常在模型微调时被用于 Transformer 模型的自注意力（Self-Attention）机制中，尤其是在查询 W(q) 和值 W(v) ，有时也在键 W(k)。这种选择背后有几个原因，主要涉及到模型效率、特定层的作用以及对最终性能的影响，具体说来有下面几个方面：
+The left side of the above figure is a certain layer in a traditional LLM model. LLM contains many layers, and each layer also includes experiments that can be found. LoRA is usually used in the self-attention mechanism of the Transformer model during model fine-tuning, especially in the query W(q) and value W(v), sometimes also in the key W(k). There are several reasons behind this choice, mainly involving model efficiency, the role of specific layers, and the impact on final performance, specifically in the following aspects:
 
-- 参数效率：微调时关注于最能影响模型输出和性能的部分。W(q) 和 W(v) 直接影响到注意力权重的计算和最终的输出表示，因此在这些层上进行调整可以更直接地改变模型的行为。
-- 影响信息选择：通过调整 W(q)，可以影响模型如何选择信息（即，它“注意”哪些信息），而通过调整 W(v)，可以影响一旦选择了某些信息，模型如何利用这些信息。W(k) 主要影响的是信息的匹配方式，而在许多情况下，调整 W(q) 和 W(v) 已足够引导模型关注到更有用的信息上。
-- 计算效率：虽然LoRA的目的是通过低秩更新提高参数效率，但在所有层上应用这种更新仍会增加额外的计算负担。因此，从中间挑选对最终性能影响最大的层进行调整可以在增加最小计算成本的同时获得最大的性能提升。
-- 实验和经验：实际应用中的经验和研究表明，在Q和V层上应用LoRA微调通常能够有效改善特定任务的性能。这可能是因为这些层在模型中扮演着关键角色，对输出的影响较大。
+- Parameter efficiency: Fine-tuning focuses on the parts that can most influence model output and performance. W(q) and W(v) directly affect the calculation of attention weights and the final output representation, so adjustments to these layers can more directly change the model's behavior.
+- Influence on information selection: By adjusting W(q), the model's method of selecting information can be influenced (i.e., what information it "pays attention to"), and by adjusting W(v), how the model utilizes this information once it's selected can be influenced. W(k) mainly affects the way information is matched, and in many cases, adjusting W(q) and W(v) is sufficient to guide the model to focus on more useful information.
+- Computational efficiency: Although the purpose of LoRA is to improve parameter efficiency through low-rank updates, applying this update to all layers would still increase additional computational burden. Therefore, selecting layers from the middle that have the greatest impact on final performance for adjustment can achieve the maximum performance improvement while adding minimal computational cost.
+- Experiments and experience: Experience and research in practical applications show that applying LoRA fine-tuning on Q and V layers can usually effectively improve performance for specific tasks. This may be because these layers play a key role in the model and have a greater impact on the output.
 
-#### 奖励模型训练
+#### Reward Model Training
 
-为了进一步提高生成测试用例的质量,我们可以训练一个奖励模型来评估生成的测试用例。这个过程包括:
+To further improve the quality of generated test cases, we can train a reward model to evaluate the generated test cases. This process includes:
 
-- 训练奖励模型:这是我们的主要手段，使用收集到的大部分评分数据,使用一个我们独创的算法来预测测试用例的质量分数。
-- 收集人工评分数据:作为一个提高准确性的辅助手段，让测试专家对一部分生成的测试用例进行评分,评分标准可以包括覆盖率、可执行性、有效性等。
-- 强化学习微调:使用训练好的奖励模型来指导主模型的进一步优化,鼓励生成高质量的测试用例。
+- Training the reward model: This is our main approach, using most of the collected scoring data and our proprietary algorithm to predict the quality scores of test cases.
+- Collecting manual scoring data: As a supplementary means to improve accuracy, have test experts score a portion of the generated test cases. Scoring criteria can include coverage, executability, effectiveness, etc.
+- Reinforcement learning fine-tuning: Use the trained reward model to guide further optimization of the main model, encouraging the generation of high-quality test cases.
 
-### 评测层
+### Evaluation Layer
 
-每一层有对应的评测要求，数据层主要是针对数据质量的评估，数据工程层中则是针对数据配比和训练数据进行评估，大模型层包括测试领域和通用测评集，也会自建测评集。应用效果的测评是需要厘清业务收益和业务效果。通过全面的评测，确保大模型在实际应用中的有效性和可靠性。
+Each layer has corresponding evaluation requirements. The data layer mainly focuses on assessing data quality, while the data engineering layer evaluates data proportions and training data. The large model layer includes test domain and general evaluation sets, and we will also build our own evaluation sets. Evaluating application effects requires clarifying business benefits and business results. Through comprehensive evaluation, we ensure the effectiveness and reliability of the large model in practical applications.
 
-为了评估模型的性能,我们可以设计以下评测方案:
+To assess the model's performance, we can design the following evaluation plan:
 
-- 自动化指标:
+- Automated metrics:
 
-BLEU分数:比较生成的测试用例与人工编写的测试用例的相似度。
-覆盖率分析:评估生成的测试用例对软件功能的覆盖程度。
-语法正确性:检查生成的测试用例在语法上是否正确。
+BLEU score: Compare the similarity between generated test cases and manually written test cases.
+Coverage analysis: Evaluate the coverage of generated test cases for software functionality.
+Grammatical correctness: Check if the generated test cases are grammatically correct.
 
-- 人工评估:
+- Manual evaluation:
 
-可执行性:测试人员尝试执行生成的测试用例,评估其可执行性。
-有效性:评估测试用例是否能发现潜在的软件缺陷。
-创新性:评估模型是否能生成一些人类测试人员可能忽略的测试场景。
+Executability: Testers attempt to execute the generated test cases and evaluate their executability.
+Effectiveness: Assess whether the test cases can discover potential software defects.
+Innovativeness: Evaluate whether the model can generate some test scenarios that human testers might overlook.
 
-- 实际应用测试:
+- Practical application testing:
 
-在真实的软件测试项目中使用该模型,比较使用模型前后的测试效率和缺陷发现率。
+Use the model in real software testing projects, comparing testing efficiency and defect detection rates before and after using the model.
 
 ## 5.2 Automatic Testing With AI
 
-通过上面的步骤训练出 CT-LLM 以后，配合平台的其他服务和模块，就可以完成自动化的 End-to-End Testing ，具体的流程如下图所示：
+After training the CT-LLM through the steps outlined above, combined with the platform's other services and modules, the automation of E2E Testing can be achieved. The specific process is illustrated in the diagram below:
 
 ![test_01](pic/looper.png)
 
-Cyberbard 通过两种循环的操作来完成一个一个的测试用例，并且不断执行，直到最后完成整个自动化的 End-to-End Testing 过程任务。
+Cyberbard executes each test case through two iterative loops, continuously running until the entire E2E Testing process is completed.
 
-首先，在内层循环中，系统的主要任务是检测本次 End-to-End Testing 需要测试的下一个功能是什么，然后拆分出测试用例，完成一个测试用例则执行下一个，直到所有的功能都覆盖到，退出循环。我们的主要操作就是构建了一个“测试状态记忆器”来记录所有详细的交互测试信息，例如探索的页面和控件。在此过程中，记忆器还存储了测试的功能级进度，例如正在测试哪个功能，这是通过循环询问“专用引擎”进行明确推理来实现的。要注意的是，图中的“上下文信息”不但有外循环传过来的UI信息，每次测试的记录，已经完成的部分，也包含了最开始测试人员用自然语言描述的一些功能的提示。我们还设计了一套promput的语言模板，将这些“上下文信息”每次都可以通过固定的格式输入“专用引擎”，使它能够保留整个测试的知识并进行长期推理。
+First, in the inner loop, the system's primary task is to identify the next feature to be tested in the E2E Testing process. It then breaks down the feature into individual test cases, executing one test case at a time, until all features are covered, at which point the loop ends. Our key approach involves building a "Test State Memory" that records all detailed interaction testing information, such as explored pages and controls. During this process, the memory also stores progress at the functional level, such as which feature is currently being tested. This is achieved through a loop that queries the "dedicated engine" for precise reasoning. It is important to note that the "context information" in the diagram includes not only the UI information passed from the outer loop and the records of each test, but also completed portions and initial functional hints described in natural language by the tester. We also designed a prompt language template, allowing this "context information" to be input into the "dedicated engine" in a fixed format each time, enabling it to retain knowledge of the entire test and perform long-term reasoning.
 
-然后，外层循环主要目的是通过推测出每一步的操作完成一个测试用例。完成这个过程需要和“待测试软件”进行交互，所以需要其他服务的配合，首先，通过OCR技术扫描软件界面，提取当前UI页面的UI上下文信息。这种方式可以无需关注“待测试软件”的具体框架，也无需得到软件的代码，是最模仿软件测试人员的一种工作方式。下一步，将获取到的UI元素通过设计好的模版编码成“专用引擎”的Prompt提示，然后验证反馈的下一步操作，如果不成功则继续重新反馈，如果成功则执行反馈答案中包含的可以执行的测试脚本。也就是通过PRA来控制“待测试软件”的界面自动执行脚本。整个过程不断循环，直到当前测试用例测试完成，然后等待“内层循环”给出的下一个指示。
+Next, the outer loop's main purpose is to complete a test case by inferring the necessary steps. To do so, the system must interact with the "software under test," which requires collaboration with other services. First, OCR technology is used to scan the software interface and extract the UI context information of the current UI page. This approach allows the system to operate without needing to focus on the specific framework of the "software under test," nor does it require access to the software’s code. It closely mimics the work of a software tester. The next step is to encode the extracted UI elements into a prompt for the "dedicated engine" using a pre-designed template, and then verify the feedback for the next step. If unsuccessful, the system provides new feedback; if successful, it executes the test script contained in the feedback response. PRA is used to control the interface of the "software under test" and automatically execute the script. This process continues in a loop until the current test case is completed, after which it waits for the next instruction from the "inner loop."
 
-这样迭代整个过程。 在双循环的作用下，整个“待测试软件”的功能会逐一被覆盖。第一次执行可能会耗时比较久，以后软件功能升级的时候，系统会从历史数据中对新扫描到的UI元素进行优先推理，同时也会将旧的相关元素进行重新扫描，如果判断有影响到旧功能，也会重新自动执行相关循环，最后将改动记录到对应的“测试用例”和“测试脚本”中。整个过程基本上不需要测试人员的参与，最后只需要查看生成的测试报告即可。
-
-<!-- ## 5.3 Platform R&D Structure
-
-这部分感觉其他已经包含了。 -->
+This iterative process ensures that the entire functionality of the "software under test" is progressively covered. The initial execution may take longer, but as the software is upgraded, the system prioritizes reasoning on newly scanned UI elements based on historical data. It also rescans older related elements, and if it determines that there are impacts on previous functionality, it automatically re-executes the relevant loops. Changes are then recorded in the corresponding "test cases" and "test scripts." This entire process requires minimal involvement from the testing personnel, who only need to review the generated test report in the end.
 
 ## 5.3 The Final Production Technology Pathway
 
-本章节将详细描述基于 Cyberbard 的核心能力 CT-LLM 的研发计划。整个研发计划分为三年时间，每个阶段的目标明确，并且研发进度按季度细分，以确保产品能够稳步推进，逐步升级 CT-LLM 的可靠性和专业性。
+This section will describe in detail the R&D plan based on Cyberbard's core capability, CT-LLM. The entire R&D plan is structured over three years, with clear goals for each phase and progress broken down quarterly to ensure steady product development and gradual upgrades in CT-LLM's reliability and professionalism.
 
-1. 第1季度（0-3个月）
-   - 技术调研与需求分析：针对 CT-LLM 的具体需求，确定基础模型，深入研究当前主流的大模型微调技术，包括各种微调方法的分析。分析业务场景对微调模型的需求，明确微调模型需要解决的核心问题。
-   - 数据收集与预处理：收集目标业务场景中的测试数据，并进行数据清洗和标注，形成高质量的训练数据集。设计数据增广策略以增强模型的泛化能力。
-   - 原型设计：根据需求分析和数据特点，设计微调模型的架构，明确模型的输入输出形式和主要调优参数。
-2. 第2季度（3-6个月）
-   - 原型开发：发微调模型的初步原型，针对自动化测试任务，尝试不同的微调参数。实验不同的模型架构以验证其在目标任务上的有效性。
-   - 初步测试与评估：对模型原型进行初步测试，评估模型在小规模数据集上的性能，并根据测试结果进行初步优化。
-   - 文档与代码管理：完成原型开发的相关技术文档编写，并建立代码管理和版本控制流程。
-3. 第3季度（6-9个月）
-   - 模型优化与扩展：基于第一阶段的原型，继续优化模型的微调策略，并扩大训练数据集。探索使用迁移学习和多任务学习来提高模型的泛化能力和在不同测试场景中的表现。
-   - 测试版发布准备：完善测试版的模型，集成到 CT-LLM 中，确保模型能够与平台的其他功能模块无缝协作。准备好测试版发布的相关文档，包括用户指南和技术白皮书。
-   - Trail用户招募与支持：发布测试版，开始招募trail用户。建立用户支持渠道，包括技术支持和反馈收集机制。
-4. 第4季度（9-12个月）
-   - 用户反馈收集与分析：收集trail用户的反馈，分析模型在实际应用中的表现。识别模型的不足之处，并记录用户对模型功能和性能的需求。
-   - 模型迭代与优化：根据用户反馈和使用数据，对微调模型进行迭代优化。包括调整模型参数、改进微调策略以及增强模型的可解释性和易用性。
-   - 测试版评估报告：编写测试版的评估报告，总结模型在试用期间的表现，确定下一步的优化方向。
-5. 第5季度（第2年1-3个月）
-   - 1.0版本开发与优化：基于前一年的研发成果，完成微调模型的最终优化。解决测试版中出现的关键问题，进一步提升模型的稳定性和性能。
-   - 正式发布准备：制定1.0版本的发布计划，准备市场推广材料和技术支持文档。与平台的其他模块团队协作，确保1.0版本的发布顺利进行。
-6. 第6季度（第2年4-6个月）
-   - 1.0版本发布：正式发布微调模型的1.0版本，向所有用户开放。通过社交网络、网络推广和行业交流等方式进行市场推广，吸引更多用户使用平台。
-   - 用户文档与技术支持：完善用户文档，帮助用户更好地理解和在实际场景中使用Cyberbard。建立长期的用户反馈机制，以便持续改进。
-7. 第7-8季度（第2年7-12个月）
-   - 持续优化与新功能开发：根据用户反馈和市场需求，对微调模型进行持续优化。探索新的微调技术，开发新功能，保持产品的竞争力和创新性。
-   - 扩展应用场景：针对不同的业务场景，扩展微调模型的应用范围，开发专门针对特定平台的模型。增加平台能力的调用方式方便用户自助集成。
-8. 第9-12季度（第3年1-12个月）
-   - 版本更新与维护：持续监控微调模型在用户中的表现，定期发布更新版本，修复已知问题并提升模型性能。
-   - 新技术探索：跟踪AI领域的最新研究进展，探索前沿的微调技术，并将其应用于产品中，保持技术领先性。
-   - 商业拓展与合作：积极拓展市场，与不同行业的企业合作，推动 CT-LLM 在更多应用场景中的落地。打造技术开放平台，开放AI能力给第三方，寻求与其他技术供应商的合作，提升产品的生态系统价值。
+1. **Q1 (Months 0-3)**
+   - **Technical Research and Requirements Analysis**: Identify the foundational model for CT-LLM based on specific requirements, and conduct in-depth research on the current mainstream large model fine-tuning techniques, including analysis of various fine-tuning methods. Analyze business scenarios to clarify the fine-tuned model's core problems to be addressed.
+   - **Data Collection and Preprocessing**: Collect test data from target business scenarios, perform data cleaning and labeling to create a high-quality training dataset. Design data augmentation strategies to enhance the model’s generalization capability.
+   - **Prototype Design**: Based on the requirements analysis and data characteristics, design the architecture for the fine-tuned model, defining the input-output structure and key tuning parameters.
 
-通过上述三个阶段的研发计划，CT-LLM 中的微调模型将在第一年完成基础技术研究与原型开发，第二年发布1.0正式版本并进行持续优化，第三年则专注于市场拓展与技术创新。该计划的实施将确保产品在技术层面具有领先性，同时满足市场需求，最终实现商业化成功。
+2. **Q2 (Months 3-6)**
+   - **Prototype Development**: Develop the initial prototype of the fine-tuned model, testing various fine-tuning parameters for automation testing tasks. Experiment with different model architectures to validate their effectiveness in the target tasks.
+   - **Initial Testing and Evaluation**: Conduct preliminary tests on the prototype, evaluating its performance on a small-scale dataset and making initial optimizations based on the test results.
+   - **Documentation and Code Management**: Complete technical documentation related to prototype development and establish a code management and version control process.
+
+3. **Q3 (Months 6-9)**
+   - **Model Optimization and Expansion**: Continue optimizing the fine-tuning strategy based on the initial prototype and expand the training dataset. Explore the use of transfer learning and multi-task learning to improve the model’s generalization capability and performance in different testing scenarios.
+   - **Beta Release Preparation**: Finalize the beta version of the model, integrating it into CT-LLM to ensure seamless collaboration with other functional modules on the platform. Prepare documentation for the beta release, including user guides and a technical whitepaper.
+   - **Trial User Recruitment and Support**: Release the beta version and begin recruiting trial users. Establish user support channels, including technical support and feedback collection mechanisms.
+
+4. **Q4 (Months 9-12)**
+   - **User Feedback Collection and Analysis**: Gather feedback from trial users and analyze the model’s performance in real-world applications. Identify weaknesses in the model and record user requirements for additional functionality and performance.
+   - **Model Iteration and Optimization**: Iterate and optimize the fine-tuned model based on user feedback and usage data, including adjusting model parameters, improving fine-tuning strategies, and enhancing the model’s interpretability and usability.
+   - **Beta Evaluation Report**: Write an evaluation report summarizing the model’s performance during the beta period and outlining the next steps for optimization.
+
+5. **Q5 (Year 2, Months 1-3)**
+   - **1.0 Version Development and Optimization**: Based on the results of the previous year’s R&D, complete the final optimization of the fine-tuned model. Address key issues identified during the beta phase and further enhance the model’s stability and performance.
+   - **Final Release Preparation**: Develop a release plan for version 1.0, preparing marketing materials and technical support documentation. Collaborate with teams responsible for other platform modules to ensure a smooth launch of version 1.0.
+
+6. **Q6 (Year 2, Months 4-6)**
+   - **1.0 Version Release**: Officially release version 1.0 of the fine-tuned model, making it available to all users. Promote the platform through social media, online marketing, and industry events to attract more users.
+   - **User Documentation and Technical Support**: Complete the user documentation to help users better understand and apply Cyberbard in real-world scenarios. Establish a long-term user feedback mechanism for continuous improvement.
+
+7. **Q7-Q8 (Year 2, Months 7-12)**
+   - **Continuous Optimization and New Feature Development**: Continuously optimize the fine-tuned model based on user feedback and market demands. Explore new fine-tuning techniques and develop new features to maintain the product's competitiveness and innovation.
+   - **Expanded Application Scenarios**: Expand the application scope of the fine-tuned model across different business scenarios and develop models specifically tailored to certain platforms. Enhance platform capabilities and provide more user-friendly integration options.
+
+8. **Q9-Q12 (Year 3, Months 1-12)**
+   - **Version Updates and Maintenance**: Continuously monitor the model’s performance in the user base, regularly releasing updates to fix known issues and improve model performance.
+   - **New Technology Exploration**: Track the latest research developments in the AI field, explore cutting-edge fine-tuning technologies, and apply them to the product to maintain a technological lead.
+   - **Commercial Expansion and Collaboration**: Actively expand the market and collaborate with businesses across different industries to promote the deployment of CT-LLM in more application scenarios. Build an open technology platform, offering AI capabilities to third parties, and seek collaboration with other technology providers to enhance the product's ecosystem value.
+
+Through this three-phase R&D plan, the fine-tuned model in CT-LLM will complete foundational technical research and prototype development in the first year, release a 1.0 version and undergo continuous optimization in the second year, and focus on market expansion and technical innovation in the third year. The implementation of this plan will ensure the product’s technological leadership while meeting market demands, ultimately achieving commercial success.
 
 # 6 TECHNOLOGY DEVELOPMENT ROADMAP
 
-<!-- 未来3年的系统研发规划路线图。时间节点到季度就可以了。 -->
-本章将详细描述 Cyberbard 未来三年的系统研发规划路线图。该路线图旨在通过分阶段的开发与优化，逐步实现平台的核心功能、扩展应用场景，并最终满足广泛用户的多样化需求。具体规划如下：
+This chapter will detail the three-year system development roadmap for Cyberbard. The roadmap aims to gradually achieve the platform's core functionalities, expand its application scenarios, and ultimately meet the diverse needs of a wide range of users through phased development and optimization. The specific plan is as follows:
 
-1. 第一年：核心功能开发与初步推广
-   - Q1: 技术调研与架构设计
-      - 技术调研：进行深入的市场调研和技术研究，确定适合平台的关键技术栈，分析竞品功能，并识别用户痛点和需求。
-      - 架构设计：在技术调研的基础上，设计平台的总体架构，确定各模块的功能需求、数据流动和交互方式。
-      - AI推理引擎调研：特别针对AI推理引擎，调研现有技术和算法，制定符合测试场景需求的AI模型选型方案。
-   - Q2: 平台核心框架与AI推理引擎开发
-      - 核心框架搭建：完成平台的核心框架开发，包括基础层（算力平台、容器编排、负载均衡和数据安全）的搭建和整合。
-      - AI推理引擎开发：基于前期调研，开发 CT-LLM ，初步实现智能化的测试脚本和用例生成功能。
-      - 认证与调度服务：部署认证服务和任务调度服务，为后续的功能开发提供支持。
-   - Q3: 应用层开发与SaaS平台上线
-      - 应用层主要模块开发：
-      - 开发用户管理系统、测试数据管理器和测试项目管理器，构建平台的基本功能框架。
-      - 实现测试脚本生成器和测试用例生成器，通过AI推理引擎支持，初步实现智能化测试功能。
-      - SaaS服务上线：完成Web平台的开发，支持SaaS服务模式，进行小范围的试用用户招募，提供平台的核心测试功能。
-   - Q4: 用户反馈收集与功能优化
-      - 用户反馈收集：从试用用户处收集反馈，分析功能的使用情况和用户体验，识别需要改进的领域。
-      - 功能优化：根据反馈对系统功能进行优化，修复bug，提升系统稳定性和性能，完善用户界面和交互体验。
-      - 准备进一步推广：为下一步的全面推广和CI/CD集成做好准备。
-2. 第二年：CI/CD整合与平台扩展
-   - Q1-Q2: CI/CD集成与稳定性提升
-      - CI/CD整合：全面整合持续集成和持续交付（CI/CD）工具，确保系统可以快速部署和更新，提升开发效率和发布速度。
-      - 平台稳定性优化：通过CI/CD集成，实现对平台各模块的自动化测试和持续改进，确保平台的稳定性和可靠性。
-      - 性能优化：对核心框架和应用层进行性能调优，提升系统响应速度和处理能力，支持更多用户同时访问。
-   - Q3-Q4: 支持平台扩展
-      - 移动端平台扩展：扩展系统的支持范围，从Web平台扩展到移动端，分别开发和上线支持Android和iOS的应用程序。
-      - 跨平台功能优化：对移动端应用进行优化，确保跨平台的统一性和流畅性，集成移动端专用功能，提升用户体验。
-      - 用户群扩展：在移动平台支持后，进一步扩大用户招募范围，涵盖更多的应用场景和用户群体。
-3. 第三年：本地部署与API开放
-   - Q1-Q2: 本地部署方案开发
-      - 本地部署框架设计：根据市场需求，设计并开发平台的本地部署版本，支持企业级客户的私有化部署需求。
-      - 数据迁移与安全保障：针对本地部署的需求，开发数据迁移工具和增强的数据安全措施，确保用户数据的私密性和完整性。
-   - Q3-Q4: API开发与生态系统扩展
-      - API开放：开发并开放平台的API接口，支持第三方应用的集成，促进平台的生态系统建设。
-      - 开发者支持：为开发者提供详细的API文档、SDK和开发者工具包，鼓励更多的第三方开发者在平台上进行二次开发。
-      - 社区建设与推广：通过开放API，推动开发者社区建设，扩展平台的影响力和市场覆盖面。
+1. **Year 1: Core Function Development and Initial Promotion**
+   - **Q1: Technical Research and Architecture Design**
+     - **Technical Research**: Conduct in-depth market research and technical analysis to determine the key technology stack suitable for the platform, analyze competitor features, and identify user pain points and needs.
+     - **Architecture Design**: Based on the technical research, design the platform’s overall architecture, defining the functional requirements, data flow, and interaction methods for each module.
+     - **AI Inference Engine Research**: Specifically for the AI inference engine, research existing technologies and algorithms to develop a model selection strategy that meets testing scenario needs.
+   - **Q2: Platform Core Framework and AI Inference Engine Development**
+     - **Core Framework Development**: Complete the development of the platform's core framework, including the foundational layer (computing platform, container orchestration, load balancing, and data security).
+     - **AI Inference Engine Development**: Based on prior research, develop CT-LLM, initially enabling intelligent generation of test scripts and test cases.
+     - **Authentication and Scheduling Services**: Deploy authentication and task scheduling services to support further feature development.
+   - **Q3: Application Layer Development and SaaS Platform Launch**
+     - **Main Application Layer Module Development**: 
+     - Develop the user management system, test data manager, and test project manager to build the basic functional framework of the platform.
+     - Implement the test script generator and test case generator, supported by the AI inference engine, to initially realize intelligent testing functionality.
+     - **SaaS Service Launch**: Complete development of the web platform, supporting a SaaS service model, and recruit a small group of trial users to test the platform's core testing features.
+   - **Q4: User Feedback Collection and Feature Optimization**
+     - **User Feedback Collection**: Gather feedback from trial users, analyze usage and user experience, and identify areas needing improvement.
+     - **Feature Optimization**: Based on the feedback, optimize system features, fix bugs, improve system stability and performance, and enhance the user interface and interaction experience.
+     - **Preparation for Further Promotion**: Prepare for the next stage of full promotion and CI/CD integration.
 
-通过这三年的开发路线图，Cyberbard 将从技术调研、核心功能开发逐步走向全面的功能扩展和市场推广。平台将通过持续的优化与创新，不仅在Web端实现稳定的自动化 End-to-End Testing 服务，还将扩展至移动端，并最终支持本地部署和API开放，满足更广泛的企业和开发者需求。
+2. **Year 2: CI/CD Integration and Platform Expansion**
+   - **Q1-Q2: CI/CD Integration and Stability Enhancement**
+     - **CI/CD Integration**: Fully integrate Continuous Integration and Continuous Delivery (CI/CD) tools to ensure fast system deployment and updates, improving development efficiency and release speed.
+     - **Platform Stability Optimization**: Use CI/CD integration to enable automated testing and continuous improvement of platform modules, ensuring platform stability and reliability.
+     - **Performance Optimization**: Optimize the core framework and application layer for performance, improving system response time and processing capabilities to support more simultaneous users.
+   - **Q3-Q4: Platform Expansion Support**
+     - **Mobile Platform Expansion**: Extend system support from the web platform to mobile platforms, developing and launching apps for both Android and iOS.
+     - **Cross-Platform Optimization**: Optimize mobile applications to ensure consistency and fluidity across platforms, integrating mobile-specific features to improve user experience.
+     - **User Base Expansion**: After supporting mobile platforms, further expand the user base to include more application scenarios and user groups.
+
+3. **Year 3: On-Premise Deployment and API Expansion**
+   - **Q1-Q2: On-Premise Deployment Development**
+     - **On-Premise Deployment Framework Design**: Design and develop an on-premise deployment version of the platform to meet the needs of enterprise customers requiring private deployment.
+     - **Data Migration and Security Assurance**: Develop data migration tools and enhanced security measures tailored to on-premise deployment, ensuring data privacy and integrity for users.
+   - **Q3-Q4: API Development and Ecosystem Expansion**
+     - **API Development**: Develop and open the platform’s API, enabling third-party application integration and promoting the growth of the platform’s ecosystem.
+     - **Developer Support**: Provide developers with detailed API documentation, SDKs, and developer toolkits, encouraging third-party developers to conduct secondary development on the platform.
+     - **Community Building and Promotion**: Foster the development of a developer community by opening the API, expanding the platform’s influence and market reach.
+
+Through this three-year development roadmap, Cyberbard will move from technical research and core function development to full-feature expansion and market promotion. The platform will be continuously optimized and innovated, not only achieving stable automated E2E Testing services on the web but also expanding to mobile platforms and eventually supporting on-premise deployment and API openness, meeting the broader needs of enterprises and developers.
 
 # 7 IP Protection and Patent Strategy
 
-<!-- 知识产权的策略。在这里写出你的创新部分的哪些内容在未来是可以申请专利的。例如：独特的算法、深耕行业领域的解决方案等。请注意，只有工具属性的软件才可以申请专利，如果是消费属性的软件是不可以的。具体要看专利律师给出的专业建议。 -->
+<!-- Intellectual property strategy. Write here which parts of your innovation can be patented in the future. For example: unique algorithms, industry-specific solutions, etc. Please note that only software with tool properties can be patented, while software with consumer properties cannot. Specific advice should be obtained from patent attorneys. -->
 
-本产品在研发过程中，从多方面对业内的常用范式和技术方法进行了改进，能极大提高软件测试领域的大模型的应用水平。我们计划使用专利的方式对其进行保护，本章节主要研究了一些比较可能的专利方向。
+During the research and development process of this product, we have made improvements in various aspects to the common paradigms and technical methods in the industry, which can greatly enhance the application level of LLM in the software testing field. We plan to protect these innovations through patents. This chapter mainly explores some potentially patentable directions.
 
-## 7.1 一种从高效提取测试领域大模型训练数据的方法
+## 7.1 A Method for Efficiently Extracting Training Data for LLM in the Testing Domain
 
-训练大模型最重要的部分，就是输入准确有效的数据，用质量不佳的数据训练，会极大影响大模型的输出准确度。具体到使用专用大模型来预测“测试用例”，则会涉及到大量的界面跳转和交互元素作为训练的素材。测试行业常用的数据有：
+The most crucial part of training LLM is inputting accurate and effective data. Training with low-quality data will greatly affect the output accuracy of the model. Specifically, for using specialized large models to predict "test cases," it involves a large amount of interface navigation and interactive elements as training materials. Commonly used data in the testing industry includes:
 
-- 产品文档：这些文档可能包括用户手册、在线帮助文件、功能规格说明等。这些文档提供了产品的结构化信息，可以用来训练模型理解产品的功能和操作逻辑。
-- 软件界面元素：通过自动化工具捕获的软件界面截图，这些截图可以是按钮、文本框、菜单等界面元素。这些元素有助于模型学习软件的视觉布局和交互模式。
+- Product documentation: These documents may include user manuals, online help files, functional specifications, etc. These documents provide structured information about the product and can be used to train the model to understand the product's functionality and operational logic.
+- Software interface elements: Screenshots of software interfaces captured by automated tools, which can be buttons, text boxes, menus, and other interface elements. These elements help the model learn the visual layout and interaction patterns of the software.
 
-现有的大模型训练需要输入文本作为训练材料，而上述的“跳转”和“交互”并不容易变成合适的训练的文本材料并不容易。通常，大家的做法是，通过人工来为操作和每个界面和每个交互元素（按钮，输入框，菜单，等）设置编码，最后变成脚本语言来输入。这个过程非常繁琐，导致很难大量产生可以使用的训练数据。
+Existing large model training requires text input as training material, and the aforementioned "navigation" and "interaction" are not easily converted into suitable training text material. Usually, the approach is to manually set up encoding for operations, each interface, and each interactive element (buttons, input boxes, menus, etc.), and finally turn them into script language for input. This process is very cumbersome, making it difficult to produce a large amount of usable training data.
 
 ![software-testing-llm-training-flowchart](pic/software-testing-llm-training-flowchart.svg)
 
-本专利设计出了一种专门用于测试领域大模型的数据清洗工具，使用独有的算法，可以高效率的将原始数据转化为适合大模型进一步训练的数据格式。该工具比通常的人工方式更加准确和快速的识别出哪些是功能输入区（功能按钮），哪些是信息反馈区（标签、数值展示等），并且还能智能的建立起功能按钮的动作与信息反馈区之间的对应联动关系，无需人工参与，只需要给出一个软件的入口，就可以自己快速生成整个软件的训练数据。极大提高测试领域大模型的训练数据生成的效率。
+This patent designs a specialized data cleaning tool for LLM in the testing domain. Using a proprietary algorithm, it can efficiently convert raw data into a data format suitable for further training of large models. This tool can more accurately and quickly identify which are functional input areas (functional buttons) and which are information feedback areas (labels, value displays, etc.) compared to the usual manual method. It can also intelligently establish the corresponding linkage relationship between the actions of functional buttons and information feedback areas without human intervention. By just providing an entry point for the software, it can quickly generate training data for the entire software on its own. This greatly improves the efficiency of generating training data for LLM in the testing domain.
 
-## 7.2 一种突破测试领域大模型Low-Rank Bottleneck in LoRA的方法
+## 7.2 A Method to Overcome the Low-Rank Bottleneck in LoRA for LLM in the Testing Domain
 
-参数高效调整（PEFT）是一种流行的模型训练方法，它仅优化一小部分参数并保持主模型冻结以进行适应。PEFT 方法可以实现相当大的微调性能，但所需的计算资源比完全微调少得多。 LoRA是目前应用最广泛的PEFT方法。它为骨干模型分配额外的低秩矩阵，并且仅在训练期间优化低秩矩阵。使用LoRA，可以显着减少微调模型所需的内存使用量，从而可以在有限的计算资源内对大型语言模型进行微调研究。
+Parameter-Efficient Fine-Tuning (PEFT) is a popular model training method that optimizes only a small portion of parameters while keeping the main model frozen for adaptation. PEFT methods can achieve considerable fine-tuning performance with much fewer computational resources compared to full fine-tuning. LoRA is currently the most widely applied PEFT method. It allocates additional low-rank matrices for the backbone model and only optimizes the low-rank matrices during training. Using LoRA can significantly reduce the memory usage required for fine-tuning models, enabling research on fine-tuning LLM with limited computational resources.
 
-使用LoRA方法虽然可以提高效率，但是本质上依然是Low-Rank的Optimization，与完全微调相比依然存在性能查询。在训练数据并不复杂的情况下，普通的LoRA方法完全可以达到可用的水平。
+Although using the LoRA method can improve efficiency, it is still essentially a Low-Rank Optimization, which still has performance gaps compared to full fine-tuning. In cases where the training data is not complex, the ordinary LoRA method can completely reach a usable level.
 
-不过，测试领域训练数据比较少，使用原始的LoRA方法更加容易造成学习能力的下降。在本专利中，为了打破LoRA优化中的低秩瓶颈，提高测试领域的性能。我们提出了一种改良的训练算法，它多次累积低秩更新矩阵以实现更高的更新秩。 该算法在内部自动划分出多个训练阶段。在每个阶段，仍然只更新 LoRA 权重。然而，在每个阶段结束时，算法将 LoRA 权重卸载到主干参数中，然后重新初始化 LoRA 状态。
+However, in the testing domain where training data is relatively scarce, using the original LoRA method is more likely to cause a decline in learning ability. In this patent, to break through the low-rank bottleneck in LoRA optimization and improve performance in the testing domain, we propose an improved training algorithm that accumulates low-rank update matrices multiple times to achieve a higher update rank. The algorithm automatically divides the training into multiple stages internally. In each stage, only the LoRA weights are updated. However, at the end of each stage, the algorithm unloads the LoRA weights into the backbone parameters and then reinitializes the LoRA state.
 
-这种方法允许在测试领域等只有少量训练数据的情况下，快速高效地调整大模型的权重，突破了Low-Rank Bottleneck in LoRA，使其在处理测试任务时具有更高的准确性和效率。相较于传统的大模型训练方法，这种微调方法显著降低了训练成本，并且能够在测试领域内提供更为精确的模型输出。
+This approach allows for quick and efficient adjustment of large model weights in situations with limited training data, such as in the testing domain, breaking through the Low-Rank Bottleneck in LoRA and enabling it to handle testing tasks with higher accuracy and efficiency. Compared to traditional large model training methods, this fine-tuning method significantly reduces training costs and can provide more precise model output in the testing domain.
 
-## 7.3 一种测试领域大模型验证的高效奖励算法
+## 7.3 An Efficient Reward Algorithm for Validating LLM in the Testing Domain
 
-在测试领域，传统的大模型训练奖励机制通常基于广泛的任务标准，如准确性或执行性能等，而这些标准往往无法充分反映软件测试的复杂性和多样性。而本专利提出的奖励算法则通过更加精细化和针对性的奖励与惩罚策略，显著提高了模型在软件测试中的效果和效率。
+In the testing domain, traditional reward mechanisms for large model training are usually based on broad task standards such as accuracy or execution performance, which often fail to fully reflect the complexity and diversity of software testing. The reward algorithm proposed in this patent significantly improves the model's effectiveness and efficiency in software testing through more refined and targeted reward and penalty strategies.
 
-这种新方法优于传统奖励机制的原因在于：
+This new method is superior to traditional reward mechanisms for the following reasons:
 
-1. **针对性强**：通过设计特定的奖励机制，如正确性奖励、错误惩罚、探索奖励、多样性奖励和效率奖励，能够针对软件测试的实际需求定制模型的行为。这种设计使模型更容易理解并操作复杂的用户界面，同时鼓励其在测试任务中覆盖不同的路径和功能。
-2. **快速收敛**：相比于传统大模型的泛化奖励机制，本专利提出的奖励机制能够根据模型的具体行为（如正确操作、错误操作等）即时反馈，促使模型快速学习并优化自身策略。这显著加速了模型训练过程中的收敛速度，使其在短时间内达到较高的测试效率。
-3. **提升测试全面性和效率**：通过多样性奖励，模型被鼓励探索更多操作路径，确保测试覆盖的全面性，减少遗漏关键测试场景的风险。此外，效率奖励进一步推动模型优化操作的执行速度，在提升测试准确性的同时，也大大提高了自动化测试的效率。
-4. **高于传统大模型的能力**：传统大模型在通用场景下的表现虽然出色，但在特定领域如软件测试中，仍难以比拟人类专家的洞察力。而这种专利方法能够通过专门的奖励机制，逐步将模型的表现优化到与初级测试人员接近甚至超越的水平，覆盖率更广、准确性更高。
+1. **Highly targeted**: By designing specific reward mechanisms such as correctness rewards, error penalties, exploration rewards, diversity rewards, and efficiency rewards, the model's behavior can be customized according to the actual needs of software testing. This design makes it easier for the model to understand and operate complex user interfaces while encouraging it to cover different paths and functions in testing tasks.
 
-综上所述，这种新方法通过灵活多样的奖励策略，专注于软件测试的实际需求，不仅显著提高了大模型在该领域的训练效率和效果，还使其具备了更强的测试能力与灵活性，超越了传统的泛化训练方法。
+2. **Rapid convergence**: Compared to the generalized reward mechanisms of traditional large models, the reward mechanism proposed in this patent can provide immediate feedback based on the model's specific behaviors (such as correct operations, erroneous operations, etc.), prompting the model to quickly learn and optimize its own strategies. This significantly accelerates the convergence speed during model training, allowing it to achieve high testing efficiency in a short time.
+
+3. **Improving test comprehensiveness and efficiency**: Through diversity rewards, the model is encouraged to explore more operation paths, ensuring the comprehensiveness of test coverage and reducing the risk of missing key test scenarios. Additionally, efficiency rewards further drive the model to optimize the execution speed of operations, greatly improving the efficiency of automated testing while enhancing testing accuracy.
+
+4. **Superior capability to traditional large models**: Although traditional large models perform well in general scenarios, they still struggle to match the insights of human experts in specific domains like software testing. This patented method can gradually optimize the model's performance to a level close to or even surpassing that of junior testers through specialized reward mechanisms, achieving wider coverage and higher accuracy.
+
+In conclusion, this new method focuses on the practical needs of software testing through flexible and diverse reward strategies, not only significantly improving the training efficiency and effectiveness of large models in this field but also equipping them with stronger testing capabilities and flexibility, surpassing traditional generalized training methods.
 
 # 8 KEY PERSONNEL
 
- End-to-End Testing 对于一个软件的开发来说至关重要，关系到一个软件公司是否能交付一个完美的产品给用户。但是，测试也是悲剧发生的地方，一个小小的bug，肯能让公司承担巨大的损失。几年前，Heng Tian在一家小型的创业公司工作。团队得到了一个将软件预制到一款新型号手机的机会，大家很兴奋。但是需要在手机生产前就交付软件，我们的团队很小，所有的资源都是不足的，大家只能不停的工作。慌乱中我们终于提交了软件，但是几天后才发现一个致命的错误，我们没有打开一个关键功能的开关，导致用户永远无法使用一些功能，但是这个时候，软件已经送到了手机生产商，无法再修改了。公司为了这件事情蒙受了损失。这件事让 Heng Tian 一直在思考，有没有方法能帮助团队减少这种情况的发生。但是在当时，除了增加测试人员以外，似乎没有什么特别好的办法。但是现在随着 AI 技术的发展，我们有了更多的可能。 Heng Tian 提出来一个不仅让测试更加全面而且还使用更少的人力成本的解决方案，也就是 Cyberbard。从现在开始，Heng Tian 希望能和更多志同道合的人一起致力于用人工智能技术彻底改变测试行业的工作方式。
-<!-- 团队关键人物 -->
+E2E Testing is crucial for software development, determining whether a software company can deliver a flawless product to its users. However, testing can also be a source of significant risk, as even a small bug can lead to substantial losses for a company. A few years ago, Heng Tian worked at a small startup. The team had the opportunity to preload software onto a new model of mobile phone, and everyone was excited. But the software had to be delivered before the phones were manufactured. With limited resources and a small team, everyone worked relentlessly. In the rush, the software was finally submitted, but only a few days later, the team discovered a critical error. A key feature toggle had not been activated, rendering certain functionalities permanently inaccessible to users. By that time, the software had already been sent to the phone manufacturer and could no longer be altered. The company suffered significant losses due to this oversight. This experience left Heng Tian contemplating whether there was a way to help teams reduce the likelihood of such issues. At the time, there didn’t seem to be a viable solution other than increasing the number of testers. However, with the development of AI technology, new possibilities have emerged. Heng Tian proposed a solution, Cyberbard, that not only makes testing more comprehensive but also reduces manpower costs. Moving forward, Heng Tian aims to work with like-minded individuals to revolutionize the testing industry using artificial intelligence.
+
+<!-- Key Team Members -->
 
 ## 8.1 Heng Tian – Founder and CEO
 
-<!-- 创始人信息，主要就是你的信息，要保持跟简历一致。一段表述文字即可。 -->
-Heng Tian 在北京大学获得工程管理硕士学位，并在互联网和软件研发领域有超过10年的核心研发和管理经验。曾经在创业型公司和500强上市企业中都领导过产品研发团队进行新产品的研发并成功推向市场。他主导研发的一款阅读软件获得了2013年中国APP应用TOP100，咨询阅读类TOP10。在企业应用市场他也有丰富的经验，为大型上市公司和政府机构研发过企业办公和即时通讯系统，服务了超过50万的企业员工和政府雇员，得到了行业内广泛的好评。
+<!-- Founder information, primarily your background, and must align with your resume. Just a brief description will suffice. -->
+Heng Tian holds a Master's degree in Engineering Management from Peking University and has over 10 years of core R&D and management experience in the internet and software development sectors. He has led product development teams in both startups and Fortune 500 companies, successfully bringing new products to market. One of the reading applications he spearheaded won a place in China's Top 100 Apps of 2013 and ranked in the Top 10 in the news and reading category. In the enterprise application market, he has extensive experience, having developed enterprise office and instant messaging systems for large publicly listed companies and government agencies, serving over 500,000 corporate employees and government staff, earning widespread industry recognition.
 
 <!-- ## 8.2 KEY ADVISORS
 
-如果有关键的顾问的话，可以写在这里。例如：行业专家顾问，非技术背景创始人的技术顾问等。 -->
+If there are key advisors, they can be listed here. For example: industry expert advisors, technical advisors for non-technical founders, etc. -->
 
-## 8.2 Three Years Recruitment PLAN
+## 8.2 Three-Year Recruitment PLAN
 
-<!-- 3年的团队招聘计划，要匹配前面的研发计划。 -->
+<!-- The three-year recruitment plan should align with the preceding R&D plan. -->
 
-完善的团队建设是实现目标的重要保证，本章将详细描述 Cyberbard 未来三年的员工招聘计划。在不同的阶段会会团队结构有不同的要求，总的目标是在资源合理的情况下，完善团队完成既定产品研发和销售规划。具体规划如下：
+A well-established team structure is crucial to achieving our goals. This section outlines Cyberbard’s recruitment plan for the next three years. The team's structure will evolve at different stages to meet the changing requirements, with the overall aim of efficiently utilizing resources to accomplish the product development and sales goals. The detailed plan is as follows:
 
-1. 第一年：核心产品研发
-   - 主要研发人员是创始人自己，负责最初版本的技术框架搭建和MVP版本的推出
-2. 第二年：开始市场推广和扩大研发规模
-   - 从本年度的Q1开始增加兼职数据合规官1名，主要负责产品正式商用以后引擎训练和用户相关数据的合规问题。
-   - 从本年度的Q1开始增加市场营销人员1名，开始产品的市场营销工作。
-   - 从本年度的Q2开始增加技术研发人员1-2名，负责根据用户的反馈优化产品的细节，拓展产品的能力。
-   - 增加一名兼职办公室行政人员，帮助处理相关办公事务。
-3. 第三年：快速提升市场占有率
-   - 销售人员再增加2人，帮助产品扩大销量，进入用户快速增长期。
-   - 大模型算法优化相关的技术人员增加2人，帮助产品紧跟最新技术趋势，不断提高核心竞争力。
-   - 增加1名专职售后，收集和解答客户的问题。
-   - 随着人员增加，原有的兼职办公室行政人员专为全职，以便更好的处理办公相关事务。
+- **Year 1: Core Product Development**
+  - The primary developer will be the founder, who will be responsible for building the initial technical framework and launching the MVP version.
+- **Year 2: Begin Market Expansion and Scale R&D**
+  - In Q1 of this year, we will add a part-time Data Compliance Officer to ensure data compliance during engine training and after the product’s commercial launch.
+- A Marketing Personnel will be added in Q1 to begin marketing efforts for the product.
+  - In Q2, we will add 1-2 technical developers to optimize product features based on user feedback and expand product capabilities.
+  - A part-time Office Administrator will be hired to assist with office-related tasks.
+- **Year 3: Rapid Market Share Growth**
+  - We will add 2 more Sales Personnel to help boost sales and support rapid user growth.
+  - Two additional technical specialists will be hired for large-model algorithm optimization to ensure the product keeps pace with the latest technological trends and enhances its core competitiveness.
+  - A dedicated Customer Support Specialist will be brought on to gather and address customer inquiries.
+  - As the team grows, the part-time Office Administrator will transition to a full-time role to better manage office-related responsibilities.
 
-总之，未来三年，计划通过不断补充团队关键岗位，满足 Cyberbard 未来发展的需要。
+In summary, over the next three years, the plan is to continuously fill key positions to meet the evolving needs of Cyberbard's future development.
 
 # 9 MARKET RESEARCH
 
-<!-- 市场调研
-在这里分节罗列出所有的市场调研动作。例如：对测试软件市场总体规模的调研内容，全球的现状，英国的现状，发展趋势（包括技术、市场）等。 -->
+<!-- Market Research
+List all market research activities here, such as research on the overall size of the software testing market, the global situation, the UK market status, development trends (including technology and market), etc. -->
 
-## 测试软件市场现状概述
+## 9.1 Overview of the Software Testing Market
 
-随着软件应用程序变得越来越复杂和功能丰富，需要进行广泛的测试以确保性能、功能以及安全性，从而增加了对测试解决方案和服务的需求。
+As software applications become increasingly complex and feature-rich, the need for extensive testing to ensure performance, functionality, and security is driving demand for testing solutions and services.
 
-在当前竞争激烈的市场中，提供具有最佳用户体验的高质量软件对于客户满意度和留存率至关重要。这就是为什么公司必须投资于强大的测试方法，以便在开发过程的早期阶段发现和纠正任何缺陷。随着敏捷和 DevOps 方法论的流行，鼓励迭代开发、持续集成和交付，这导致对使用自动化测试工具以及可以加快发布时间而不损害质量的流程的需求增加。但是，资源限制和预算限制会限制组织投资大量测试工具、流程和高技能人员的能力，从而影响测试结果的有效性和质量。缺乏经验丰富的测试专业人​​员，又不了解人工智能（AI）、机器学习等新技术，这可能会对寻求采用尖端测试实践和工具的企业构成挑战。这些因素让测试软件市场在新需求不断涌现的情况下逐渐扩大。
+In today’s competitive market, delivering high-quality software with optimal user experience is crucial for customer satisfaction and retention. This is why companies must invest in robust testing methods to identify and fix defects early in the development process. The rise of Agile and DevOps methodologies, which encourage iterative development, continuous integration, and delivery, has also fueled demand for automated testing tools and processes that can speed up release times without compromising quality. However, resource and budget limitations can prevent organizations from investing heavily in testing tools, processes, and skilled personnel, affecting the effectiveness and quality of testing outcomes. The shortage of experienced testing professionals and a lack of understanding of new technologies such as artificial intelligence (AI) and machine learning can pose challenges for businesses looking to adopt cutting-edge testing practices and tools. These factors are contributing to the growing expansion of the software testing market as new needs emerge.
 
-根据 [GMI](https://www.gminsights.com/industry-analysis/software-testing-market)的市场调研数据，2023年全球软件测试市场规模已达到518亿美元，预计在2024年至2032年期间，该市场的复合年增长率将超过7%。这种增长主要得益于大型公司不断推出新产品和进行技术创新。此外，随着技术的快速发展，各公司面临着越来越大的压力，必须提供卓越的软件解决方案，以满足用户不断变化的需求。这些因素导致了对无错误软件的需求不断增长，进一步刺激了市场对先进测试工具和技术的需求。尤其是应用测试自动化市场，预计到2032年底将超过973亿美元的规模。
+According to market research data from [GMI](https://www.gminsights.com/industry-analysis/software-testing-market), the global software testing market size reached $51.8 billion in 2023, and it is expected to grow at a compound annual growth rate (CAGR) of over 7% between 2024 and 2032. This growth is largely driven by the continual introduction of new products and technological innovations by large companies. In addition, the rapid advancement of technology is putting increasing pressure on companies to deliver superior software solutions to meet evolving user needs. These factors are driving the demand for error-free software, further boosting the need for advanced testing tools and technologies. Specifically, the automated application testing market is projected to exceed $97.3 billion by the end of 2032.
 
 ![Software_Testing_Market](pic/Software_Testing_Market.svg)
 
-图片来源：[GMI Dlobal Market Insights](https://www.gminsights.com/industry-analysis/software-testing-market)
+Image source: [GMI Global Market Insights](https://www.gminsights.com/industry-analysis/software-testing-market)
 
-北美是软件测试市场最大的也是最发达的市场，在[For Insights Consultancy](https://www.forinsightsconsultancy.com/reports/software-testing-market/)的报告中，北美市场占全球市场价值的37%。由于外包和数字化趋势的不断增加，亚太地区的市场规模也正在经历快速增长。软件测试行业在北美有比较久的历史，很多大型的上市公司或者服务团队提供广泛的软件测试服务，里面包含很多巨头企业，比方，埃森哲，IBM等。除了这些大型企业和软件测试公司外，市场中还分布着一些新兴公司，它们专注于特定的测试领域技术、行业或技术，比方Selenium，katalon等。它们试图使用新的技术和更加便捷的服务在这个动荡且快速变化的行业中脱颖而出并赢得市场。
+North America is the largest and most developed market for software testing. According to a report by [For Insights Consultancy](https://www.forinsightsconsultancy.com/reports/software-testing-market/), the North American market accounts for 37% of the global market value. Meanwhile, the Asia-Pacific region is experiencing rapid growth due to increasing outsourcing and digitalization trends. The software testing industry in North America has a long history, with many large publicly listed companies and service teams offering a wide range of testing services, including industry giants like Accenture and IBM. In addition to these large companies and testing firms, there are emerging companies focusing on specific testing technologies or industries, such as Selenium and Katalon. These companies are trying to leverage new technologies and more user-friendly services to stand out in this fast-changing and dynamic industry.
 
-关于英国本土市场，根据[IBISWorld's Software Testing Services in the UK Industry Report](https://www.ibisworld.com/united-kingdom/market-research-reports/software-testing-services-industry/)，整个2024 年英国软件测试服务行业的市场规模为 12 亿英镑。2019 年至 2024 年期间，英国软件测试服务行业的市场规模以 1.6% 的复合年增长率增长。英国软件测试服务行业共有 662 家企业，占有较多份额的公司有 Intertek，Keysight Technologies，DXC Technology 等等。相对于北美市场的多样性，英国的测试软件公司主要为占有主导市场的大型行业客户提供测试服务，在创新性方面还有较大的提升空间。
+Regarding the UK market, according to the [IBISWorld's Software Testing Services in the UK Industry Report](https://www.ibisworld.com/united-kingdom/market-research-reports/software-testing-services-industry/), the market size of the UK software testing services industry is expected to reach £1.2 billion in 2024. Between 2019 and 2024, the industry grew at a compound annual growth rate of 1.6%. There are 662 companies in the UK software testing services industry, with leading players such as Intertek, Keysight Technologies, and DXC Technology. Compared to the diversity of the North American market, the UK’s software testing companies primarily serve large industry clients, with room for further innovation.
 
-## 中小软件企业占比
+## 9.2 Proportion of Small and Medium-Sized Software Enterprises
 
-大型的行业公司一般在市场中占有主导哦地位，并且对市场的繁荣有巨大的贡献，但是，更多数量的中小企业也依然是市场中不可忽视的重要部分。麦肯锡的报告《[Beyond financials: Helping SMEs thrive](https://www.mckinsey.com/industries/public-sector/our-insights/beyond-financials-helping-small-and-medium-size-enterprises-thrive)》对多个国家发展数据进行了深入研究。研究发现，在经合组织国家，中小企业约占企业总数的 99%，占所有就业岗位的 70%。它们对世界高收入国家的GDP贡献率超过50%。与其规模相比，这些较小的公司产生的影响却很大。有证据证明，中小企业对国家财富的贡献超过了其分内的额度。根据[世界银行](https://www.worldbank.org/en/topic/smefinance)的数据，中小企业数量约占所有公司的90%，提供全球50%的就业，并且在新兴市场贡献高达40%的国内生产总值。
+While large companies play a dominant role in the market and significantly contribute to its prosperity, small and medium-sized enterprises (SMEs) are still an essential and often overlooked part of the market. According to McKinsey's report, “[Beyond financials: Helping SMEs thrive](https://www.mckinsey.com/industries/public-sector/our-insights/beyond-financials-helping-small-and-medium-size-enterprises-thrive),” SMEs account for approximately 99% of all businesses in OECD countries and provide 70% of all employment. They contribute more than 50% of GDP in high-income countries. The report reveals that SMEs contribute more to national wealth than expected, considering their size. According to the [World Bank](https://www.worldbank.org/en/topic/smefinance), SMEs make up about 90% of all businesses globally, providing 50% of employment, and in emerging markets, they contribute up to 40% of GDP.
 
-同样的，在全球软件及服务企业中，根据[Abessoftware lDC](https://bg.qianzhan.com/)的研究显示，中小企业占据了绝大多数。相关数据显示，小微企业数量占比高达95%。具体而言，员工少于10人的企业占比为48.2%，员工在10-99人之间的企业占比为46.8%。这些数据表明，软件行业中的企业大多数为小型和微型企业，行业集中度相对较低。满足他们的需求有巨大的市场潜力。
+Similarly, in the global software and services sector, according to research by [Abessoftware IDC](https://bg.qianzhan.com/), SMEs dominate the market. The data shows that micro-enterprises account for 95% of software firms. Specifically, 48.2% of companies have fewer than 10 employees, while 46.8% have between 10 and 99 employees. This data suggests that the software industry is mostly composed of small and micro-enterprises, with low industry concentration. This presents significant market potential to meet their needs.
 
 ![global-software-enterprise-svg-chart](pic/global-software-enterprise-svg-chart.svg)
 
-图片来源：[Report of Market Prospective and Investment Strategy Planning on China Software Industry(2024-2029)](https://bg.qianzhan.com/report/detail/4a047030ec144047.html)
+Image source: [Report of Market Prospective and Investment Strategy Planning on China Software Industry (2024-2029)](https://bg.qianzhan.com/report/detail/4a047030ec144047.html)
 
-## 中小企业的需求与挑战
+## 9.3 Needs and Challenges of SMEs
 
-虽然上面的情况看起来令人振奋，但却掩盖了中小企业必须克服的困难。中小型企业经常面临激烈的竞争，而且竞争的范围越来越全球化，这也是它们失败率高的部分原因；它们的资源有限，这意味着它们不总能建立起强大的保障体系；而且往往不能投资于可以帮助其节省时间和金钱的技术。在软件开发领域，但相较于大型企业，中小软件企业在测试资源的分配上相对匮乏。根据Statista的报告，25.6%的小企业测试人员占比少于10%，26.2%的小企业测试预算占比少于10%。这表明，绝大多数小企业因资源有限，难以配备足够的测试人员，且当前市面上的自动化测试工具往往过于庞大复杂且价格高昂，使得许多中小团队难以承担这些成本，仍停留在手动测试阶段。
+While the above data seems promising, it masks the difficulties that SMEs must overcome. Small and medium-sized enterprises often face fierce competition, which is increasingly globalized, contributing to their high failure rates. They have limited resources, which means they cannot always establish robust support systems and often cannot invest in technologies that save time and money. In software development, compared to large enterprises, SMEs have relatively limited resources for testing. According to a report by Statista, 25.6% of small companies allocate less than 10% of their staff to testing, and 26.2% of small companies allocate less than 10% of their budget to testing. This indicates that most small companies, due to resource constraints, struggle to allocate sufficient testing personnel, and the automated testing tools on the market are often too complex and expensive for many small teams, leaving them reliant on manual testing.
 
-中小型企业的测试预算统计：
+SME Testing Budget Statistics:
 
 ![budget_for_testing](pic/budget_for_testing.png)
 
-中小型企业的测试人员数量统计：
+SME Testing Personnel Statistics:
 
 ![testers_in_projects](pic/testers_in_projects.png)
 
-图片来源：[Future of QualityAssurance](https://www.lambdatest.com/future-of-quality-assurance-survey)
+Image source: [Future of Quality Assurance](https://www.lambdatest.com/future-of-quality-assurance-survey)
 
-## 自动化测试工具市场的机会
+## 9.4 Opportunities in the Automated Testing Tools Market
 
-随着软件测试市场的不断扩大，中小企业对于简便、成本可控且易于使用的自动化测试工具的需求日益增加。调查显示，超过一半的受访者认为软件测试成本是企业面临的最大挑战之一。这意味着，市场急需一些智能解决方案来帮助中小企业降低软件测试成本，同时保证软件质量不受影响。
+As the software testing market continues to expand, SMEs increasingly demand simple, cost-effective, and easy-to-use automated testing tools. Surveys indicate that more than half of respondents view the cost of software testing as one of the biggest challenges businesses face. This suggests a growing market need for intelligent solutions to help SMEs reduce software testing costs while maintaining software quality.
 
-此外，对于“测试中不准确的设置造成的损失”的担忧也在不断增加，这进一步显示出对更加智能和自动化的测试工具的需求。中小企业需要一种更灵活、更经济的自动化 End-to-End Testing 解决方案，以提升软件开发过程中的效率和质量，降低测试成本并减少错误发生的风险。
+Moreover, concerns about "losses caused by inaccurate test configurations" are rising, further highlighting the need for more intelligent and automated testing tools. SMEs require a more flexible and affordable automated E2E Testing solution to enhance efficiency and quality in the software development process, lower testing costs, and reduce the risk of errors.
 
-## 研究结论
+## 9.5 Research Conclusion
 
-综上所述，软件开发市场特别是中小企业领域，对“自动化 End-to-End Testing ”工具的需求显著增加。当前的市场现状和调研数据表明，测试软件市场未来依然会快速发展。但是，中小企业缺乏好用且性价比高的自动化 End-to-End Testing 工具，存在较大的市场缺口。为满足这一需求，开发适合中小企业的自动化 End-to-End Testing 工具，不仅能够帮助这些企业降本增效，也有助于推动整个软件测试市场的进一步增长。针对中小企业市场开发的轻量化、易于部署和维护的自动化测试工具，未来有望成为市场的重要组成部分，并带来可观的商业价值。
+In summary, the demand for automated E2E Testing tools is increasing significantly, especially in the SME sector. Current market conditions and research data indicate that the software testing market will continue to grow rapidly. However, there is a substantial market gap in providing SMEs with affordable and user-friendly automated E2E Testing tools. Developing such tools will not only help these companies reduce costs and increase efficiency but also promote further growth in the software testing market. Lightweight, easily deployable, and maintainable automated testing tools tailored for SMEs are poised to become a vital part of the market and offer considerable business value.
 
 # 10 COMPETITOR LANDSCAPE
 
-<!-- 竞争对手分析。 每个竞争对手用一段来表述。 结构最好一致，方便阅读的人对比和理解。 -->
+In the market for "E2E Software Testing Platforms," several key competitors stand out. These products cater to companies of various sizes and specialize in different areas. Below is a detailed analysis of these competitors, highlighting their features, market positioning, strengths, and weaknesses.
 
-在“软件 End-to-End Testing 平台”的市场中，有几款主要竞争产品值得关注。这些竞品选择自不同规模的公司，都有自己的专长和细分市场，以下是对它们的详细分析，包括它们的功能特点、市场定位和优势劣势。
+## Feature Comparison
 
-## 功能差异
+The table below compares the primary features of the main competitors. Compared to other products, **Cyberbard** focuses on automating E2E Testing, leveraging AI for test case generation, integrating cloud services, and using UI recognition to minimize user effort. Additionally, Cyberbard integrates seamlessly with other testing tools for areas like Unit Testing, where established solutions already exist, through its CI/CD capabilities.
 
-下表是对竞品的主要功能的一个比较。可以看到，和其它竞品相比 Cyberbard 的重点功能是完成 End-to-End Testing 的自动化，通过实现 AI Testing Case 的生成，并且整合 Cloud services ， UI Recognition 等能力来最大化降低用户使用成本，尽量自动完成操作。此外，软件行业的测试类型的种类非常多，所以对于 Unit Testing 等其他已经有成熟工具的测试类型，Cyberbard 通过 CI/CD 能力，可以让使用者无缝整合其他测试工具来实现。
-其他章节会分别详述各个竞品的有哦点和缺点。
-
-| No. | Tools | Low Code | AI Testing Case | Customized Services | CI/CD | Cloud services | UI Recognition | Unit Testing |
-| --- | ---------- | ---------- | ---------- | -------- | ------- |  --- | --- | --- |
-| 1   | Intertek | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ |
-| 2   | Keysight | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
-| 3   | Selenium | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
-| 4   | katalon | ✅ | ✅ | ❌ | ✅ |  ✅ | ❌ | ✅ |
-| 5   | Cyberbard | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ |
+| No. | Tools     | Low Code | AI E2E Testing | Customized Services | CI/CD | Cloud Services | UI Recognition | Unit Testing |
+| --- | --------- | -------- | ----------------| --------------------| ------| -------------- | -------------- | ------------ |
+| 1   | Intertek  | ❌       | ❌              | ✅                   | ❌    | ❌             | ❌             | ✅           |
+| 2   | Keysight  | ✅       | Part              | ✅                   | ❌    | ❌             | ✅             | ❌           |
+| 3   | Selenium  | ❌       | ❌              | ❌                   | ✅    | ❌             | ❌             | ✅           |
+| 4   | Katalon   | ✅       | Part             | ❌                   | ✅    | ✅             | ❌             | ✅           |
+| 5   | Cyberbard | ✅       | ✅              | ❌                   | ✅    | ✅             | ✅             | ❌           |
 
 ## Intertek
 
-Intertek 是业界领先的软件测试提供商，在世界各地设有办事处并拥有专业知识。提供具有竞争力的解决方案，包括针对网站、桌面、联网家庭/汽车和移动设备的全方位软件测试服务，并且坚持使用多种测试技术来满足您的需求，并在产品发布的每一步都让您了解情况。充当您的 QA 团队的延伸，将您的流程和工具无缝整合到自己的测试协议中。
+Intertek is an industry-leading provider of software testing services, with a global presence and expertise. The company offers competitive solutions, covering comprehensive software testing services for websites, desktops, connected homes/vehicles, and mobile devices. Intertek integrates multiple testing techniques to meet varied needs and provides constant updates at every stage of product release. It acts as an extension of clients' QA teams by seamlessly integrating their processes and tools into its testing protocols.
 
-产品涵盖：
+Products include:
 
-- 应用程序程序测试
-- 软件和应用程序质量保证 (SQA) 测试
-- 网络安全认证和测试
+- Application Program Testing
+- Software and Application Quality Assurance (SQA) Testing
+- Cybersecurity Certification and Testing
 
-2000年，公司被查特豪斯资本剥离，2002年在伦敦证券交易所上市。老牌测试企业，涉及范围比较广，有很多传统行业的大客户。
+Founded in 1996, Intertek was spun off by Charterhouse Capital in 2000 and listed on the London Stock Exchange in 2002. With extensive coverage and established client trust, it serves many traditional industry customers.
 
-官网：[www.intertek.com](https://www.intertek.com/software)
-Base：英国
-价格：定制化
-面向客户：各种行业用的大型企业
-成立时间：1996
-上市：已经上市LSE（ITRK）
-市场占有率：28.86％（根据 [6sense.com](https://6sense.com/tech/application-testing/intertek-market-share) 提供的数据，在“应用程序测试”分类中估算）
+**Headquarters**: UK  
+**Price**: Customized  
+**Target Clients**: Large enterprises across various industries  
+**Founded**: 1996  
+**Publicly Listed**: Yes, LSE (ITRK)  
+**Market Share**: 28.86% (based on data from [6sense.com](https://6sense.com))  
 
-**优点**：广泛的服务范围和专业知识；强大的品牌影响力和客户信任；定制化服务。
-**缺点**：价格昂贵，且服务较为复杂，不适合小型团队或预算有限的企业。缺少自动化，低代码等降低人力成本等功能。
+**Strengths**: Broad service range and expertise; strong brand influence and client trust; customizable services.  
+**Weaknesses**: High cost and complexity, making it unsuitable for small teams or budget-conscious companies. Lacks automation and low-code features that reduce human effort.
 
 ## Keysight (Eggplant)
 
-Eggplant 是一家在 AI 驱动的测试自动化领域中具有创新能力的公司。成立于2011年，Eggplant 提供的解决方案专注于功能和可用性测试、性能测试以及机器人流程自动化 (RPA)。它的产品尤其适合资金充沛的企业用户，价格为每团队 $9999。Eggplant 最近被 Keysight Technologies（NYSE: KEYS）收购，这为其提供了进一步发展的资源和机会。其在市场上拥有3.11%的占有率。
+Eggplant is an innovative player in AI-driven testing automation. Founded in 2011, Eggplant provides solutions focusing on functional and usability testing, performance testing, and Robotic Process Automation (RPA). It is particularly suited for well-funded enterprise users, with a price point of $9,999 per team. Recently acquired by Keysight Technologies (NYSE: KEYS), Eggplant has benefited from additional resources and growth opportunities, holding a 3.11% market share.
 
-产品涵盖：
+Products include:
 
-- 自动化、人工智能驱动的功能和可用性测试
-- 性能测试
-- 机器人流程自动化(RPA)
-- 性能监控
+- AI-driven functional and usability testing automation
+- Performance testing
+- Robotic Process Automation (RPA)
+- Performance monitoring
 
-官网：[www.keysight.com](https://www.keysight.com/us/en/products/software/software-testing/eggplant-test/try-eggplant.html)
-Base：英国
-价格：$9999
-面向客户：资金充沛的企业
-成立时间：2011
-上市：被上市公司收购（NYSE：KEYS）
-市场占有率：3.21％（根据 [6sense.com](https://6sense.com/tech/application-testing/intertek-market-share) 提供的数据，在“应用程序测试”分类中估算）
+**Headquarters**: UK  
+**Price**: $9,999 per team  
+**Target Clients**: Well-funded enterprises  
+**Founded**: 2011  
+**Publicly Listed**: Acquired by a publicly listed company (NYSE: KEYS)  
+**Market Share**: 3.21% (based on data from [6sense.com](https://6sense.com))  
 
-**优点**：使用AI来改善能力，AI部分主要是支持多种测试类型；性能测试和RPA功能；拥有强大母公司支持，提供了持续创新的保障。
-**缺点**：复杂的使用界面和脚本编辑为主的设计，导致 AI 部分能力并没有起到减少用户操作的作用，高昂的价格也限制了其在中小企业中的普及。
+**Strengths**: AI capabilities that enhance testing across multiple types; performance testing and RPA functionality; strong support from its parent company, enabling continued innovation.  
+**Weaknesses**: Complex user interface and script-heavy design limit the usability of its AI capabilities; high price point restricts accessibility for small and mid-sized businesses.
 
 ## Selenium
 
-Selenium 是一个开源的软件测试框架，特别适用于 Web 应用程序的测试。自2004年起，Selenium 因其免费和高可定制性，成为许多公司和开发人员的选择。它支持跨浏览器的测试，且有一个活跃的社区和丰富的资源。虽然它的市场占有率也达到了28.86%，与 Intertek 并驾齐驱，但该工具需要较高的技术能力来进行二次开发和维护。
+Selenium is an open-source software testing framework particularly suited for web application testing. Since 2004, Selenium's free and highly customizable nature has made it a popular choice for many companies and developers. It supports cross-browser testing and benefits from an active community and extensive resources. While it holds a market share of 28.86%, comparable to Intertek, it requires advanced technical skills for development and maintenance.
 
-官网：[www.selenium.dev](https://www.selenium.dev)
-Base：美国
-价格：免费
-面向客户：有二次开发能力的企业
-成立时间：2004
-上市：未上市
-市场占有率：28.86％（根据 [6sense.com](https://6sense.com/tech/application-testing/intertek-market-share) 提供的数据，在“Testing And QA”分类中估算）
+**Headquarters**: USA  
+**Price**: Free  
+**Target Clients**: Companies with development capabilities  
+**Founded**: 2004  
+**Publicly Listed**: No  
+**Market Share**: 28.86% (based on data from [6sense.com](https://6sense.com))  
 
-**优点**：完全免费，社区支持强大；高度可定制，适合有技术实力的企业；广泛使用和良好的市场占有率。
-**缺点**：需要较高的技术能力和编程知识，易用性差，不适合非技术用户；不支持低代码或无代码的开发方式。
+**Strengths**: Completely free; strong community support; highly customizable for technically proficient companies; wide adoption and solid market presence.  
+**Weaknesses**: Requires a high level of technical knowledge and programming skills; poor ease of use, not suitable for non-technical users; lacks support for low-code/no-code development.
 
 ## Katalon
 
-Katalon 是一款面向中小型团队的自动化测试工具，特别适用于敏捷开发团队。成立于2016年，Katalon 基于开源框架 Selenium 和 Appium 构建，并提供了一个易于使用的界面，支持 Web、API、移动和桌面应用的测试。其价格为每用户每月 $175，相对较为亲民。Katalon 提供了低代码开发环境，这使得它非常适合于没有深厚技术背景的用户，市场占有率为7.29%。
+Katalon is an automation testing tool aimed at small to mid-sized teams, particularly those using agile development methodologies. Launched in 2016, Katalon is built on open-source frameworks like Selenium and Appium but offers a user-friendly interface supporting web, API, mobile, and desktop testing. With a price point of $175 per user per month, it is relatively affordable. Katalon also offers a low-code environment, making it ideal for users without a strong technical background. It holds a market share of 7.29%.
 
-官网：[www.katalon.com](https://katalon.com)
+**Headquarters**: USA  
+**Price**: $175 per user/month  
+**Target Clients**: Agile small-to-mid-sized teams  
+**Founded**: 2016  
+**Publicly Listed**: No  
+**Market Share**: 7.33% (based on data from [6sense.com](https://6sense.com))  
 
-base：美国
+**Strengths**: User-friendly, supports low-code development; relatively affordable for small-to-mid-sized enterprises; broad feature coverage.  
+**Weaknesses**: Lacks automatic UI recognition for component detection, requiring testers to modify code for some AI features, limiting the practical benefits of its AI functions; high costs for a self-serve tool.
 
-价格：$175每用户/月
+## Competitor Summary
 
-面向客户：敏捷中小型团队
-
-成立时间：2016
-
-上市：未上市
-
-市场占有率：7.33％（根据 [6sense.com](https://6sense.com/tech/test-automation/katalon-market-share) 提供的数据，在“Test Automation”分类中估算）
-
-**优点**：易于使用，支持低代码开发；价格相对亲民，适合中小型企业；广泛的功能覆盖。
-**缺点**：缺少 UI Recognition 能力自动探测交互组件，需要测试人员修改软件代码才能实现部分 AI 功能，导致 AI 部分的实用性下降；作为一个自助使用的工具，成本较高。
-
-## 竟品总结
-
-上述竞争对手各有优劣。Intertek 和 Selenium 拥有较高的市场占有率，但前者价格昂贵且较为复杂，后者虽然免费但对技术能力要求高。Eggplant 具有创新的 AI 驱动功能，但操作界面依然非常复杂，其高价位使其仅适用于资金充裕的企业。Katalon 则以其易用性和低代码开发环境吸引了中小型团队。相较于这些竞争对手， Cyberbard 可以通过自主训练的 AI 模型增强易用性、并提供更加低成本的整合方式来在市场中获得优势。
+Each of the competitors above has its pros and cons. Intertek and Selenium dominate the market in terms of share, but the former is costly and complex, while the latter, although free, demands significant technical expertise. Eggplant offers innovative AI-driven functionality but has a high price and complexity that limit its appeal to larger enterprises. Katalon appeals to smaller teams with its ease of use and low-code features, but its AI functionalities are limited. Compared to these competitors, **Cyberbard** stands out by enhancing usability through its AI model, providing a more cost-effective integration solution, and potentially gaining an advantage in the market.
 
 # 11 SALES AND MARKETING PLAN
 
 ## 11.1 The Sales Plan
 
-<!-- 销售计划，包括销售额预测、市场渗透率的计划等 -->
+For a B2B product, sales are crucial. **Cyberbard's** target market includes small-to-medium software development teams that rely on AI technology to boost efficiency and innovation, as well as those looking to reduce testing costs and accelerate iteration speeds.
 
-对于2B的产品，销售将会是一个非常重要的环节，Cyberbard 的目标市场是需要依赖AI技术来提高效率和创新广大的中小软件开发企业，以及任何需要减少测试成本，提高迭代速度的中小开发团队。
+**Year 1**: The primary focus will be on product development and validation. By leveraging the founders' connections and small-scale, free promotion within the industry, the aim is to secure 100 interested users, with 10 converting to paying customers to gather feedback and validate the business model. In Q4, a part-time sales rep will be hired to prepare for more extensive outreach.
 
-第一年主要的资源用在开发和验证新产品上，第二年开始逐渐开始销售计划，详情如下：
+**Year 2**: Once the product has undergone several iterations and is stable enough for commercialization, the part-time sales role will be converted to full-time. The goal is to achieve over £200,000 in revenue and break even by the year's end, with more than 500 paying customers and an emerging influence in the automated testing sector.
 
-- 第一年：通过利用创始人的人脉和业内的小范围免费宣传推广，专注于直接销售。目标是获得100个感兴趣的用户的关注，从中发展10个左右付费客户，以获得用户反馈，并验证产品的商业模式。在第四季度，增加一名兼职的销售人员，开始做一些推广的准备工作。
-- 第二年：经过几轮迭代推出了第一批可以商业化的能力，已经可以稳定为更多用户提供服务的时候，将兼职销售转化为全职来开始正式的推广工作。目标是实现全年超过200,000英镑的收入，达到盈亏平衡。并将付费客户增加到超过超过500个，初步建立在自动化测试行业中的影响力。
-- 第三年：在整个产品得到市场认可以后，进入快速扩张阶段，再增加雇佣2-3名销售代表以进一步渗透市场。将付费用户扩大到将近2000个，实现超过100万英镑的销售额。
+**Year 3**: After gaining market recognition, the company will move into a rapid growth phase, hiring 2-3 additional sales representatives to further penetrate the market. The goal is to grow the paying customer base to 2,000 and generate over £1 million in sales.
 
 ## 11.2 Marketing Plan
 
-<!-- 市场营销计划。不要求特别的想尽，但是要求与目标销售的产品和服务的方法匹配，以及预算要合理。 -->
+As a digital platform, Cyberbard's product can serve global customers, and its marketing efforts will also be diversified:
 
-作为数字化平台，Cyberbard的产品可以在任何地方为全球客户提供服务，我们的营销方式也是多样化的：
+- **Promotions**: Free trial accounts will be offered on forums and at industry conferences where testers are active to attract early adopters.
+- **Digital Marketing**: Blogs, forum posts, and case studies showcasing Cyberbard's AI solutions and unique advantages will be used to attract potential online users.
+- **Advertising**: Various advertising platforms will be leveraged to generate leads.
+- **Direct Marketing**: Email and phone communication with prospects will be used to drive sales.
 
-- 促销：在行业论坛和会议等测试人员比较多的网站发放限期免费的试用账号来获取首批用户。
-- 数字营销：发布博客、论坛文章和案例研究，展示Cyberbard的AI解决方案的有效性和独特优势，吸引线上潜在用户尝试本产品。
-- 广告营销：利用各种广告平台的流量吸引并产生潜在客户。
-- 直接营销：通过销售人员和潜在客户进行的邮件和电话沟通来增加销售额。
+The marketing budget will be adjusted according to the product’s development stage:
 
-为了让资源利用最大化，我们的市场营销计划也会根据产品的不同阶段和需要采取不同的措施。预算分配详情如下：
-
-- 第一年：主要使用免费的行业渠道和内部论坛，计划使用1,000英镑用于内容创建、数字营销和参与一些行业论坛和会议。
-- 第二年：将会扩大推广力度，宣传费用超过5万英镑，包括持续的数字营销工作、额外的行业活动以及发布更多的营销文章，开始尝试针对中小软件开发团队的直接营销。
-- 第三年：增大各种渠道的宣传力度，宣传费用计划投入超过20万英镑，积极使用各种市场手段来扩大可以接触的用户范围，目标是快速复制成功案例，扩大市场占有率。
-
-<!-- # 12 INDUSTRY BARRIERS -->
-
-<!-- 行业壁垒的信息。这一段不是必须的。一般来说，前面的USP和IP的地方阐述到位的话，这里就不用额外写了。如果写的话，也要紧扣本BP涉及的产品/服务，不要发散和扩展。因为在BP里写的每一项内容都需要有材料作为佐证的。 -->
+- **Year 1**: Focus on free industry channels and internal forums, with a £1,200 budget for content creation, digital marketing, and participating in industry forums and conferences.
+- **Year 2**: As the promotion efforts expand, the marketing budget will increase to £50,000 for ongoing digital marketing efforts, additional industry events, and more marketing content. Direct marketing targeting small and medium software development teams will begin.
+- **Year 3**: Substantially increasing marketing efforts, with a budget of £200,000+, utilizing a wide range of channels to broaden customer reach. The focus will be on replicating success stories and expanding market share rapidly.
 
 # 12 LEGAL REQUIREMENTS
 
-<!-- 合法合规的部分。如果提供的是软件系统，则需要注意数据安全和隐私保护的合规要求。也就是最起码要说明你提供的软件产品/服务符合GDPR。 -->
+Throughout the design, development, and commercial operation of **Cyberbard**, we will strictly adhere to relevant legal regulations and industry standards to ensure compliance with data security and privacy protection. With the increasing importance of data privacy and information security globally, particularly in Europe, laws governing data protection have become increasingly stringent. In the European market, any software product that involves the processing of personal data must comply with the **General Data Protection Regulation (GDPR)**.
 
-在设计和开发之初，到整个商业运营过程中，Cyberbard将严格遵循相关的法律法规和行业标准，确保产品在数据安全和隐私保护方面的合规性。随着数据隐私和信息安全问题在全球范围内的重要性不断提高，尤其是在欧洲，数据保护的法律法规变得尤为严格。在欧洲市场上，任何涉及个人数据处理的软件产品必须符合《通用数据保护条例》（GDPR）的要求。因此，我们会在第二年产品开始扩大推广范围前，增加一名兼职的“数据合规官”，帮助我们处理一些数据和法规方面的问题，保证整个平台运行的合法性。同时，我们将确保以下几个方面的措施的执行：
+To ensure our platform's legal operation, we plan to hire a part-time **Data Compliance Officer** before expanding our product's reach in the second year. This officer will help us handle data and regulatory issues, ensuring the platform remains legally compliant. The following measures will be put in place to address data security and privacy protection:
 
-## 12.1数据安全与隐私保护
+## 12.1 Data Security and Privacy Protection
 
-1. 符合GDPR要求：Cyberbard平替将严格遵守GDPR（General Data Protection Regulation）的各项规定。在软件设计和开发过程中，将优先考虑用户数据的安全和隐私保护。具体措施包括但不限于：
-   - 数据最小化原则：仅收集和处理实现软件功能所需的最少量数据，确保不进行任何不必要的数据处理。
-   - 用户同意和透明度：在数据收集和处理前，明确告知用户所收集的数据类型、用途及处理方式，并获得用户的明确同意。软件将提供透明的隐私政策，并易于用户查阅。
-   - 数据访问控制：采用严格的数据访问控制措施，确保只有授权人员才能访问敏感数据。系统将具备分层权限管理，防止未经授权的访问和滥用。
-2. 数据加密：软件将实现数据在传输和存储过程中的全程加密，采用高级加密标准（AES）等强大加密算法，确保数据的机密性和完整性。对于存储在服务器上的任何个人数据，将采用静态加密技术。
-3. 数据保护与安全架构：我们的软件将采用现代化的安全架构设计，包括但不限于防火墙、安全网关、多因素认证（MFA）等，确保数据不被未经授权的访问或攻击。同时，定期进行安全审计和漏洞扫描，及时发现和修复潜在的安全风险。
-4. 数据处理协议：我们将与所有第三方服务提供商签订严格的数据处理协议（DPA），以确保他们在处理我们的用户数据时，能够符合GDPR以及其他相关法律法规的要求。
-5. 数据删除与可携性：用户将有权要求删除其个人数据或请求数据的可携性，软件将支持用户进行个人数据的导出和删除操作，确保用户对个人数据的控制权。
+1. **GDPR Compliance**: Cyberbard will strictly follow the provisions of the GDPR. During software design and development, priority will be given to user data security and privacy protection. Specific measures include, but are not limited to:
+   - **Data Minimization Principle**: Only the minimum amount of data required to fulfill the software's functionalities will be collected and processed, ensuring that no unnecessary data handling occurs.
+   - **User Consent and Transparency**: Users will be clearly informed about the types of data collected, the purpose of the data collection, and how the data will be processed. Consent will be obtained before data collection and processing, and a transparent privacy policy will be provided for easy user access.
+   - **Data Access Control**: Strict data access control measures will be implemented to ensure that only authorized personnel can access sensitive data. The system will include layered access permissions to prevent unauthorized access and misuse.
 
-## 12.2法律合规性
+2. **Data Encryption**: The software will implement encryption for data transmission and storage, using strong encryption algorithms such as **Advanced Encryption Standard (AES)** to ensure data confidentiality and integrity. Any personal data stored on the server will be encrypted at rest.
 
-1. 隐私政策和用户条款：我们将制定详尽的隐私政策和用户条款，以清晰透明的方式告知用户数据的收集、使用、存储和分享方式。这些政策和条款将严格按照GDPR的规定进行编写和实施。
-2. 定期审查和更新：为了确保我们始终符合最新的法律法规和行业标准，我们将建立定期审查机制，对所有涉及数据隐私和安全的内部政策和程序进行审查和更新，以应对不断变化的法律环境和技术挑战。
-3. 员工培训与意识提升：我们将定期为所有员工提供数据保护和隐私相关的培训，确保全体员工了解并遵循GDPR及其他相关法律法规的要求，提升他们在数据处理和安全方面的意识和能力。
+3. **Data Protection and Security Architecture**: Our software will adopt a modern security architecture, including but not limited to **firewalls, secure gateways, and multi-factor authentication (MFA)**, to prevent unauthorized access or attacks. Regular security audits and vulnerability scans will be conducted to identify and resolve potential security risks promptly.
 
-## 12.3合法合规总结
+4. **Data Processing Agreements (DPA)**: We will enter into strict data processing agreements with all third-party service providers to ensure they comply with GDPR and other relevant legal regulations when processing our user data.
 
-我们深知，在提供高效软件产品的同时，确保合法合规和数据安全至关重要。因此，在开发和推广Cyberbard的过程中，我们将始终把合法合规作为产品设计和运营管理的核心原则，确保我们的软件不仅为用户提供卓越的功能体验，也能最大限度地保护用户的数据安全和隐私权利。通过严格的合规措施和安全策略，我们致力于为用户提供一个安全、可靠、合规的测试自动化解决方案。
+5. **Data Deletion and Portability**: Users will have the right to request the deletion of their personal data or request data portability. The software will support users in exporting and deleting their personal data, ensuring they maintain control over their data.
+
+## 12.2 Legal Compliance
+
+1. **Privacy Policy and User Terms**: We will develop detailed privacy policies and user terms that clearly and transparently inform users about the collection, use, storage, and sharing of data. These policies and terms will be written and enforced in accordance with the GDPR.
+
+2. **Regular Reviews and Updates**: To ensure ongoing compliance with the latest legal regulations and industry standards, we will establish a regular review mechanism. This will involve periodic assessments and updates of all internal policies and procedures related to data privacy and security, allowing us to respond to evolving legal environments and technological challenges.
+
+3. **Employee Training and Awareness**: We will provide regular training for all employees on data protection and privacy, ensuring that all staff understand and comply with the requirements of GDPR and other relevant legal regulations. This will enhance their awareness and capabilities in handling data and ensuring security.
+
+## 12.3 Legal Compliance Summary
+
+We understand that, in addition to offering a high-performing software product, ensuring legal compliance and data security is essential. Therefore, legal compliance will be a core principle in the design and operational management of **Cyberbard**. We will prioritize compliance throughout the development and marketing of our product, ensuring that our software not only delivers excellent functionality but also protects user data to the highest standard. By implementing strict compliance measures and security strategies, we are committed to providing users with a safe, reliable, and compliant automated testing solution.
 
 # 13 SWOT ANALYSIS
 
-<!-- 传统的SWOT分析。W的部分要小心，不要故意暴露明显的短板，例如：资金不足、技术准备不充分之类直接影响创业成功率的客观因素。尽量从哪些可以通过招聘或者个人努力等手段克服的弱点。
-对于T的部分也是一样，尽量从竞争对手身上找，而不是从市场环境、政策环境等环境客观因素去找。
-说白了就是找到哪些虽然对你来说是弱点和威胁的因素，但是这些因素提前识别出来了，并且你有应对的措施来弥补短板和消除威胁。 -->
-
 ## 13.1 Strengths
 
-- 自助研发的AI模型：Cyberbard 的 CT-LLM 大模型专注于自动化 End-to-End Testing ，这一独特的技术解决方案瞄准了中小软件企业的痛点，具有明确的使用场景和商业潜力。
-- 灵活的初创企业环境：公司结构紧凑，决策流程简单，能够快速调整产品方向并适应市场需求的变化。
-- 经验丰富的创始人团队：创始人具备多年的软件研发和测试经验，能够有效引领技术开发，保障项目的顺利推进。
+- **Self-developed AI Model**: Cyberbard’s **CT-LLM large model** focuses on automating **E2E Testing**, offering a unique technological solution tailored to address the pain points of small and medium-sized software companies. This clearly defined use case holds strong commercial potential.
+- **Agile Startup Environment**: The company operates with a lean structure and simple decision-making process, allowing for quick product adjustments and the flexibility to adapt to changing market demands.
+- **Experienced Founding Team**: The founders have years of experience in software development and testing, which ensures that the technical development is well-guided and the project progresses smoothly.
 
 ## 13.2 Weaknesses
 
-- 品牌认知度有限：作为新兴的初创公司，Cyberbard 在市场上的知名度较低，短期内可能难以与大品牌竞争。
-  - 对应措施：通过有针对性的市场营销活动提高曝光度，例如与行业媒体合作发布技术创新文章、参与行业会议和展会，利用官网的等待列表和社交媒体平台继续扩大用户基础。
-- 团队规模较小：目前团队规模有限，特别是在项目扩展和市场推广方面资源不足。
-  - 对应措施：结合当前发展阶段，逐步实施招聘计划。优先引入市场营销、技术研发和客户支持方面的人才，合理分配资源。为了提高资源利用率，同时考虑与外部服务商或自由职业者合作，进行短期项目或市场推广。
+- **Limited Brand Awareness**: As a new startup, Cyberbard has low visibility in the market, which may make it difficult to compete with established brands in the short term.
+  - **Countermeasure**: Increase exposure through targeted marketing campaigns, such as publishing technical innovation articles in industry media, participating in industry conferences and exhibitions, and expanding the user base through waitlists on the official website and social media platforms.
+- **Small Team Size**: The current team is small, particularly in terms of resources for project expansion and market promotion.
+  - **Countermeasure**: Implement a phased recruitment plan in line with the current development stage, prioritizing hires in marketing, technical development, and customer support. Additionally, to optimize resource use, consider partnering with external service providers or freelancers for short-term projects or marketing initiatives.
 
 ## 13.3 Opportunities
 
-- AI技术不断出现突破：随着大语言模型相关技术得到行业认可，不断有新的算法和模型出现。以前非常难实现的能力，现在变得更加有可能研发成功并推向市场。
-- AI解决方案需求的增长：随着各行业对AI技术的认可度提升，使用AI技术来进一步提高软件测试的自动化能力的市场需求也在不断增长，为 Cyberbard 提供了巨大的市场扩展机会。
+- **Breakthroughs in AI Technology**: As industry recognition of large language models (LLMs) increases, new algorithms and models are emerging. Capabilities that were once difficult to achieve are now more feasible to develop and bring to market.
+- **Growing Demand for AI Solutions**: With increasing acceptance of AI across industries, the demand for leveraging AI to further enhance the automation of software testing is also growing, providing Cyberbard with significant opportunities for market expansion.
 
 ## 13.4 Threats
 
-- 技术更新速度快：AI技术和软件测试工具市场变化迅速，现有解决方案可能面临快速过时的风险，需要持续投入研发保持技术领先。
-  - 对应措施：通过持续投入研发，保持对最新技术趋势的关注，定期更新和优化 CT-LLM 模型。同时，保持与开源社区的联系，充分利用已有的开源资源，加快技术更新速度。
-- 竞争激烈：市场上既有来自其他AI初创公司，也有大型科技公司的竞争，它们可能凭借更多资源和现有的市场份额对 Cyberbard 构成威胁。
-  - 对应措施：通过差异化策略保持竞争优势，如专注于中小企业的特定需求，提供高性价比的解决方案。持续优化 CT-LLM 自有模型，通过不断优化补充行业数据源和训练新的模型保证自己在技术领域的先进性。
+- **Rapid Technological Advancements**: The AI and software testing tool markets evolve quickly, and existing solutions may face the risk of becoming outdated, requiring ongoing investment in R&D to maintain a technological edge.
+  - **Countermeasure**: Ensure continuous investment in R&D to stay updated on the latest technology trends, regularly updating and optimizing the **CT-LLM model**. Additionally, maintain connections with the open-source community to leverage existing open-source resources and accelerate technological updates.
+- **Intense Competition**: The market is competitive, with both AI startups and large tech companies potentially posing threats by leveraging more resources and their existing market share.
+  - **Countermeasure**: Maintain a competitive edge through differentiation strategies, such as focusing on the specific needs of small and medium-sized enterprises and offering cost-effective solutions. Continue to optimize the proprietary **CT-LLM model** by enriching industry-specific datasets and training new models to ensure a technological advantage.
 
-<!-- # 15 RISK ANALYSIS -->
+# 14 Business Milestones for the Next Three Years
 
-<!-- 这一章也不是必要的。除非你能非常清新的定义风险而且还能在你的能力和预算内管理和控制好这个风险，否则就不要写了。 -->
+1. **Year One**
+   - Complete the development of the **MVP (Minimum Viable Product)**.
+   - Establish basic operational processes; at this stage, development will primarily be carried out by the founders.
+   - Invite industry professionals for trials and acquire 5-10 paying users, gathering feedback through real projects.
 
-# 14 Business Milestones for the next Three Years
+2. **Year Two**
+   - Continuously improve the product based on customer feedback to achieve a stable and reliable commercialization capacity. Simultaneously, initiate market promotion and operations.
+   - Increase the team size to 4-5 members.
+   - Grow the customer base to over **600 paying users**.
+   - Achieve revenue of over **£200,000**.
 
-<!-- 3年的商业里程碑计划。
-这里主要是指按年来设计的公司经营与发展的里程碑的数据。
-例如，第一年完成第一版产品的研发，获得5个试用客户，获得xx镑的收入，团队n个人等等。 -->
+3. **Year Three**
+   - Achieve solid **product-market fit**, utilizing various channels to expand product exposure to target customers, rapidly increasing user numbers and total revenue.
+   - Expand the team to **10 members**.
+   - Grow the business to nearly **2,000 paying users**.
+   - Achieve revenue of over **£1,000,000**.
 
-1. 第一年
-   - 完成MVP（最小可行产品）开发。
-   - 建立基本的运营流程，此阶段的开发主要是创始本人。
-   - 召集业内人士进行试用，获得5-10个付费用户，通过真实项目得到用户的反馈。
-2. 第二年
-   - 根据客户反馈，不断改进产品实现稳定可靠的商业化能力，同时开始市场化宣传和运营。
-   - 团队人数增加到4-5人
-   - 发展超过 600 个付费客户。
-   - 实现超过 £200,000 的收入。
-3. 第三年
-   - 实现稳定的产品市场契合度，通过多种渠道将产品广泛接触目标客户，快速提高用户量和总收入。
-   - 团队人数增加到10人
-   - 将业务扩展到接近 2000 个收费客户。
-   - 实现超过 £1,000,000的收入。
+# 15 ENDORSEMENT CRITERIA SUMMARY
 
-# 17 ENDORSEMENT CRITERIA SUMMARY
+## Innovation
 
-<!-- 针对创新签背书要求的3个方向分别做阐述总结。
-创新型；可行性；可扩展性 -->
+Cyberbard has developed its proprietary AI model, **CT-LLM**, specifically designed for the software testing industry, significantly enhancing the automation process. Unlike traditional testing tools, Cyberbard's platform can generate test cases and scripts from natural language descriptions and automatically update them as product changes occur. This reduces the workload for testers and eliminates the dependency on manual script writing, fundamentally transforming the testing process for small and medium-sized software companies. This innovation boosts both the speed and quality of product iterations.
 
-## 创新性
+## Feasibility
 
-Cyberbard 通过自主训练了测试行业专用AI大模型 CT-LLM，显著提升了软件测试的自动化水平。与传统测试工具不同，Cyberbard 的平台能够通过自然语言描述生成测试用例和脚本，并根据产品改动自动更新。这不仅减少了测试人员的工作量，还消除了依赖脚本编写的瓶颈，彻底改变了中小型软件公司的测试流程，提升了产品的迭代速度和质量。
+Cyberbard has a clear technical and market development roadmap. The company plans to complete the initial training of CT-LLM within six months and release an **MVP (Minimum Viable Product)** within a year to serve its first batch of users. Based on current market feedback and preliminary contract agreements, Cyberbard’s solution has undergone initial market validation and demonstrates potential for achieving key milestones. Additionally, leveraging open-source tools as a technical foundation ensures that Cyberbard can deliver a functional product within a shorter development cycle, progressing steadily within budget.
 
-## 可行性
+## Scalability
 
-Cyberbard 具备清晰的技术和市场发展路线图。公司计划在半年内完成 CT-LLM 的初步训练，并在一年内发布MVP（最小可行产品），为首批用户提供服务。根据当前已有的市场反馈和意向合同，Cyberbard 的方案已通过初步市场验证，具备实现里程碑的潜力。此外，基于开源工具的技术基础，Cyberbard 能在较短的研发周期内推出可用产品，确保在预算范围内稳步推进。
+Cyberbard’s platform not only addresses the **E2E Testing** resource bottlenecks faced by small and medium-sized software companies, but its AI-driven solution also offers significant scalability potential. As CT-LLM evolves, the system will be able to support a wider range of platforms, application scenarios, and serve companies of various sizes and industries. Over time, the capabilities of the AI model will continue to improve, allowing Cyberbard to reach a broader customer base and achieve wider market penetration.
 
-## 可扩展性
+# 16 INVESTMENT INFORMATION
 
-Cyberbard 的平台不仅能为中小型软件公司解决 End-to-End Testing 的资源瓶颈问题，其 AI 驱动的解决方案也具有强大的扩展潜力。随着 CT-LLM 的逐步完善，该系统可以支持更多平台类型、应用场景，并为不同规模和行业的软件企业提供服务。此外，随着时间推移，AI模型的能力会不断增强，帮助Cyberbard 扩展到更大的客户群体，实现更广泛的市场覆盖。
+In this business plan, **Heng Tian**, the founder, plans to invest £150,000 in cash, with funds sourced from personal savings. Before achieving profitability in the second year, this initial investment will primarily cover various expenses. The funding will be allocated to the following areas:
 
-# 18 INVESTMENT INFORMATION
+- **R&D Budget**: All research and development-related expenses will fall under this category. It will be used to pay the salaries of software developers, cover the costs of research and optimization of AI algorithms, and handle the design and implementation of testing tools. The R&D phase will be the focus of the first investment cycle (Year 1), with most of the funds allocated to pay the salaries of developers. Additional costs will include software licenses, AI compute costs, and the expenses related to training the CT-LLM model, such as fees for the collection and licensing of training data.
+- **Total Wages**: This includes the salaries and bonuses of newly recruited employees (non-R&D personnel) and covers National Insurance Contributions (NICs) and Workplace Pension Contributions.
+- **Marketing**: Funds for market research, brand promotion, and the development and implementation of marketing strategies prior to product launch.
+- **Office Rent**: Costs for shared office spaces and meeting rooms.
+- **Accounting Fees**: Costs related to accounting services.
+- **Miscellaneous**: This includes general operating expenses such as leasing office supplies and other day-to-day operational costs.
 
-<!-- 投资信息。
-这里写上投资的具体信息。例如：都有谁来出资，出资方式和出资额。如果有多个人参与出资，要把每个人的出资信息写完整。如果有非现金投资，例如：技术入股、实物资产入股、虚拟资产入股，还需要提供相应的有效法律文件作为支撑材料。 -->
+## 16.1 USE OF INITIAL INVESTMENT FUNDS
 
-在本商业计划中，Heng Tian 作为创始人，计划投入15万英镑现金，资金来源于其本人的积蓄。在第二年实现盈利前，主要需要这笔初始投资作为各种开销来使用，这笔资金将主要用于以下几个方面：
+The first year is critical for the company, especially as a startup, where efficient allocation of limited resources is essential to build and launch the product. The primary focus of the investment will be on R&D to ensure the product is brought to market as soon as possible, while keeping daily operational, office, and other non-essential costs to a minimum. The breakdown of first-year expenses is as follows:
 
-- R&D Budget：所有研发相关的费用都在这里。用于支付软件开发人员的工资、人工智能算法的研究与优化、测试工具的设计与实现等相关费用。研发阶段将集中在第一个投资周期（即 Year1），由于主要任务是新产品的研发，主要用来支付研发人员的工资，同时还需要支出相关工具软件的授权费用，AI算力的费用，还有训练 CT-LLM 过程中产生的费用，比方训练数据的收集授权费用等。
-- Total Wages：包括其他新招募的员工（非研发人员）的薪资和奖金等，包含NICs，Workplace Pension Contributions等。
-- Marketing：用于产品上市前的市场调研、品牌推广、营销策略的制定与实施。
-- Office Rent：共享办公室和共享会议室的费用。
-- Accounting Fees：包括会计服务的相关费用。
-- Miscellaneous：包括公司运营相关的杂项费用、比方办公用品的租赁费用等其他日常运营开销。
+1. **R&D Budget**: Totaling £69,000, including:
+   - The founder, as the initial software developer, will receive a basic salary: £23,000
+   - Costs associated with training the CT-LLM model, including data acquisition, data processing, compliance, and compute resources: £46,000
+2. **Cost of Goods Sold (COGS)**:
+   - Operational costs related to running CT-LLM services (e.g., cloud services, daily compute usage): £1,200
+   - Since the user base will be small in the first year, this expense is minimal and expected to increase as user numbers grow in the following two years.
+3. **Total Wages**:
+   - This item includes the total salaries for non-R&D staff. In the fourth quarter of the first year, a part-time marketing staff member will be hired to prepare for product promotion: £8,094
+4. **Marketing**:
+   - Focus on small-scale promotion through industry forums and the production of social media articles. Estimated cost: approximately £1,200
+5. **Office Rent**:
+   - There will be no additional employees in the first year, and the founder will work from home to save costs. No office rent is required in the first year. Starting in the second year, with more employees, shared office space will be rented at approximately £1,200 per person annually.
+6. **Accounting Fees**:
+   - Basic accounting support costs: £1,200
+7. **Miscellaneous**:
+   - Company registration costs, office supplies, legal and compliance-related services, and other operational expenses. The plan is to keep only essential expenditures, with an estimated budget of approximately £2,350.
 
-## 18.1 USE OF INITIAL INVESTMENT FUNDS
+# 17 PROFIT AND LOSS SUMMARY
 
-<!-- 这里主要写上第一年的投资的使用情况。例如：创办公司花多少钱，研发花多少，办公场地和日常运营费用花多少，人力成本多少，财务费用/管理费用/杂费等。 这里写的是预算。 -->
-
-公司成立第一年是非常重要的，特别是做作为初创企业，需要合理利用有限的资源来打造产品。我们计划最主要的资金用途主要用作第一年的研发相关投入，需要保证尽快产品推向市场，同时尽量精简在日常运营，办公场地等方面的开销。
-第一年具体的开销为：
-
-1. R&D Budget 相关费用总计 69000英镑，其中包括：
-   - 创始人作为初期软件开发人员，每年只领取基本的工资： £23000
-   - 训练 CT-LLM 的相关成本（包括数据购买、数据整理、合规等产出的费用，算力成本）：£46,000
-2. Cost of Goods Sold (COGS)
-   - CT-LLM 服务运行相关成本（包括云服务，日常运行算力消耗等）：£1200
-   - 由于第一年用户量比较少，整体开支不多，此项开销未来两年会随着用户量增加而增加。
-3. Total Wages
-   - 这个项目包含除了研发人员以外的其他员工的工资总数。第一年的第四季度，会增加一名兼职的市场营销人员，为产品的推广做一些准备工作：£8094
-4. Marketing
-   - 第一年主要是在行业内的论坛小范围推广和生产一些社交媒体的文章，预计费用：大约£1,200
-5. Office Rent
-   - 第一年没有额外雇员，创始人利用自己的住宅办公，节省成本。第一年无需额外租金开销，第二年开始增加雇员后，租用共享办公空间，按照每人1200英镑每年计算。
-6. Accounting Fees
-   - 基础的财务会计支持费用：£1200
-7. Miscellaneous
-   - 公司成立费用，相关办公设备，法律合规相关服务预算，还包括其他办公相关费用，第一年我们计划尽量只保留必要的开支：大约 £2350
-
-# 19 PROFIT AND LOSS SUMMARY
-
-<!-- 损益表。也就是未来3年预测的利润表。一般第一年是亏的，第二年会有盈利，第三年达标。 -->
-
-Cyberbard LTD 是一家创新型的服务型初创企业，下面的表格是一个对未来3年的利润估算，计划从Year1 开始运营，有望在 Year1 至 Year3 的三年期间实现快速增长。我们的财务预测显示出典型的高增长轨迹，从初始投资转向盈利和显著的收入扩张。
+Cyberbard LTD is an innovative, service-based startup. The table below presents profit estimates for the next three years, starting from Year 1. The company is expected to achieve rapid growth during the three-year period from initial operations in Year 1 through to Year 3. Our financial projections show a typical high-growth trajectory, transitioning from initial investment to profitability, followed by significant revenue expansion.
 
 ![p_L_statement](pic/p_L_statement.png)
 
-财务预测：
+Financial Forecast:
 
-1. 收入增长：
-   - Year1： 237 英镑。
-   - Year2： 244,093 英镑。
-   - Year3： 1,006,134 英镑。
-   - 我们的服务型模式显示出指数级的收入增长，预计在第三年的收入超过100万英镑。
-2. 成本结构：
-   主要投资包括：
-   - 研发：大量投入，在 Year3 达到 292,500 英镑的峰值。
-   - 销售和市场营销：日益重视，到 Year3 市场营销支出增加到 210,827 英镑。
-   - 人力资本：第一年主要是创始人自己，研发人员的工资合并到研发支出。从 Year2 起开始招聘全职营销人员和兼职办公室职员，Year3 补充更多技术人员和销售人员，达到10人团队的规模。
-   - 基础设施：大部分的办公设备都是租赁或者是共享办公工位，这部分占比整体较小。
-3. 盈利之路：
-   - Year1 年：初始投资阶段。
-   - Year2：计划盈利 19,489 英镑，收支平衡并实现早期盈利。
-   - Year3：盈利达到 259,233 英镑，显著实现盈利。
+1. **Revenue Growth**:
+   - **Year 1**: £237
+   - **Year 2**: £244,093
+   - **Year 3**: £1,006,134
+   - Our service model demonstrates exponential revenue growth, with projections of exceeding £1 million by Year 3.
 
-我们的财务策略集中在前期对研发和基础设施的大量投资，随后进行积极的市场扩张。在第二年和第三年广告支出和销售工资的大幅增加表明我们在推动快速的市场渗透和客户获取。虽然第一年出现亏损，但我们的预测表明会迅速扭亏为盈。指数级的收入增长在管理快速扩张方面既带来了重大机遇，也带来了挑战。我们的的财务预测展示了大胆的增长愿景，通过对技术和市场扩张的战略投资，我们非常有信心在在三年内从一家新兴的初创企业转变为一家盈利的高增长公司。我们专注于基于服务的收入和可扩展的运营，这使我们在目标市场中处于可持续的长期成功的位置。
+2. **Cost Structure**:
+   Key investments include:
+   - **R&D**: Significant investment in research and development, peaking at £292,500 by Year 3.
+   - **Sales and Marketing**: With increasing focus, marketing expenditure will grow to £210,827 by Year 3.
+   - **Human Capital**: In Year 1, the founder will primarily handle operations, with developer salaries included in R&D costs. From Year 2 onwards, full-time marketing personnel and part-time office staff will be recruited, expanding the team to 10 members by Year 3, including additional technical and sales staff.
+   - **Infrastructure**: Most office equipment will be rented or shared, keeping this category a relatively small portion of overall expenses.
 
-# 20 BALANCE SHEET FORECAST (3 YEARS)
+3. **Path to Profitability**:
+   - **Year 1**: This year will primarily focus on initial investments.
+   - **Year 2**: We project a profit of £19,489, breaking even and achieving early profitability.
+   - **Year 3**: Profits are expected to soar to £259,233, reflecting a significant improvement in overall profitability.
 
-<!-- 3年的资产负载表（预测） -->
+Our financial strategy emphasizes heavy investment in R&D and infrastructure during the early stages, followed by aggressive market expansion. The substantial increase in advertising and sales-related expenses during Years 2 and 3 reflects our commitment to rapid market penetration and customer acquisition. While losses are expected in Year 1, our forecasts show a swift turnaround to profitability, with exponential revenue growth. This fast-paced expansion presents both opportunities and challenges in managing scaling. Our financial forecast highlights a bold growth vision, and through strategic investments in technology and market expansion, we are confident in our ability to transform Cyberbard from an emerging startup to a high-growth, profitable company within three years. Our focus on service-based revenue and scalable operations positions us for sustainable, long-term success in our target market.
 
-Cyberbard LTD 的资产负债表预测了公司从 Year1 年到 Year3 这三年期间的财务状况。这份资产负债表提供了公司资产、负债和股东权益的快照。我们计划通过一个精益的财务策略，以确保长期的可持续性和增长。预测数据显示，我们的财务模型未来3年会有稳定的收入和健康的留存收益增长。
+# 18 BALANCE SHEET FORECAST (3 YEARS)
+
+The balance sheet forecast for Cyberbard LTD outlines the company’s financial standing from Year 1 through Year 3. This balance sheet provides a snapshot of the company’s assets, liabilities, and shareholders’ equity. We aim to maintain a lean financial strategy, ensuring long-term sustainability and growth. The forecast shows stable revenue generation and healthy retained earnings growth over the next three years.
 
 ![balance_sheet](pic/balance_sheet.png)
 
-**资产：**
+Assets:
 
-- Year1，也就是第一年结束的时候，Cyberbard 将会剩余现金 68,393 英镑。
-- 到 Year2 显著增长至 87,882 英镑，到 Year3达到 347,115 英镑。现金余额的这种增长反映了我们从经营中产生收入并有效管理费用的能力。
-- 目前这份资产负债表中暂时不包括任何其他流动资产或长期资产，如房地产、设备或库存，这表明在早期阶段，我们会采用精益、资本效率高的模式，专注于管理流动性并最小化资产间接费用。
+- By the end of **Year 1**, Cyberbard is projected to have £68,393 in cash.
+- This cash balance grows significantly to **£87,882 by Year 2** and reaches **£347,115 by Year 3**. This increase reflects our ability to generate revenue from operations while managing expenses effectively.
+- No other current or long-term assets, such as real estate, equipment, or inventory, are included in this balance sheet at this early stage. This indicates that we will adopt a lean, capital-efficient model focused on managing liquidity and minimizing asset overhead.
 
-**负债：**
+Liabilities:
 
-- 所有三个预测年度的资产负债表均显示无负债（无应付账款、应计费用或长期债务）。这表明我们旨在维持无债务结构，并完全依赖股东投资和留存收益为运营提供资金。
+- The balance sheets for all three forecasted years show **no liabilities** (no accounts payable, accrued expenses, or long-term debt). This demonstrates our intention to maintain a debt-free structure, relying entirely on shareholder investment and retained earnings to fund operations.
 
-**股东权益：**
+Shareholders’ Equity:
 
-- 公司在 Year1 以 150,000 英镑的投资资本开始，在前三年中暂时无需其他融资计划。这项投资代表了创始人自己注入的初始资本。
-- 留存收益最初为负值，Year1 从 -81,607 英镑开始，但随着运营开始稳定且利润增加，赤字在 Year2 减少至 -62,118 英镑。到 Year3，留存收益变为正值，达到 197,115 英镑。这种积极的轨迹凸显了我们随着时间推移实现盈利并为未来增长建立储备的能力。
+- The company begins in **Year 1** with **£150,000 in investment capital**, and there are no plans for additional financing during the first three years. This investment represents the initial capital injected by the founder.
+- **Retained earnings** start in negative territory, beginning at **-£81,607 in Year 1**, but as operations stabilize and profits grow, the deficit decreases to **-£62,118 in Year 2**. By **Year 3**, retained earnings turn positive, reaching **£197,115**. This positive trajectory highlights our ability to achieve profitability over time and build reserves for future growth.
 
-# 21 YEAR 1 CASHFLOW FORECAST
+Overall, Cyberbard’s forecasted balance sheet reflects a well-managed financial plan that leverages initial capital, avoids debt, and steadily builds financial strength through operating success and effective resource management.
 
-<!-- 第一年的现金流预测。跟18.1的内容差不多，但是这里主要用表格展现，并配以文字说明。 -->
+# 19 YEAR 1 CASHFLOW FORECAST
 
-本章节主要分析 Cyberbard 的现金流量表，展示了公司从 Year1 到 Year3 的财务健康状况和增长轨迹。第一年按照每个季度进行统计，每个季度我们的现金都有剩余，至少可以支撑未来3个月的开支。第二年和第三年开始按照年为单位统计。
+This section analyzes Cyberbard's cash flow statement, providing a detailed overview of the company's financial health and growth trajectory from Year 1 through Year 3. For Year 1, cash flow is broken down quarterly, while for Years 2 and 3, it is reported on an annual basis. The analysis shows that Cyberbard maintains a cash surplus each quarter, ensuring that operational expenses are covered for at least the next three months. Starting from Year 2, the cash flow forecast moves to an annual basis as revenue grows.
 
 ![cash_flow](pic/cash_flow.png)
 
-初始资金和早期运营（Year1）：
+Initial Funding and Early Operations (Year 1):
 
-- Year1 第一季度有创始人的初始资金注入 150000 英镑。
-- 运营费用最初超过收入，导致经营活动产生的现金流量为负。
-- 尽管最初有亏损，但初始资金注入使 Year1全年保持正的现金余额。
+- In **Q1 of Year 1**, the founder injects an initial capital of **£150,000**.
+- Operational expenses initially exceed revenues, resulting in negative cash flow from operating activities.
+- Despite these initial losses, the company’s cash balance remains positive throughout Year 1, thanks to the founder’s capital injection.
 
-增长阶段（Year2 - Year3）：
+Growth Phase (Year 2 - Year 3):
 
-- 销售收入从 Year1 第3季度的 472 英镑稳步增长到 Year3 的 1,054,134 英镑。
-- 运营费用随着增长而增加，表明在产能和市场扩张方面进行了投资。
-- Year2第三季度经营活动产生的现金流量转为正数，标志着可持续运营的开始。
+- Sales revenue steadily increases from **£472 in Q3 of Year 1** to **£1,054,134 by Year 3**.
+- Operational expenses also rise as the company invests in capacity and market expansion.
+- In **Q3 of Year 2**, operating cash flow turns positive, marking the beginning of sustainable operations.
 
-关键财务指标：
+Key Financial Metrics:
 
-- 收入增长：在第一年的研发阶段结束以后，收入会随着时间快速增长。
-- 运营效率：收益与费用之比逐渐提高，表明同样的成本可以支撑更多的用户服务。
-- 现金状况：期末现金余额从 Year1 第一季度的 126913 英镑持续增长到 Year3 的 374509 英镑。
+- **Revenue Growth**: After the completion of Year 1's R&D phase, revenues begin to scale rapidly over the next two years.
+- **Operational Efficiency**: The ratio of revenue to expenses improves gradually, showing that the same level of expenditure can support a growing number of customers.
+- **Cash Balance**: The cash balance grows from **£126,913 in Q1 of Year 1** to **£374,509 by the end of Year 3**.
 
-现金流分析：
+Cash Flow Analysis:
 
-- 强劲的有机增长是我们的主要动力。
-- 我们专注于运营规模扩张而不是资本密集型投资，所以不需要追加投资。
-- 随着销售计划的逐步展开，不断改善的现金状况为未来的增长举措或市场不确定性提供了缓冲。
+- The primary driver of cash flow improvement is **strong organic growth**.
+- Cyberbard focuses on **scalable operations** rather than capital-intensive investments, so there is no need for additional capital infusion.
+- As the sales plan progresses, the company's improving cash position provides a cushion for further growth initiatives or potential market uncertainties.
 
-总之，通过现金流量，我们预测展示了 Cyberbard 未来三年的企业轨迹：主要依靠初始资本投资，接着是研发产品阶段可能出现的亏损，然后是快速增长直至盈利。公司在扩大运营规模的同时能够维持并增加现金储备，这表明我们拥有强大的商业模式和有效的财务管理。这使我们在未来几年的持续扩张和潜在的市场领导地位方面处于有利地位。
+In summary, the cash flow projection demonstrates Cyberbard’s trajectory over the next three years: relying initially on founder investment, followed by potential losses during the product development phase, and finally transitioning to rapid revenue growth and profitability. The company’s ability to scale its operations while maintaining and increasing cash reserves reflects a strong business model and efficient financial management. This places Cyberbard in a favorable position for continued expansion and the potential to become a market leader in the coming years.
 
 <!-- - Appendix 1
 

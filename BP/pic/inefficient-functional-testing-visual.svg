@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f0f0f0"/>
+  <!-- Title -->
+<text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">Inefficient Functional Testing Process</text>
+  <!-- Developer -->
+  <circle cx="100" cy="150" r="40" fill="#4a90e2"/>
+  <text x="100" y="155" font-family="Arial" font-size="40" text-anchor="middle" fill="white">👨‍💻</text>
+  <text x="150" y="210" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Developer</text>
+  <!-- Testers -->
+  <circle cx="300" cy="150" r="40" fill="#ff6b6b"/>
+  <text x="300" y="155" font-family="Arial" font-size="40" text-anchor="middle" fill="white">😓</text>
+  <circle cx="380" cy="150" r="40" fill="#ff6b6b"/>
+  <text x="380" y="155" font-family="Arial" font-size="40" text-anchor="middle" fill="white">😰</text>
+  <circle cx="460" cy="150" r="40" fill="#ff6b6b"/>
+  <text x="460" y="155" font-family="Arial" font-size="40" text-anchor="middle" fill="white">😩</text>
+  <text x="480" y="210" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Multiple testers overwhelmed</text>
+  <!-- Test Cases -->
+  <rect x="280" y="250" width="200" height="100" fill="#feca57" rx="10"/>
+  <text x="380" y="300" font-family="Arial" font-size="40" text-anchor="middle" fill="white">📝📝📝</text>
+  <text x="380" y="370" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Write numerous test cases</text>
+  <!-- Running Software -->
+  <rect x="530" y="250" width="120" height="100" fill="#54a0ff" rx="10"/>
+  <text x="590" y="300" font-family="Arial" font-size="40" text-anchor="middle" fill="white">🔄</text>
+  <text x="680" y="370" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Repeatedly run software</text>
+  <!-- Verify Test Cases -->
+  <rect x="530" y="380" width="120" height="100" fill="#5f27cd" rx="10"/>
+  <text x="590" y="430" font-family="Arial" font-size="40" text-anchor="middle" fill="white">🔍</text>
+  <text x="590" y="500" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Verify test cases</text>
+  <!-- Bug Report -->
+  <rect x="280" y="380" width="200" height="100" fill="#ff6b6b" rx="10"/>
+  <text x="380" y="430" font-family="Arial" font-size="40" text-anchor="middle" fill="white">🐛📊</text>
+  <text x="380" y="500" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Write test reports</text>
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  <line x1="140" y1="150" x2="240" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="380" y1="190" x2="380" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="480" y1="300" x2="520" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="590" y1="350" x2="590" y2="370" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="530" y1="430" x2="490" y2="430" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M 280 430 Q 100 430 100 200" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <!-- Inefficiency Indicators -->
+<text x="650" y="200" font-family="Arial" font-size="40" text-anchor="middle" fill="#ff6b6b" transform="rotate(15 700 100)">Inefficient!</text>
+<text x="650" y="520" font-family="Arial" font-size="40" text-anchor="middle" fill="#ff6b6b" transform="rotate(-15 750 580)">Time-consuming!</text>
+<text x="100" y="520" font-family="Arial" font-size="40" text-anchor="middle" fill="#ff6b6b" transform="rotate(15 50 580)">Tedious!</text>
+</svg>
