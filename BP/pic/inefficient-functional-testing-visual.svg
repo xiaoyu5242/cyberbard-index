@@ -2,7 +2,7 @@
   <!-- Background -->
   <rect x="0" y="0" width="800" height="600" fill="#f0f0f0"/>
   <!-- Title -->
-<text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">Inefficient Functional Testing Process</text>
+<text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">Inefficient E2E Testing Process</text>
   <!-- Developer -->
   <circle cx="100" cy="150" r="40" fill="#4a90e2"/>
   <text x="100" y="155" font-family="Arial" font-size="40" text-anchor="middle" fill="white">👨‍💻</text>

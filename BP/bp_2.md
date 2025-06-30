@@ -1,11 +1,39 @@
 
-# Business Plan for Cyberbard
 
-by Heng Tian
+</br>
 
-date [08/2024]
+</br>
+<center><font face="黑体" size=8><b>Business Plan for</b></font></center>
+ <center><font face="黑体" size=8><b>Cyberbard</b></font></center>
 
-----
+</br>
+
+</br>
+</br>
+
+</br>
+
+</br>
+
+</br>
+
+</br>
+
+<center>by <b>Heng Tian</b></center>
+
+</br>
+
+<center>date <b>11/2024</b></center>
+
+</br>
+
+<div STYLE="page-break-after: always;"></div>
+
+<center><b>Table of Contents</b></center>
+
+[TOC]
+
+<div STYLE="page-break-after: always;"></div>
 
 # 1 Business Summary
 

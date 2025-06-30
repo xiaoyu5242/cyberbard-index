@@ -9,7 +9,7 @@ function Page() {
 					{`
             Privacy Policy for Cyberbard
 # Introduction
-This Privacy Policy provides detailed information on the handling, storage, and protection of your personal information by Cyberbard - A web app and a browser extension developed and owned by Cyberbard team in 2024. The extension is designed to enhance your browsing experience by providing contextual information based on the content of the web pages you visit. This policy outlines the types of data collected by Cyberbard, how it is used, and the measures we take to protect your privacy.
+This Privacy Policy applies to all software, websites, mobile applications, and other products (hereinafter referred to as "Cyberbard") developed and released by Cyberbard LTD. It sets out in detail how Cyberbard processes, stores, and protects your personal information. The policy outlines the types of data collected by Cyberbard, how this information is used, and the measures we implement to safeguard your privacy.
 
 
 Information Collection
@@ -33,6 +33,16 @@ When you use the chat feature or submit queries through the web app, we collect 
 The extension has the capability to see all websites that users visit. However, Cyberbard only stores data when the user actively clicks on the extension button while browsing. The browser history is not recorded, ensuring that your browsing activities remain private.
 
 - **Current page data**: Upon activation (click) by the user, Cyberbard stores data from the current HTML page. This data is used to provide relevant contextual information based on the content of the page you are viewing.
+
+### Within the App
+- **User Information**:
+Your username and profile picture may be shared with third-party service providers and may appear in other users' interactive interfaces. No other sensitive information will be made public. If payment is required, Cyberbard processes transactions through platforms such as Google Play and Apple, and users' payment details are not stored on Cyberbard’s servers.
+
+- **Web Browsing Data**:
+This extension can view all websites visited by the user. However, Cyberbard only stores data when the user actively clicks the extension button while browsing. Browser history is not recorded, ensuring your browsing activity remains private.
+
+- **Usage Data**:
+To improve performance and speed up display, user inputs and outputs may be stored locally on the device and on Cyberbard’s servers. Data on the servers is only visible to the user, unless the user explicitly grants Cyberbard permission to share it through in-app actions.
 
 ## Data Storage and Security
 All collected data is securely stored in a SQLite database hosted on [Cloudflare D1](https://developers.cloudflare.com/d1/), [Cloudflare vectorize](https://developers.cloudflare.com/vectorize/), and [Cloudflare KV](https://developers.cloudflare.com/kv). 

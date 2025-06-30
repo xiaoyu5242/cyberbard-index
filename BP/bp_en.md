@@ -1,11 +1,39 @@
 
-# Business Plan for Cyberbard
 
-by Heng Tian
+</br>
 
-date [08/2024]
+</br>
+<center><font face="黑体" size=8><b>Business Plan for</b></font></center>
+ <center><font face="黑体" size=8><b>Cyberbard</b></font></center>
 
-----
+</br>
+
+</br>
+</br>
+
+</br>
+
+</br>
+
+</br>
+
+</br>
+
+<center>by <b>Heng Tian</b></center>
+
+</br>
+
+<center>date <b>11/2024</b></center>
+
+</br>
+
+<div STYLE="page-break-after: always;"></div>
+
+<center><b>Table of Contents</b></center>
+
+[TOC]
+
+<div STYLE="page-break-after: always;"></div>
 
 # 1 Business Summary
 
@@ -381,7 +409,7 @@ Cyberbard executes each test case through two iterative loops, continuously runn
 
 First, in the inner loop, the system's primary task is to identify the next feature to be tested in the E2E Testing process. It then breaks down the feature into individual test cases, executing one test case at a time, until all features are covered, at which point the loop ends. Our key approach involves building a "Test State Memory" that records all detailed interaction testing information, such as explored pages and controls. During this process, the memory also stores progress at the functional level, such as which feature is currently being tested. This is achieved through a loop that queries the "dedicated engine" for precise reasoning. It is important to note that the "context information" in the diagram includes not only the UI information passed from the outer loop and the records of each test, but also completed portions and initial functional hints described in natural language by the tester. We also designed a prompt language template, allowing this "context information" to be input into the "dedicated engine" in a fixed format each time, enabling it to retain knowledge of the entire test and perform long-term reasoning.
 
-Next, the outer loop's main purpose is to complete a test case by inferring the necessary steps. To do so, the system must interact with the "software under test," which requires collaboration with other services. First, OCR technology is used to scan the software interface and extract the UI context information of the current UI page. This approach allows the system to operate without needing to focus on the specific framework of the "software under test," nor does it require access to the software’s code. It closely mimics the work of a software tester. The next step is to encode the extracted UI elements into a prompt for the "dedicated engine" using a pre-designed template, and then verify the feedback for the next step. If unsuccessful, the system provides new feedback; if successful, it executes the test script contained in the feedback response. PRA is used to control the interface of the "software under test" and automatically execute the script. This process continues in a loop until the current test case is completed, after which it waits for the next instruction from the "inner loop."
+Next, the outer loop's main purpose is to complete a test case by inferring the necessary steps. To do so, the system must interact with the "software under test," which requires collaboration with other services. First, OCR technology is used to scan the softwar interface and extract the UI context information of the current UI page. This approach allows the system to operate without needing to focus on the specific framework of the "software under test," nor does it require access to the software’s code. It closely mimics the work of a software tester. The next step is to encode the extracted UI elements into a prompt for the "dedicated engine" using a pre-designed template, and then verify the feedback for the next step. If unsuccessful, the system provides new feedback; if successful, it executes the test script contained in the feedback response. PRA is used to control the interface of the "software under test" and automatically execute the script. This process continues in a loop until the current test case is completed, after which it waits for the next instruction from the "inner loop."
 
 This iterative process ensures that the entire functionality of the "software under test" is progressively covered. The initial execution may take longer, but as the software is upgraded, the system prioritizes reasoning on newly scanned UI elements based on historical data. It also rescans older related elements, and if it determines that there are impacts on previous functionality, it automatically re-executes the relevant loops. Changes are then recorded in the corresponding "test cases" and "test scripts." This entire process requires minimal involvement from the testing personnel, who only need to review the generated test report in the end.
 
@@ -442,7 +470,7 @@ This chapter will detail the three-year system development roadmap for Cyberbard
      - **AI Inference Engine Development**: Based on prior research, develop CT-LLM, initially enabling intelligent generation of test scripts and test cases.
      - **Authentication and Scheduling Services**: Deploy authentication and task scheduling services to support further feature development.
    - **Q3: Application Layer Development and SaaS Platform Launch**
-     - **Main Application Layer Module Development**: 
+     - **Main Application Layer Module Development**:
      - Develop the user management system, test data manager, and test project manager to build the basic functional framework of the platform.
      - Implement the test script generator and test case generator, supported by the AI inference engine, to initially realize intelligent testing functionality.
      - **SaaS Service Launch**: Complete development of the web platform, supporting a SaaS service model, and recruit a small group of trial users to test the platform's core testing features.

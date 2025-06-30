@@ -89,7 +89,7 @@
   <text font-family="Arial" font-size="12" id="svg_87" text-anchor="middle" x="707" y="492">Data Quality</text>
   <rect fill="#fff" height="20" id="svg_88" stroke="#333" width="110" x="356" y="371.59"/>
   <text font-family="Arial" font-size="10" id="svg_89" text-anchor="middle" x="411" y="386.59">Nuggets</text>
-  <text font-family="Arial" font-size="10" id="svg_26" text-anchor="middle" x="261" y="244">Prompt Tuning v2</text>
-  <text font-family="Arial" font-size="10" id="svg_90" text-anchor="middle" x="560.49" y="244.5">RLHF</text>
+  <text font-family="Arial" font-size="10" id="svg_26" text-anchor="middle" x="261" y="244">LoRA</text>
+  <text font-family="Arial" font-size="10" id="svg_90" text-anchor="middle" x="560.49" y="244.5">RAG</text>
  </g>
 </svg>
