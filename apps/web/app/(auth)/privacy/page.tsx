@@ -8,8 +8,21 @@ function Page() {
 				<Markdown>
 					{`
             Privacy Policy for Cyberbard
+
 # Introduction
 This Privacy Policy applies to all software, websites, mobile applications, and other products (hereinafter referred to as "Cyberbard") developed and released by Cyberbard LTD. It sets out in detail how Cyberbard processes, stores, and protects your personal information. The policy outlines the types of data collected by Cyberbard, how this information is used, and the measures we implement to safeguard your privacy.
+
+
+# How to Delete Your User Account and Data
+If you wish to delete your account and all associated data, please follow these steps:
+
+1. Cancel any active subscriptions (if applicable) via the app store.
+2. Email us at support@cyberbard.co.uk from the email address linked to your account. Clearly state your request to delete your account and include the app name.
+   >  Note: We currently only support full deletion of all your data.
+3. We will process your request and notify you via email once the deletion is complete.
+4. Finally, you may uninstall the app from your device.
+
+You are welcome to reinstall and re-register for our app at any time.
 
 
 Information Collection
