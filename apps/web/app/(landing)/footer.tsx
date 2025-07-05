@@ -8,7 +8,7 @@ function Footer() {
 			<p>© 2024 Cyberbard LTD</p>
 			<div className="flex gap-5 justify-around my-2">
 			<p>Contact: Cyberbard LTD</p>
-			<p> Phone: +44 7900299852 Email: support@cyberbard.co.uk</p>
+			<p> Phone: +44 7900299852</p>
 				<a
 					className="group/mail flex items-center"
 					target="_blank"
