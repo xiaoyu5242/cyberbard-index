@@ -7,13 +7,14 @@ function Footer() {
 		<footer className="mt-20 w-full md:flex overflow-y-hidden items-center justify-between gap-4 px-8 py-8 text-sm text-zinc-500 overflow-hidden text-center">
 			<p>© 2024 Cyberbard LTD</p>
 			<div className="flex gap-5 justify-around my-2">
-			<p>Contact: Cyberbard LTD Phone: +44 7900299852 Email: support@cyberbard.co.uk</p>
+			<p>Contact: Cyberbard LTD</p>
+			<p> Phone: +44 7900299852 Email: support@cyberbard.co.uk</p>
 				<a
 					className="group/mail flex items-center"
 					target="_blank"
 					href="mailto:support@cyberbard.co.uk"
 				>
-					Contact
+					Email: support@cyberbard.co.uk
 					<LinkArrow classname="group-hover/mail:opacity-100 opacity-0 transition hidden md:block" />
 				</a>
 				<Link
